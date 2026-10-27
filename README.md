@@ -1,0 +1,1 @@
+This is a reading tracker developed as a college project.

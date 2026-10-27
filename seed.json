@@ -1,0 +1,4895 @@
+{
+  "countries": [
+    {
+      "id": 1,
+      "name": "Russia"
+    },
+    {
+      "id": 2,
+      "name": "France"
+    },
+    {
+      "id": 3,
+      "name": "Brazil"
+    },
+    {
+      "id": 4,
+      "name": "Switzerland"
+    },
+    {
+      "id": 5,
+      "name": "United States"
+    },
+    {
+      "id": 6,
+      "name": "United Kingdom"
+    },
+    {
+      "id": 7,
+      "name": "Ireland"
+    },
+    {
+      "id": 8,
+      "name": "Hungary"
+    },
+    {
+      "id": 9,
+      "name": "Spain"
+    },
+    {
+      "id": 10,
+      "name": "Argentina"
+    },
+    {
+      "id": 11,
+      "name": "Italy"
+    },
+    {
+      "id": 12,
+      "name": "Germany"
+    },
+    {
+      "id": 13,
+      "name": "Mexico"
+    },
+    {
+      "id": 14,
+      "name": "Portugal"
+    },
+    {
+      "id": 15,
+      "name": "Angola"
+    },
+    {
+      "id": 16,
+      "name": "Austria"
+    },
+    {
+      "id": 17,
+      "name": "Romania"
+    },
+    {
+      "id": 18,
+      "name": "Canada"
+    },
+    {
+      "id": 19,
+      "name": "Colombia"
+    },
+    {
+      "id": 20,
+      "name": "South Korea"
+    },
+    {
+      "id": 21,
+      "name": "Norway"
+    },
+    {
+      "id": 22,
+      "name": "Chile"
+    },
+    {
+      "id": 23,
+      "name": "Czech Republic"
+    },
+    {
+      "id": 24,
+      "name": "China"
+    },
+    {
+      "id": 25,
+      "name": "Greece"
+    },
+    {
+      "id": 26,
+      "name": "Israel"
+    },
+    {
+      "id": 27,
+      "name": "Poland"
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "name": "Alexander Pushkin",
+      "countryId": 1,
+      "birthDate": "1799-06-06",
+      "deathDate": "1837-02-10"
+    },
+    {
+      "id": 2,
+      "name": "Nikolai Gogol",
+      "countryId": 1,
+      "birthDate": "1809-04-01",
+      "deathDate": "1852-03-04"
+    },
+    {
+      "id": 3,
+      "name": "Ivan Turgenev",
+      "countryId": 1,
+      "birthDate": "1818-11-09",
+      "deathDate": "1883-09-03"
+    },
+    {
+      "id": 4,
+      "name": "Fyodor Dostoevsky",
+      "countryId": 1,
+      "birthDate": "1821-11-11",
+      "deathDate": "1881-02-09"
+    },
+    {
+      "id": 5,
+      "name": "Leo Tolstoy",
+      "countryId": 1,
+      "birthDate": "1828-09-09",
+      "deathDate": "1910-11-20"
+    },
+    {
+      "id": 6,
+      "name": "Anton Chekhov",
+      "countryId": 1,
+      "birthDate": "1860-01-29",
+      "deathDate": "1904-07-15"
+    },
+    {
+      "id": 7,
+      "name": "Mikhail Bulgakov",
+      "countryId": 1,
+      "birthDate": "1891-05-15",
+      "deathDate": "1940-03-10"
+    },
+    {
+      "id": 8,
+      "name": "Isaac Asimov",
+      "countryId": 1,
+      "birthDate": "1920-01-02",
+      "deathDate": "1992-04-06"
+    },
+    {
+      "id": 9,
+      "name": "Louis-Ferdinand Céline",
+      "countryId": 2,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 10,
+      "name": "Gustave Flaubert",
+      "countryId": 2,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 11,
+      "name": "Jules Verne",
+      "countryId": 2,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 12,
+      "name": "Émile Zola",
+      "countryId": 2,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 13,
+      "name": "Albert Camus",
+      "countryId": 2,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 14,
+      "name": "Jeferson Tenório",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 15,
+      "name": "Lima Barreto",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 16,
+      "name": "Dias Gomes",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 17,
+      "name": "Rubem Fonseca",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 18,
+      "name": "João Guimarães Rosa",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 19,
+      "name": "Conceição Evaristo",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 20,
+      "name": "Clarice Lispector",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 21,
+      "name": "Jorge Amado",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 22,
+      "name": "José de Aguiar",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 23,
+      "name": "Rachel de Queiroz",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 24,
+      "name": "João Ubaldo Ribeiro",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 25,
+      "name": "Malba Tahan",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 26,
+      "name": "Graciliano Ramos",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 27,
+      "name": "Paulo Coelho",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 28,
+      "name": "Machado de Assis",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 29,
+      "name": "Carolina Maria de Jesus",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 30,
+      "name": "Raduan Nassar",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 31,
+      "name": "Aluísio Azevedo",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 32,
+      "name": "Joaquim Manuel de Macedo",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 33,
+      "name": "Itamar Vieira Junior",
+      "countryId": 3,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 34,
+      "name": "Luiz Theodoro",
+      "countryId": null,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 35,
+      "name": "Erich von Däniken",
+      "countryId": 4,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 36,
+      "name": "Andy Weir",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 37,
+      "name": "Herman Melville",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 38,
+      "name": "Nathaniel Hawthorne",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 39,
+      "name": "John Williams",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 40,
+      "name": "Cormac McCarthy",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 41,
+      "name": "John Steinbeck",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 42,
+      "name": "James M. Cain",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 43,
+      "name": "Nella Larsen",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 44,
+      "name": "Sylvia Plath",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 45,
+      "name": "William Faulkner",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 46,
+      "name": "F. Scott Fitzgerald",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 47,
+      "name": "Ray Bradbury",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 48,
+      "name": "Edgar Allan Poe",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 49,
+      "name": "Henry James",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 50,
+      "name": "Shirley Jackson",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 51,
+      "name": "Mark Twain",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 52,
+      "name": "Steven Levitsky",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 53,
+      "name": "Daniel Ziblatt",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 54,
+      "name": "Harper Lee",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 55,
+      "name": "Ernest Hemingway",
+      "countryId": 5,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 56,
+      "name": "Neil Gaiman",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 57,
+      "name": "R. M. Ballantyne",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 58,
+      "name": "Virginia Woolf",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 59,
+      "name": "Daniel Defoe",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 60,
+      "name": "J. R. R. Tolkien",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 61,
+      "name": "Arthur C. Clarke",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 62,
+      "name": "Aldous Huxley",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 63,
+      "name": "James George Frazer",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 64,
+      "name": "William Golding",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 65,
+      "name": "Kazuo Ishiguro",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 66,
+      "name": "Ken Follett",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 67,
+      "name": "Arthur Conan Doyle",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 68,
+      "name": "Charles Dickens",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 69,
+      "name": "H. G. Wells",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 70,
+      "name": "Jane Austen",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 71,
+      "name": "Mary Shelley",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 72,
+      "name": "Lewis Carroll",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 73,
+      "name": "Paul Strathern",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 74,
+      "name": "Thomas More",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 75,
+      "name": "Anthony Burgess",
+      "countryId": 6,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 76,
+      "name": "Bram Stoker",
+      "countryId": 7,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 77,
+      "name": "László Krasznahorkai",
+      "countryId": 8,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 78,
+      "name": "Arthur Koestler",
+      "countryId": 8,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 79,
+      "name": "Miguel de Cervantes",
+      "countryId": 9,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 80,
+      "name": "Jorge Luis Borges",
+      "countryId": 10,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 81,
+      "name": "Adolfo Bioy Casares",
+      "countryId": 10,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 82,
+      "name": "Umberto Eco",
+      "countryId": 11,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 83,
+      "name": "Hermann Hesse",
+      "countryId": 12,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 84,
+      "name": "Thomas Mann",
+      "countryId": 12,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 85,
+      "name": "Carlos Fuentes",
+      "countryId": 13,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 86,
+      "name": "Juan Rulfo",
+      "countryId": 13,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 87,
+      "name": "António Lobo Antunes",
+      "countryId": 14,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 88,
+      "name": "José Saramago",
+      "countryId": 14,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 89,
+      "name": "José Eduardo Agualusa",
+      "countryId": 15,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 90,
+      "name": "Viktor Frankl",
+      "countryId": 16,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 91,
+      "name": "Mircea Cărtărescu",
+      "countryId": 17,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 92,
+      "name": "Margaret Atwood",
+      "countryId": 18,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 93,
+      "name": "Gabriel García Márquez",
+      "countryId": 19,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 94,
+      "name": "Han Kang",
+      "countryId": 20,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 95,
+      "name": "Jon Fosse",
+      "countryId": 21,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 96,
+      "name": "Isabel Allende",
+      "countryId": 22,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 97,
+      "name": "Milan Kundera",
+      "countryId": 23,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 98,
+      "name": "Sun Tzu",
+      "countryId": 24,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 99,
+      "name": "Sophocles",
+      "countryId": 25,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 100,
+      "name": "Yuval Noah Harari",
+      "countryId": 26,
+      "birthDate": null,
+      "deathDate": null
+    },
+    {
+      "id": 101,
+      "name": "Joseph Conrad",
+      "countryId": 27,
+      "birthDate": null,
+      "deathDate": null
+    }
+  ],
+  "themes": [
+    {
+      "id": 1,
+      "name": "Spy"
+    },
+    {
+      "id": 2,
+      "name": "War"
+    },
+    {
+      "id": 3,
+      "name": "Thriller"
+    },
+    {
+      "id": 4,
+      "name": "World War II"
+    },
+    {
+      "id": 5,
+      "name": "Gothic"
+    },
+    {
+      "id": 6,
+      "name": "Psychological Horror"
+    },
+    {
+      "id": 7,
+      "name": "Decay"
+    },
+    {
+      "id": 8,
+      "name": "Madness"
+    },
+    {
+      "id": 9,
+      "name": "Supernatural"
+    },
+    {
+      "id": 10,
+      "name": "Philosophical"
+    },
+    {
+      "id": 11,
+      "name": "Spiritual"
+    },
+    {
+      "id": 12,
+      "name": "Self-Discovery"
+    },
+    {
+      "id": 13,
+      "name": "Torture"
+    },
+    {
+      "id": 14,
+      "name": "Fear"
+    },
+    {
+      "id": 15,
+      "name": "Survival"
+    },
+    {
+      "id": 16,
+      "name": "Science Fiction"
+    },
+    {
+      "id": 17,
+      "name": "Identity"
+    },
+    {
+      "id": 18,
+      "name": "Reality"
+    },
+    {
+      "id": 19,
+      "name": "Obsession"
+    },
+    {
+      "id": 20,
+      "name": "Detective"
+    },
+    {
+      "id": 21,
+      "name": "Mystery"
+    },
+    {
+      "id": 22,
+      "name": "Crime"
+    },
+    {
+      "id": 23,
+      "name": "Psychological"
+    },
+    {
+      "id": 24,
+      "name": "Existential"
+    },
+    {
+      "id": 25,
+      "name": "Alienation"
+    },
+    {
+      "id": 26,
+      "name": "Destiny"
+    },
+    {
+      "id": 27,
+      "name": "Religion"
+    },
+    {
+      "id": 28,
+      "name": "Morality"
+    },
+    {
+      "id": 29,
+      "name": "Social"
+    },
+    {
+      "id": 30,
+      "name": "Realism"
+    },
+    {
+      "id": 31,
+      "name": "Poverty"
+    },
+    {
+      "id": 32,
+      "name": "Regionalism"
+    },
+    {
+      "id": 33,
+      "name": "Romance"
+    },
+    {
+      "id": 34,
+      "name": "Coming-of-Age"
+    },
+    {
+      "id": 35,
+      "name": "Memory"
+    },
+    {
+      "id": 36,
+      "name": "Disillusionment"
+    },
+    {
+      "id": 37,
+      "name": "Social Criticism"
+    },
+    {
+      "id": 38,
+      "name": "Autobiographical"
+    },
+    {
+      "id": 39,
+      "name": "Class"
+    },
+    {
+      "id": 40,
+      "name": "Magical Realism"
+    },
+    {
+      "id": 41,
+      "name": "Death"
+    },
+    {
+      "id": 42,
+      "name": "Rural Life"
+    },
+    {
+      "id": 43,
+      "name": "Fragmentation"
+    },
+    {
+      "id": 44,
+      "name": "Ambiguity"
+    },
+    {
+      "id": 45,
+      "name": "Introspection"
+    },
+    {
+      "id": 46,
+      "name": "Satire"
+    },
+    {
+      "id": 47,
+      "name": "Metafiction"
+    },
+    {
+      "id": 48,
+      "name": "Family Saga"
+    },
+    {
+      "id": 49,
+      "name": "Politics"
+    },
+    {
+      "id": 50,
+      "name": "Journey"
+    },
+    {
+      "id": 51,
+      "name": "Nature"
+    },
+    {
+      "id": 52,
+      "name": "Reinterpretation"
+    },
+    {
+      "id": 53,
+      "name": "Redemption"
+    },
+    {
+      "id": 54,
+      "name": "Utopia"
+    },
+    {
+      "id": 55,
+      "name": "Invasion"
+    },
+    {
+      "id": 56,
+      "name": "Imperialism"
+    },
+    {
+      "id": 57,
+      "name": "Horror"
+    },
+    {
+      "id": 58,
+      "name": "Marginalization"
+    },
+    {
+      "id": 59,
+      "name": "Testimony"
+    },
+    {
+      "id": 60,
+      "name": "Beauty"
+    },
+    {
+      "id": 61,
+      "name": "Family"
+    },
+    {
+      "id": 62,
+      "name": "Desire"
+    },
+    {
+      "id": 63,
+      "name": "Naturalism"
+    },
+    {
+      "id": 64,
+      "name": "Determinism"
+    },
+    {
+      "id": 65,
+      "name": "Urban Life"
+    },
+    {
+      "id": 66,
+      "name": "Sentimentalism"
+    },
+    {
+      "id": 67,
+      "name": "Youth"
+    },
+    {
+      "id": 68,
+      "name": "Love"
+    },
+    {
+      "id": 69,
+      "name": "Isolation"
+    },
+    {
+      "id": 70,
+      "name": "Modernist"
+    },
+    {
+      "id": 71,
+      "name": "Epic"
+    },
+    {
+      "id": 72,
+      "name": "Noir"
+    },
+    {
+      "id": 73,
+      "name": "Tragedy"
+    },
+    {
+      "id": 74,
+      "name": "Surrealism"
+    },
+    {
+      "id": 75,
+      "name": "Allegory"
+    },
+    {
+      "id": 76,
+      "name": "Absurdism"
+    },
+    {
+      "id": 77,
+      "name": "Erotic"
+    },
+    {
+      "id": 78,
+      "name": "Dystopian"
+    },
+    {
+      "id": 79,
+      "name": "Didactic"
+    },
+    {
+      "id": 80,
+      "name": "Mathematics"
+    },
+    {
+      "id": 81,
+      "name": "Prison"
+    },
+    {
+      "id": 82,
+      "name": "Fantasy"
+    },
+    {
+      "id": 83,
+      "name": "Picaresque"
+    },
+    {
+      "id": 84,
+      "name": "Anti-war"
+    },
+    {
+      "id": 85,
+      "name": "Racism"
+    },
+    {
+      "id": 86,
+      "name": "Violence"
+    },
+    {
+      "id": 87,
+      "name": "Father-Son Relationship"
+    },
+    {
+      "id": 88,
+      "name": "Social Mobility"
+    },
+    {
+      "id": 89,
+      "name": "Imposture"
+    },
+    {
+      "id": 90,
+      "name": "Bureaucracy"
+    },
+    {
+      "id": 91,
+      "name": "Irony"
+    },
+    {
+      "id": 92,
+      "name": "Ancient Astronauts"
+    },
+    {
+      "id": 93,
+      "name": "Archaeology"
+    },
+    {
+      "id": 94,
+      "name": "Extraterrestrials"
+    },
+    {
+      "id": 95,
+      "name": "Alternative History"
+    },
+    {
+      "id": 96,
+      "name": "Pseudoscience"
+    },
+    {
+      "id": 97,
+      "name": "Cultural Conflict"
+    },
+    {
+      "id": 98,
+      "name": "History"
+    },
+    {
+      "id": 99,
+      "name": "Space"
+    },
+    {
+      "id": 100,
+      "name": "Friendship"
+    },
+    {
+      "id": 101,
+      "name": "Symbolism"
+    },
+    {
+      "id": 102,
+      "name": "Afro-Brazilian Literature"
+    },
+    {
+      "id": 103,
+      "name": "Social Exclusion"
+    },
+    {
+      "id": 104,
+      "name": "Social Realism"
+    },
+    {
+      "id": 105,
+      "name": "Inequality"
+    },
+    {
+      "id": 106,
+      "name": "Mythology"
+    },
+    {
+      "id": 107,
+      "name": "Norse Legends"
+    },
+    {
+      "id": 108,
+      "name": "Adventure"
+    },
+    {
+      "id": 109,
+      "name": "Robinsonade"
+    },
+    {
+      "id": 110,
+      "name": "Academic"
+    },
+    {
+      "id": 111,
+      "name": "Domestic"
+    },
+    {
+      "id": 112,
+      "name": "Historical"
+    },
+    {
+      "id": 113,
+      "name": "Experimental"
+    },
+    {
+      "id": 114,
+      "name": "Despair"
+    },
+    {
+      "id": 115,
+      "name": "Rural Isolation"
+    },
+    {
+      "id": 116,
+      "name": "Manipulation"
+    },
+    {
+      "id": 117,
+      "name": "Cyclical Time"
+    },
+    {
+      "id": 118,
+      "name": "Epic Fantasy"
+    },
+    {
+      "id": 119,
+      "name": "Good vs Evil"
+    },
+    {
+      "id": 120,
+      "name": "Power"
+    },
+    {
+      "id": 121,
+      "name": "Chivalry"
+    },
+    {
+      "id": 122,
+      "name": "Illusion vs Reality"
+    },
+    {
+      "id": 123,
+      "name": "Idealism"
+    },
+    {
+      "id": 124,
+      "name": "Serfdom"
+    },
+    {
+      "id": 125,
+      "name": "Human Dignity"
+    },
+    {
+      "id": 126,
+      "name": "Infinity"
+    },
+    {
+      "id": 127,
+      "name": "Labyrinths"
+    },
+    {
+      "id": 128,
+      "name": "Time"
+    },
+    {
+      "id": 129,
+      "name": "Reality vs Fiction"
+    },
+    {
+      "id": 130,
+      "name": "Epistemology"
+    },
+    {
+      "id": 131,
+      "name": "Western"
+    },
+    {
+      "id": 132,
+      "name": "Anthropology"
+    },
+    {
+      "id": 133,
+      "name": "Comparative Religion"
+    },
+    {
+      "id": 134,
+      "name": "Folklore"
+    },
+    {
+      "id": 135,
+      "name": "Dark Fantasy"
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "title": "Dom Quixote (adaptação)",
+      "authorIds": [
+        79
+      ],
+      "publicationYear": null,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 2,
+      "title": "Sapiens",
+      "authorIds": [
+        100
+      ],
+      "publicationYear": 2011,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 3,
+      "title": "Germinal",
+      "authorIds": [
+        12
+      ],
+      "publicationYear": 1885,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 4,
+      "title": "A Insustentável Leveza do Ser",
+      "authorIds": [
+        97
+      ],
+      "publicationYear": 1984,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 5,
+      "title": "Édipo Rei",
+      "authorIds": [
+        99
+      ],
+      "publicationYear": -429,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 6,
+      "title": "O Som e a Fúria",
+      "authorIds": [
+        45
+      ],
+      "publicationYear": 1929,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 7,
+      "title": "O Grande Gatsby",
+      "authorIds": [
+        46
+      ],
+      "publicationYear": 1925,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 8,
+      "title": "As Intermitências da Morte",
+      "authorIds": [
+        88
+      ],
+      "publicationYear": 2005,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 9,
+      "title": "Schopenhauer em 90 Minutos",
+      "authorIds": [
+        73
+      ],
+      "publicationYear": 1996,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 10,
+      "title": "Em Busca de Sentido",
+      "authorIds": [
+        90
+      ],
+      "publicationYear": 1946,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 11,
+      "title": "Coração das Trevas",
+      "authorIds": [
+        101
+      ],
+      "publicationYear": 1899,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 12,
+      "title": "A Volta ao Mundo em 80 Dias",
+      "authorIds": [
+        11
+      ],
+      "publicationYear": 1872,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 13,
+      "title": "Utopia",
+      "authorIds": [
+        74
+      ],
+      "publicationYear": 1516,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 14,
+      "title": "Admirável Mundo Novo",
+      "authorIds": [
+        62
+      ],
+      "publicationYear": 1932,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 15,
+      "title": "Laranja Mecânica",
+      "authorIds": [
+        75
+      ],
+      "publicationYear": 1962,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 16,
+      "title": "Fahrenheit 451",
+      "authorIds": [
+        47
+      ],
+      "publicationYear": 1953,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 17,
+      "title": "Eu, Robô",
+      "authorIds": [
+        8
+      ],
+      "publicationYear": 1950,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 18,
+      "title": "O Quinze",
+      "authorIds": [
+        23
+      ],
+      "publicationYear": 1930,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 19,
+      "title": "Noites Brancas",
+      "authorIds": [
+        4
+      ],
+      "publicationYear": 1848,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 20,
+      "title": "Luz em Agosto",
+      "authorIds": [
+        45
+      ],
+      "publicationYear": 1932,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 21,
+      "title": "A Pérola",
+      "authorIds": [
+        41
+      ],
+      "publicationYear": 1947,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 22,
+      "title": "A Ponte dos Tempos",
+      "authorIds": [
+        34
+      ],
+      "publicationYear": 2021,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 23,
+      "title": "A Arte da Guerra",
+      "authorIds": [
+        98
+      ],
+      "publicationYear": -500,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 24,
+      "title": "Frankenstein, ou o Prometeu Moderno",
+      "authorIds": [
+        71
+      ],
+      "publicationYear": 1818,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 25,
+      "title": "A Hora da Estrela",
+      "authorIds": [
+        20
+      ],
+      "publicationYear": 1977,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 26,
+      "title": "Água Viva",
+      "authorIds": [
+        20
+      ],
+      "publicationYear": 1973,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 27,
+      "title": "O Alienista",
+      "authorIds": [
+        28
+      ],
+      "publicationYear": 1882,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 28,
+      "title": "O Capote",
+      "authorIds": [
+        2
+      ],
+      "publicationYear": 1842,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 29,
+      "title": "Um Conto de Natal",
+      "authorIds": [
+        68
+      ],
+      "publicationYear": 1843,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 30,
+      "title": "Mrs. Dalloway",
+      "authorIds": [
+        58
+      ],
+      "publicationYear": 1925,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 31,
+      "title": "Torto Arado",
+      "authorIds": [
+        33
+      ],
+      "publicationYear": 2019,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 32,
+      "title": "O Sol É Para Todos",
+      "authorIds": [
+        54
+      ],
+      "publicationYear": 1960,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 33,
+      "title": "The Old Man and the Sea",
+      "authorIds": [
+        55
+      ],
+      "publicationYear": 1952,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 34,
+      "title": "The Stranger",
+      "authorIds": [
+        13
+      ],
+      "publicationYear": 1942,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 35,
+      "title": "Alice's Adventures in Wonderland",
+      "authorIds": [
+        72
+      ],
+      "publicationYear": 1865,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 36,
+      "title": "Ratos e Homens",
+      "authorIds": [
+        41
+      ],
+      "publicationYear": 1937,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 37,
+      "title": "Anna Karenina",
+      "authorIds": [
+        5
+      ],
+      "publicationYear": 1877,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 38,
+      "title": "The Time Machine",
+      "authorIds": [
+        69
+      ],
+      "publicationYear": 1895,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 39,
+      "title": "Through the Looking-Glass",
+      "authorIds": [
+        72
+      ],
+      "publicationYear": 1871,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 40,
+      "title": "The Master and Margarita",
+      "authorIds": [
+        7
+      ],
+      "publicationYear": 1967,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 41,
+      "title": "The Adventures of Tom Sawyer",
+      "authorIds": [
+        51
+      ],
+      "publicationYear": 1876,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 42,
+      "title": "The Invisible Man",
+      "authorIds": [
+        69
+      ],
+      "publicationYear": 1897,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 43,
+      "title": "Como as Democracias Morrem",
+      "authorIds": [
+        52,
+        53
+      ],
+      "publicationYear": 2018,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 44,
+      "title": "Blood Meridian",
+      "authorIds": [
+        40
+      ],
+      "publicationYear": 1985,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 45,
+      "title": "The Road",
+      "authorIds": [
+        40
+      ],
+      "publicationYear": 2006,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 46,
+      "title": "No Country for Old Men",
+      "authorIds": [
+        40
+      ],
+      "publicationYear": 2005,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 47,
+      "title": "Pride and Prejudice",
+      "authorIds": [
+        70
+      ],
+      "publicationYear": 1813,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 48,
+      "title": "Lord of the Flies",
+      "authorIds": [
+        64
+      ],
+      "publicationYear": 1954,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 49,
+      "title": "O Engenhoso Fidalgo D. Quixote de La Mancha – Livro 1",
+      "authorIds": [
+        79
+      ],
+      "publicationYear": 1605,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 50,
+      "title": "O Buraco da Agulha",
+      "authorIds": [
+        66
+      ],
+      "publicationYear": 1978,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": 51,
+      "title": "The Fall of the House of Usher",
+      "authorIds": [
+        48
+      ],
+      "publicationYear": 1839,
+      "form": "Short Story",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "id": 52,
+      "title": "Siddhartha",
+      "authorIds": [
+        83
+      ],
+      "publicationYear": 1922,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 53,
+      "title": "The Pit and the Pendulum",
+      "authorIds": [
+        48
+      ],
+      "publicationYear": 1842,
+      "form": "Short Story",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        5,
+        6,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "id": 54,
+      "title": "A Invenção de Morel",
+      "authorIds": [
+        81
+      ],
+      "publicationYear": 1940,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        10,
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    {
+      "id": 55,
+      "title": "The Hound of the Baskervilles",
+      "authorIds": [
+        67
+      ],
+      "publicationYear": 1902,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        20,
+        21,
+        5,
+        22
+      ]
+    },
+    {
+      "id": 56,
+      "title": "Steppenwolf",
+      "authorIds": [
+        83
+      ],
+      "publicationYear": 1927,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        23,
+        24,
+        17,
+        25
+      ]
+    },
+    {
+      "id": 57,
+      "title": "O Alquimista",
+      "authorIds": [
+        27
+      ],
+      "publicationYear": 1988,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        10,
+        11,
+        12,
+        26
+      ]
+    },
+    {
+      "id": 58,
+      "title": "The Brothers Karamazov",
+      "authorIds": [
+        4
+      ],
+      "publicationYear": 1880,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        10,
+        23,
+        27,
+        28
+      ]
+    },
+    {
+      "id": 59,
+      "title": "Vidas Secas",
+      "authorIds": [
+        26
+      ],
+      "publicationYear": 1938,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        29,
+        30,
+        31,
+        15,
+        32
+      ]
+    },
+    {
+      "id": 60,
+      "title": "First Love",
+      "authorIds": [
+        3
+      ],
+      "publicationYear": 1860,
+      "form": "Novella",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        33,
+        34,
+        35,
+        36
+      ]
+    },
+    {
+      "id": 61,
+      "title": "David Copperfield",
+      "authorIds": [
+        68
+      ],
+      "publicationYear": 1850,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        34,
+        37,
+        38,
+        39
+      ]
+    },
+    {
+      "id": 62,
+      "title": "Pedro Páramo",
+      "authorIds": [
+        86
+      ],
+      "publicationYear": 1955,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        40,
+        41,
+        35,
+        42,
+        43
+      ]
+    },
+    {
+      "id": 63,
+      "title": "The Turn of the Screw",
+      "authorIds": [
+        49
+      ],
+      "publicationYear": 1898,
+      "form": "Novella",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        5,
+        23,
+        44,
+        9
+      ]
+    },
+    {
+      "id": 64,
+      "title": "A Paixão Segundo G.H.",
+      "authorIds": [
+        20
+      ],
+      "publicationYear": 1964,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        10,
+        24,
+        17,
+        45
+      ]
+    },
+    {
+      "id": 65,
+      "title": "Memórias Póstumas de Brás Cubas",
+      "authorIds": [
+        28
+      ],
+      "publicationYear": 1881,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        46,
+        23,
+        37,
+        47
+      ]
+    },
+    {
+      "id": 66,
+      "title": "A Casa dos Espíritos",
+      "authorIds": [
+        96
+      ],
+      "publicationYear": 1982,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        40,
+        48,
+        49,
+        35
+      ]
+    },
+    {
+      "id": 67,
+      "title": "A Estepe",
+      "authorIds": [
+        6
+      ],
+      "publicationYear": 1888,
+      "form": "Novella",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        34,
+        50,
+        51,
+        23
+      ]
+    },
+    {
+      "id": 68,
+      "title": "Caim",
+      "authorIds": [
+        88
+      ],
+      "publicationYear": 2009,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        27,
+        10,
+        46,
+        52
+      ]
+    },
+    {
+      "id": 69,
+      "title": "The Dream of a Ridiculous Man",
+      "authorIds": [
+        4
+      ],
+      "publicationYear": 1877,
+      "form": "Short Story",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        10,
+        24,
+        53,
+        54
+      ]
+    },
+    {
+      "id": 70,
+      "title": "The War of the Worlds",
+      "authorIds": [
+        69
+      ],
+      "publicationYear": 1898,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        16,
+        55,
+        15,
+        56
+      ]
+    },
+    {
+      "id": 71,
+      "title": "Dracula",
+      "authorIds": [
+        76
+      ],
+      "publicationYear": 1897,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        5,
+        57,
+        9,
+        14
+      ]
+    },
+    {
+      "id": 72,
+      "title": "Quarto de Despejo",
+      "authorIds": [
+        29
+      ],
+      "publicationYear": 1960,
+      "form": "Diary",
+      "mode": "Prose",
+      "content": "Non-fiction",
+      "themeIds": [
+        29,
+        31,
+        58,
+        59
+      ]
+    },
+    {
+      "id": 73,
+      "title": "Death in Venice",
+      "authorIds": [
+        84
+      ],
+      "publicationYear": 1912,
+      "form": "Novella",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        23,
+        19,
+        60,
+        7
+      ]
+    },
+    {
+      "id": 74,
+      "title": "Lavoura Arcaica",
+      "authorIds": [
+        30
+      ],
+      "publicationYear": 1975,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        23,
+        61,
+        27,
+        62
+      ]
+    },
+    {
+      "id": 75,
+      "title": "O Cortiço",
+      "authorIds": [
+        31
+      ],
+      "publicationYear": 1890,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        63,
+        37,
+        64,
+        65
+      ]
+    },
+    {
+      "id": 76,
+      "title": "A Moreninha",
+      "authorIds": [
+        32
+      ],
+      "publicationYear": 1844,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        33,
+        66,
+        67,
+        68
+      ]
+    },
+    {
+      "id": 77,
+      "title": "We Have Always Lived in the Castle",
+      "authorIds": [
+        50
+      ],
+      "publicationYear": 1962,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        5,
+        23,
+        69,
+        61
+      ]
+    },
+    {
+      "id": 78,
+      "title": "The Grapes of Wrath",
+      "authorIds": [
+        41
+      ],
+      "publicationYear": 1939,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        30,
+        29
+      ]
+    },
+    {
+      "id": 79,
+      "title": "Grande Sertão: Veredas",
+      "authorIds": [
+        18
+      ],
+      "publicationYear": 1956,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        70,
+        71,
+        32,
+        10
+      ]
+    },
+    {
+      "id": 80,
+      "title": "The Postman Always Rings Twice",
+      "authorIds": [
+        42
+      ],
+      "publicationYear": 1934,
+      "form": "Novella",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        22,
+        72,
+        73
+      ]
+    },
+    {
+      "id": 81,
+      "title": "Passing",
+      "authorIds": [
+        43
+      ],
+      "publicationYear": 1929,
+      "form": "Novella",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        30,
+        37,
+        17
+      ]
+    },
+    {
+      "id": 82,
+      "title": "The Vegetarian",
+      "authorIds": [
+        94
+      ],
+      "publicationYear": 2007,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        23,
+        74,
+        75
+      ]
+    },
+    {
+      "id": 83,
+      "title": "The Bell Jar",
+      "authorIds": [
+        44
+      ],
+      "publicationYear": 1963,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        23,
+        34,
+        38
+      ]
+    },
+    {
+      "id": 84,
+      "title": "É a Ales",
+      "authorIds": [
+        95
+      ],
+      "publicationYear": 2004,
+      "form": "Novella",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        24,
+        23,
+        70
+      ]
+    },
+    {
+      "id": 85,
+      "title": "The Nose",
+      "authorIds": [
+        2
+      ],
+      "publicationYear": 1836,
+      "form": "Short Story",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        46,
+        76,
+        74
+      ]
+    },
+    {
+      "id": 86,
+      "title": "Cem Anos de Solidão",
+      "authorIds": [
+        93
+      ],
+      "publicationYear": 1967,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        40
+      ]
+    },
+    {
+      "id": 87,
+      "title": "A Casa dos Budas Ditosos",
+      "authorIds": [
+        24
+      ],
+      "publicationYear": 1999,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        77
+      ]
+    },
+    {
+      "id": 88,
+      "title": "The Handmaid's Tale",
+      "authorIds": [
+        92
+      ],
+      "publicationYear": 1985,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        78
+      ]
+    },
+    {
+      "id": 89,
+      "title": "A Rose for Emily",
+      "authorIds": [
+        45
+      ],
+      "publicationYear": 1930,
+      "form": "Short Story",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        5
+      ]
+    },
+    {
+      "id": 90,
+      "title": "The Library of Babel",
+      "authorIds": [
+        80
+      ],
+      "publicationYear": 1941,
+      "form": "Short Story",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        10,
+        47
+      ]
+    },
+    {
+      "id": 91,
+      "title": "Winter Dreams",
+      "authorIds": [
+        46
+      ],
+      "publicationYear": 1922,
+      "form": "Short Story",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        30
+      ]
+    },
+    {
+      "id": 92,
+      "title": "O Homem que Calculava",
+      "authorIds": [
+        25
+      ],
+      "publicationYear": 1938,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        79,
+        80
+      ]
+    },
+    {
+      "id": 93,
+      "title": "The House of the Dead",
+      "authorIds": [
+        4
+      ],
+      "publicationYear": 1860,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        30,
+        81,
+        38
+      ]
+    },
+    {
+      "id": 94,
+      "title": "As I Lay Dying",
+      "authorIds": [
+        45
+      ],
+      "publicationYear": 1930,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        70,
+        23
+      ]
+    },
+    {
+      "id": 95,
+      "title": "The Buried Giant",
+      "authorIds": [
+        65
+      ],
+      "publicationYear": 2015,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        82
+      ]
+    },
+    {
+      "id": 96,
+      "title": "The Queen of Spades",
+      "authorIds": [
+        1
+      ],
+      "publicationYear": 1834,
+      "form": "Novella",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        23,
+        5,
+        9,
+        46
+      ]
+    },
+    {
+      "id": 97,
+      "title": "Journey to the End of the Night",
+      "authorIds": [
+        9
+      ],
+      "publicationYear": 1932,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        83,
+        24,
+        84,
+        46,
+        38
+      ]
+    },
+    {
+      "id": 98,
+      "title": "O Avesso da Pele",
+      "authorIds": [
+        14
+      ],
+      "publicationYear": 2020,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        85,
+        17,
+        35,
+        86,
+        87,
+        37
+      ]
+    },
+    {
+      "id": 99,
+      "title": "O Homem que Sabia Javanês",
+      "authorIds": [
+        15
+      ],
+      "publicationYear": 1911,
+      "form": "Short Story",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        46,
+        17,
+        88,
+        89,
+        90,
+        91
+      ]
+    },
+    {
+      "id": 100,
+      "title": "The Cook's Wedding",
+      "authorIds": [
+        6
+      ],
+      "publicationYear": 1884,
+      "form": "Short Story",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        29,
+        46,
+        30
+      ]
+    },
+    {
+      "id": 101,
+      "title": "The Crocodile",
+      "authorIds": [
+        4
+      ],
+      "publicationYear": 1865,
+      "form": "Short Story",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        46,
+        76,
+        37
+      ]
+    },
+    {
+      "id": 102,
+      "title": "Eram os Deuses Astronautas?",
+      "authorIds": [
+        35
+      ],
+      "publicationYear": 1968,
+      "form": "Essay",
+      "mode": "Prose",
+      "content": "Non-fiction",
+      "themeIds": [
+        92,
+        93,
+        94,
+        95,
+        96
+      ]
+    },
+    {
+      "id": 103,
+      "title": "O Pagador de Promessas",
+      "authorIds": [
+        16
+      ],
+      "publicationYear": 1960,
+      "form": "Play",
+      "mode": "Drama",
+      "content": "Fiction",
+      "themeIds": [
+        29,
+        27,
+        73,
+        97
+      ]
+    },
+    {
+      "id": 104,
+      "title": "Agosto",
+      "authorIds": [
+        17
+      ],
+      "publicationYear": 1990,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        72,
+        22,
+        49,
+        98
+      ]
+    },
+    {
+      "id": 105,
+      "title": "Devoradores de Estrelas",
+      "authorIds": [
+        36
+      ],
+      "publicationYear": 2021,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        16,
+        99,
+        15,
+        100
+      ]
+    },
+    {
+      "id": 106,
+      "title": "Bartleby, o Escrivão",
+      "authorIds": [
+        37
+      ],
+      "publicationYear": 1853,
+      "form": "Novella",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        24,
+        23,
+        76,
+        37
+      ]
+    },
+    {
+      "id": 107,
+      "title": "A Terceira Margem do Rio",
+      "authorIds": [
+        18
+      ],
+      "publicationYear": 1962,
+      "form": "Short Story",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        24,
+        23,
+        61,
+        101,
+        40
+      ]
+    },
+    {
+      "id": 108,
+      "title": "Macabéa: Flor de Mulungu",
+      "authorIds": [
+        19
+      ],
+      "publicationYear": 2023,
+      "form": "Short Story",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        102,
+        103,
+        17
+      ]
+    },
+    {
+      "id": 109,
+      "title": "Olhos d'Água",
+      "authorIds": [
+        19
+      ],
+      "publicationYear": 2014,
+      "form": "Short Story Collection",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        102,
+        104,
+        35,
+        17,
+        105
+      ]
+    },
+    {
+      "id": 110,
+      "title": "Mitologia Nórdica",
+      "authorIds": [
+        56
+      ],
+      "publicationYear": 2017,
+      "form": "Short Story Collection",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        106,
+        82,
+        107
+      ]
+    },
+    {
+      "id": 111,
+      "title": "The Coral Island",
+      "authorIds": [
+        57
+      ],
+      "publicationYear": 1857,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        108,
+        109,
+        34
+      ]
+    },
+    {
+      "id": 112,
+      "title": "The Idiot",
+      "authorIds": [
+        4
+      ],
+      "publicationYear": 1869,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        23,
+        10,
+        29,
+        27
+      ]
+    },
+    {
+      "id": 113,
+      "title": "Stoner",
+      "authorIds": [
+        39
+      ],
+      "publicationYear": 1965,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        23,
+        110,
+        111
+      ]
+    },
+    {
+      "id": 114,
+      "title": "The House of the Seven Gables",
+      "authorIds": [
+        38
+      ],
+      "publicationYear": 1851,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        5,
+        112
+      ]
+    },
+    {
+      "id": 115,
+      "title": "Sátántangó",
+      "authorIds": [
+        77
+      ],
+      "publicationYear": 1985,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        113,
+        7,
+        114,
+        115,
+        116,
+        117,
+        24
+      ]
+    },
+    {
+      "id": 116,
+      "title": "To the Lighthouse",
+      "authorIds": [
+        58
+      ],
+      "publicationYear": 1927,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        70,
+        23,
+        111,
+        10
+      ]
+    },
+    {
+      "id": 117,
+      "title": "Fathers and Sons",
+      "authorIds": [
+        3
+      ],
+      "publicationYear": 1862,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        30,
+        29,
+        49,
+        10
+      ]
+    },
+    {
+      "id": 118,
+      "title": "Robinson Crusoe",
+      "authorIds": [
+        59
+      ],
+      "publicationYear": 1719,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        108,
+        30
+      ]
+    },
+    {
+      "id": 119,
+      "title": "De Quanta Terra Precisa um Homem?",
+      "authorIds": [
+        5
+      ],
+      "publicationYear": null,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 120,
+      "title": "The Lord of the Rings",
+      "authorIds": [
+        60
+      ],
+      "publicationYear": 1954,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        118,
+        106,
+        108,
+        119,
+        120,
+        100
+      ]
+    },
+    {
+      "id": 121,
+      "title": "O Engenhoso Fidalgo D. Quixote de La Mancha – Livro 2",
+      "authorIds": [
+        79
+      ],
+      "publicationYear": 1615,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        121,
+        122,
+        8,
+        123,
+        47,
+        46,
+        83
+      ]
+    },
+    {
+      "id": 122,
+      "title": "A Sportsman's Sketches",
+      "authorIds": [
+        3
+      ],
+      "publicationYear": 1852,
+      "form": "Short Story Collection",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        30,
+        42,
+        124,
+        37,
+        51,
+        125
+      ]
+    },
+    {
+      "id": 123,
+      "title": "Ficções",
+      "authorIds": [
+        80
+      ],
+      "publicationYear": 1944,
+      "form": "Short Story Collection",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        10,
+        47,
+        126,
+        127,
+        128,
+        17,
+        129,
+        130
+      ]
+    },
+    {
+      "id": 124,
+      "title": "2001: A Space Odyssey",
+      "authorIds": [
+        61
+      ],
+      "publicationYear": null,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        16
+      ]
+    },
+    {
+      "id": 125,
+      "title": "Island",
+      "authorIds": [
+        62
+      ],
+      "publicationYear": 1962,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        54,
+        10
+      ]
+    },
+    {
+      "id": 126,
+      "title": "Laços de Família",
+      "authorIds": [
+        20
+      ],
+      "publicationYear": 1960,
+      "form": null,
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        23
+      ]
+    },
+    {
+      "id": 127,
+      "title": "All the Pretty Horses",
+      "authorIds": [
+        40
+      ],
+      "publicationYear": 1992,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        131,
+        34,
+        108
+      ]
+    },
+    {
+      "id": 128,
+      "title": "Jubiabá",
+      "authorIds": [
+        21
+      ],
+      "publicationYear": 1935,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        30,
+        29
+      ]
+    },
+    {
+      "id": 129,
+      "title": "The Island of the Day Before",
+      "authorIds": [
+        82
+      ],
+      "publicationYear": 1994,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        112,
+        10
+      ]
+    },
+    {
+      "id": 130,
+      "title": "Depois Daquele Beijo",
+      "authorIds": [
+        22
+      ],
+      "publicationYear": 2022,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 131,
+      "title": "The Golden Bough",
+      "authorIds": [
+        63
+      ],
+      "publicationYear": 1890,
+      "form": "Treatise",
+      "mode": "Prose",
+      "content": "Non-fiction",
+      "themeIds": [
+        132,
+        133,
+        106,
+        134
+      ]
+    },
+    {
+      "id": 132,
+      "title": "The Sandman",
+      "authorIds": [
+        56
+      ],
+      "publicationYear": 1989,
+      "form": "Graphic Novel",
+      "mode": "Sequential Art",
+      "content": "Fiction",
+      "themeIds": [
+        82,
+        135,
+        106,
+        57
+      ]
+    },
+    {
+      "id": 133,
+      "title": "Darkness at Noon",
+      "authorIds": [
+        78
+      ],
+      "publicationYear": 1940,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        49,
+        23,
+        10,
+        78
+      ]
+    },
+    {
+      "id": 134,
+      "title": "Knulp",
+      "authorIds": [
+        83
+      ],
+      "publicationYear": null,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 135,
+      "title": "Madame Bovary",
+      "authorIds": [
+        10
+      ],
+      "publicationYear": 1857,
+      "form": "Novel",
+      "mode": "Prose",
+      "content": "Fiction",
+      "themeIds": [
+        30,
+        23,
+        29,
+        111
+      ]
+    },
+    {
+      "id": 136,
+      "title": "Rites of Passage",
+      "authorIds": [
+        64
+      ],
+      "publicationYear": null,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 137,
+      "title": "A Cabeça da Hidra",
+      "authorIds": [
+        85
+      ],
+      "publicationYear": null,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 138,
+      "title": "Paraíso e Inferno",
+      "authorIds": [],
+      "publicationYear": null,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 139,
+      "title": "Nostalgia",
+      "authorIds": [
+        91
+      ],
+      "publicationYear": null,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 140,
+      "title": "Que Cavalos São Aqueles que Fazem Sombra no Mar?",
+      "authorIds": [
+        87
+      ],
+      "publicationYear": null,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 141,
+      "title": "Os Nove Bilhões de Nomes de Deus",
+      "authorIds": [
+        61
+      ],
+      "publicationYear": null,
+      "form": "Short Story",
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 142,
+      "title": "Teoria Geral do Esquecimento",
+      "authorIds": [
+        89
+      ],
+      "publicationYear": null,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    },
+    {
+      "id": 143,
+      "title": "O Homem sem Qualidades",
+      "authorIds": [],
+      "publicationYear": null,
+      "form": null,
+      "mode": null,
+      "content": null,
+      "themeIds": []
+    }
+  ],
+  "readings": [
+    {
+      "id": 1,
+      "bookId": 1,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 2,
+      "bookId": 2,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 3,
+      "bookId": 3,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 4,
+      "bookId": 4,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 5,
+      "bookId": 5,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 6,
+      "bookId": 6,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 9,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 7,
+      "bookId": 7,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 8,
+      "bookId": 8,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 9,
+      "bookId": 9,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 6,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 10,
+      "bookId": 10,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 7,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 11,
+      "bookId": 11,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 12,
+      "bookId": 12,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 13,
+      "bookId": 13,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 6.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 14,
+      "bookId": 14,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 9,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 15,
+      "bookId": 15,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 16,
+      "bookId": 16,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 17,
+      "bookId": 17,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 18,
+      "bookId": 18,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 19,
+      "bookId": 19,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 7,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 20,
+      "bookId": 20,
+      "status": "Read",
+      "yearRead": 2021,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 21,
+      "bookId": 21,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 7,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 22,
+      "bookId": 22,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 7,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 23,
+      "bookId": 23,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 6,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Publication year approximate (5th century BC)"
+    },
+    {
+      "id": 24,
+      "bookId": 24,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 6.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 25,
+      "bookId": 25,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 26,
+      "bookId": 26,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 7,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 27,
+      "bookId": 27,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 28,
+      "bookId": 28,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 29,
+      "bookId": 29,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 30,
+      "bookId": 30,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 7,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 31,
+      "bookId": 31,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 32,
+      "bookId": 32,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 33,
+      "bookId": 33,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 34,
+      "bookId": 34,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 9,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 35,
+      "bookId": 35,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 36,
+      "bookId": 36,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 37,
+      "bookId": 37,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 38,
+      "bookId": 38,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 39,
+      "bookId": 39,
+      "status": "Read",
+      "yearRead": 2022,
+      "grade": 7,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 40,
+      "bookId": 40,
+      "status": "Read",
+      "yearRead": 2023,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 41,
+      "bookId": 41,
+      "status": "Read",
+      "yearRead": 2023,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 42,
+      "bookId": 42,
+      "status": "Read",
+      "yearRead": 2023,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 43,
+      "bookId": 43,
+      "status": "Read",
+      "yearRead": 2023,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 44,
+      "bookId": 44,
+      "status": "Read",
+      "yearRead": 2023,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 45,
+      "bookId": 45,
+      "status": "Read",
+      "yearRead": 2023,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 46,
+      "bookId": 46,
+      "status": "Read",
+      "yearRead": 2023,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 47,
+      "bookId": 47,
+      "status": "Read",
+      "yearRead": 2023,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 48,
+      "bookId": 48,
+      "status": "Read",
+      "yearRead": 2023,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 49,
+      "bookId": 49,
+      "status": "Read",
+      "yearRead": 2023,
+      "grade": 9.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 50,
+      "bookId": 50,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 6,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 51,
+      "bookId": 51,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 52,
+      "bookId": 52,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 53,
+      "bookId": 53,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 9,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 54,
+      "bookId": 54,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 55,
+      "bookId": 55,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 56,
+      "bookId": 56,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 57,
+      "bookId": 57,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 58,
+      "bookId": 58,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 9,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 59,
+      "bookId": 59,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 60,
+      "bookId": 60,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 61,
+      "bookId": 61,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 62,
+      "bookId": 62,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 9,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 63,
+      "bookId": 63,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 7,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 64,
+      "bookId": 64,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 65,
+      "bookId": 65,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 66,
+      "bookId": 66,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 67,
+      "bookId": 67,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 7,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 68,
+      "bookId": 68,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 69,
+      "bookId": 69,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 70,
+      "bookId": 70,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 71,
+      "bookId": 71,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 72,
+      "bookId": 72,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 73,
+      "bookId": 73,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 74,
+      "bookId": 74,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 75,
+      "bookId": 75,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 76,
+      "bookId": 76,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 6,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 77,
+      "bookId": 77,
+      "status": "Read",
+      "yearRead": 2024,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 78,
+      "bookId": 78,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 79,
+      "bookId": 79,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 9,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 80,
+      "bookId": 80,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 81,
+      "bookId": 81,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 82,
+      "bookId": 82,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 83,
+      "bookId": 83,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 84,
+      "bookId": 84,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "English title: Aliss at the Fire"
+    },
+    {
+      "id": 85,
+      "bookId": 85,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 86,
+      "bookId": 86,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 9,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 87,
+      "bookId": 87,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 88,
+      "bookId": 88,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 89,
+      "bookId": 89,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 90,
+      "bookId": 90,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 91,
+      "bookId": 91,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 7,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 92,
+      "bookId": 92,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 7,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 93,
+      "bookId": 93,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 94,
+      "bookId": 94,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 95,
+      "bookId": 95,
+      "status": "Read",
+      "yearRead": 2025,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 96,
+      "bookId": 96,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 97,
+      "bookId": 97,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 98,
+      "bookId": 98,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 99,
+      "bookId": 99,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 100,
+      "bookId": 100,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 101,
+      "bookId": 101,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 102,
+      "bookId": 102,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 7,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 103,
+      "bookId": 103,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 104,
+      "bookId": 104,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 105,
+      "bookId": 105,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 7,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 106,
+      "bookId": 106,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 107,
+      "bookId": 107,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 108,
+      "bookId": 108,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 109,
+      "bookId": 109,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 110,
+      "bookId": 110,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 6.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 111,
+      "bookId": 111,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 112,
+      "bookId": 112,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 113,
+      "bookId": 113,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 8,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 114,
+      "bookId": 114,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 8.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 115,
+      "bookId": 115,
+      "status": "Paused",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Started in 2026; paused, to be resumed"
+    },
+    {
+      "id": 116,
+      "bookId": 116,
+      "status": "Paused",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Started in 2026; paused, to be resumed"
+    },
+    {
+      "id": 117,
+      "bookId": 117,
+      "status": "Paused",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Started in 2026; paused, to be resumed"
+    },
+    {
+      "id": 118,
+      "bookId": 118,
+      "status": "Paused",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Started in 2026; paused, to be resumed"
+    },
+    {
+      "id": 119,
+      "bookId": 119,
+      "status": "Paused",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Started in 2026; paused, to be resumed"
+    },
+    {
+      "id": 120,
+      "bookId": 120,
+      "status": "Paused",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Published in three volumes, 1954–1955. Started in 2026; paused, to be resumed"
+    },
+    {
+      "id": 121,
+      "bookId": 121,
+      "status": "Paused",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Started in 2026; paused, to be resumed"
+    },
+    {
+      "id": 122,
+      "bookId": 122,
+      "status": "Paused",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Portuguese title: Memórias de um Caçador. Started in 2026; paused, to be resumed"
+    },
+    {
+      "id": 123,
+      "bookId": 123,
+      "status": "Paused",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Started in 2026; paused, to be resumed"
+    },
+    {
+      "id": 124,
+      "bookId": 124,
+      "status": "Paused",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Started in 2026; paused, to be resumed"
+    },
+    {
+      "id": 125,
+      "bookId": 125,
+      "status": "Paused",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Started in 2026; paused, to be resumed"
+    },
+    {
+      "id": 126,
+      "bookId": 126,
+      "status": "Paused",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Started in 2026; paused, to be resumed"
+    },
+    {
+      "id": 127,
+      "bookId": 127,
+      "status": "Read",
+      "yearRead": 2026,
+      "grade": 7.5,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 128,
+      "bookId": 128,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 129,
+      "bookId": 129,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 130,
+      "bookId": 130,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 131,
+      "bookId": 131,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 132,
+      "bookId": 132,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Published 1989–1996"
+    },
+    {
+      "id": 133,
+      "bookId": 133,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 134,
+      "bookId": 134,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 135,
+      "bookId": 135,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 136,
+      "bookId": 136,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": "Teco",
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 137,
+      "bookId": 137,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 138,
+      "bookId": 138,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": "Listed as Scandinavian literature in the original log"
+    },
+    {
+      "id": 139,
+      "bookId": 139,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 140,
+      "bookId": 140,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 141,
+      "bookId": 141,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 142,
+      "bookId": 142,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    },
+    {
+      "id": 143,
+      "bookId": 143,
+      "status": "Want to read",
+      "yearRead": null,
+      "grade": null,
+      "recommendedBy": null,
+      "priority": null,
+      "notes": null
+    }
+  ]
+}
