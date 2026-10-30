@@ -23,11 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function fetchData() {
     fetch('./data/seed.json')
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('HTTP error: ' + response.status);
+            }
+            return response.text();
+        })
         .then(data => {
-            localStorage.setItem('store.js', data);
+            for (const [key, value] of Object.entries(JSON.parse(data))) {
+                localStorage.setItem(key, JSON.stringify(value));   
+            }
         })
         .catch(error => {
-            console.error('Error fetching store.js:', error);
+            console.error('Error fetching seed.json: ', error);
         });
 };
