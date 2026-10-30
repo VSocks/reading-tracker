@@ -2,49 +2,39 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <title>Reading Tracker</title>
+    <script type="module" src="./modules/store.js"></script>
 </head>
 
 <body>
     <h1>Reading Tracker</h1>
-    
+
+    <button id="reset-data" type="button">Reset data</button>
+    <button id="clear-data" type="button">Clear data</button>
+    <button id="get-data" type="button">Get data</button>
+
+
     <h2>Authors</h2>
     <form id="author-form">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <label for="author-name">Name</label>
+        <input type="text" id="author-name" required>
 
-        <label for="nationality">Nationality</label>
-        <select id="nationality" name="nationality">
+        <label for="author-nationality">Nationality</label>
+        <select id="author-nationality">
             <option value="">Not specified</option>
         </select>
 
         <label for="birth-date">Birthdate</label>
-        <input type="date" id="birthdate" name="birthDate">
+        <input type="date" id="birth-date">
 
         <label for="death-date">Deathdate</label>
-        <input type="date" id="death-date" name="deathDate">
+        <input type="date" id="death-date">
 
-        <button id="submit-button" type="submit">Add author</button>
-        <button id="cancel-button" type="button" hidden>Cancel</button>
+        <button id="submit-button-author" type="submit">Add author</button>
+        <button id="cancel-button-author" type="button">Cancel</button>
+        <button id="show-button-author" type="button">Show Authors</button>
     </form>
-
-    <h2>Books</h2>
-    <form id="book-form">
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title" required>
-
-        <label for="author">Author</label>
-        <select id="author" name="author">
-            <option value="">Not specified</option>
-        </select>
-
-        <label for="publication-date">Publication date</label>
-        <input type="date" id="publication-date" name="publicationDate">
-
-        <button id="submit-button-book" type="submit">Add book</button>
-        <button id="cancel-button-book" type="button" hidden>Cancel</button>
-    </form>
-
-    <script type="module" src="./store.js"></script>
 </body>
 
 </html>
