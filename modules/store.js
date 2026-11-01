@@ -157,6 +157,40 @@ function addBook() {
 }
 
 
+function addReading() {
+    const readingId = JSON.parse(localStorage.getItem("readings")).at(-1).id + 1;
+    const bookId = Number(document.getElementById("reading-book").value);
+    const status = document.getElementById("reading-status").value;
+    const yearRead = document.getElementById("year-read").value;
+    const grade = document.getElementById("grade").value;
+    const recommendedBy = document.getElementById("recommended-by").value;
+    const priority = document.getElementById("priority").value;
+    const notes = document.getElementById("notes").value;
+
+    if (!bookId) {
+        alert("Please select a book.");
+        return;
+    }
+
+    const reading = {
+        id: readingId,
+        bookId: bookId,
+        status: status,
+        yearRead: yearRead,
+        grade: grade,
+        recommendedBy: recommendedBy,
+        priority: priority,
+        notes: notes
+    };
+
+    let readings = JSON.parse(localStorage.getItem("readings"));
+    readings.push(reading);
+    localStorage.setItem("readings", JSON.stringify(readings));
+    alert("Reading added successfully.");
+    updateReadingForm();
+}
+
+
 function displayAuthors() {
     const authors = JSON.parse(localStorage.getItem("authors"));
     const authorsList = document.getElementById("author-list");
