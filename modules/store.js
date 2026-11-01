@@ -2,8 +2,12 @@ const nationalitySelect = document.getElementById("author-nationality");
 const resetButton = document.getElementById("reset-data");
 const clearButton = document.getElementById("clear-data");
 const getButton = document.getElementById("get-data");
+
 const addAuthorButton = document.getElementById("add-author");
 const displayAuthorsButton = document.getElementById("show-button-author");
+
+const addBookButton = document.getElementById("add-book");
+const displayBooksButton = document.getElementById("show-button-book");
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchData();
@@ -64,6 +68,31 @@ function addAuthor() {
     authors.push(author);
     localStorage.setItem("authors", JSON.stringify(authors));
     alert("Author added successfully.");
+}
+
+
+function addBook() {
+    const bookId = JSON.parse(localStorage.getItem("books")).at(-1).id + 1;
+    const bookTitle = document.getElementById("book-title").value;
+    const bookAuthorId = document.getElementById("book-author").value;
+    const publicationYear = document.getElementById("publication-year").value;
+
+    if (!bookTitle) {
+        alert("Please enter the book title.");
+        return;
+    }
+
+    const book = {
+        id: bookId,
+        title: bookTitle,
+        authorId: bookAuthorId,
+        publicationYear: publicationYear,
+    };
+
+    let books = JSON.parse(localStorage.getItem("books"));
+    books.push(book);
+    localStorage.setItem("books", JSON.stringify(books));
+    alert("Book added successfully.");
 }
 
 
