@@ -3,6 +3,8 @@ const resetButton = document.getElementById("reset-data");
 const clearButton = document.getElementById("clear-data");
 const getButton = document.getElementById("get-data");
 const addAuthorButton = document.getElementById("add-author");
+const displayAuthorsButton = document.getElementById("show-button-author");
+
 
 resetButton.addEventListener("click", () => {
     localStorage.clear();
@@ -23,6 +25,10 @@ getButton.addEventListener("click", () => {
 addAuthorButton.addEventListener("click", (event) => {
     event.preventDefault();
     addAuthor();
+});
+
+displayAuthorsButton.addEventListener("click", () => {
+    displayAuthors();
 });
 
 
@@ -50,6 +56,24 @@ function addAuthor() {
     authors.push(author);
     localStorage.setItem("authors", JSON.stringify(authors));
     alert("Author added successfully.");
+}
+
+
+function displayAuthors() {
+    const authors = JSON.parse(localStorage.getItem("authors"));
+    const authorsList = document.getElementById("author-list");
+    authorsList.innerHTML = "";
+
+    if (!authors || authors.length === 0) {
+        authorsList.textContent = "No authors found.";
+        return;
+    }
+
+    authors.forEach(author => {
+        const listItem = document.createElement("li");
+        listItem.textContent = "ID: " + author.id + ", Name: " + author.name + ", Birthdate: " + author.birthDate + ", Deathdate: " + author.deathDate + ", Nationality ID: " + author.countryId;
+        authorsList.appendChild(listItem);
+    });
 }
 
 
