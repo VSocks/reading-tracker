@@ -10,6 +10,7 @@ const addBookButton = document.getElementById("add-book");
 const displayBooksButton = document.getElementById("show-button-book");
 
 const deleteAuthorButton = document.getElementById("delete-author-button");
+const deleteBookButton = document.getElementById("delete-book-button");
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchData();
@@ -60,6 +61,15 @@ deleteAuthorButton.addEventListener("click", () => {
     deleteAuthor(authorId);
 });
 
+deleteBookButton.addEventListener("click", () => {
+    const bookId = parseInt(document.getElementById("delete-book").value);
+    if (isNaN(bookId)) {
+        alert("Please select a book to delete.");
+        return;
+    }
+    deleteBook(bookId);
+});
+
 
 function addAuthor() {
     const authorId = JSON.parse(localStorage.getItem("authors")).at(-1).id + 1;
@@ -95,10 +105,12 @@ function addAuthor() {
     authors.push(author);
     localStorage.setItem("authors", JSON.stringify(authors));
     alert("Author added successfully.");
+    updateAuthorForm();
 }
 
 
 function addBook() {
+    //TODO: atualizar para permitir uso de temas
     const bookId = JSON.parse(localStorage.getItem("books")).at(-1).id + 1;
     const bookTitle = document.getElementById("book-title").value;
     const bookAuthorId = document.getElementById("book-author").value;
@@ -128,6 +140,7 @@ function addBook() {
     books.push(book);
     localStorage.setItem("books", JSON.stringify(books));
     alert("Book added successfully.");
+    updateBookForm();
 }
 
 
@@ -218,6 +231,7 @@ function deleteAuthor(authorId) {
     authors = authors.filter(author => author.id !== authorId);
     localStorage.setItem("authors", JSON.stringify(authors));
     alert("Author deleted successfully.");
+    updateAuthorForm();
 }
 
 
@@ -226,6 +240,7 @@ function deleteBook(bookId) {
     books = books.filter(book => book.id !== bookId);
     localStorage.setItem("books", JSON.stringify(books));
     alert("Book deleted successfully.");
+    updateBookForm();
 }
 
 
