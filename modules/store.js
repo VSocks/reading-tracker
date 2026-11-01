@@ -9,6 +9,8 @@ const displayAuthorsButton = document.getElementById("show-button-author");
 const addBookButton = document.getElementById("add-book");
 const displayBooksButton = document.getElementById("show-button-book");
 
+const deleteAuthorButton = document.getElementById("delete-author-button");
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchData();
     updateAuthorForm();
@@ -47,6 +49,15 @@ addBookButton.addEventListener("click", (event) => {
 
 displayBooksButton.addEventListener("click", () => {
     displayBooks();
+});
+
+deleteAuthorButton.addEventListener("click", () => {
+    const authorId = parseInt(document.getElementById("delete-author").value);
+    if (isNaN(authorId)) {
+        alert("Please select an author to delete.");
+        return;
+    }
+    deleteAuthor(authorId);
 });
 
 
@@ -197,6 +208,27 @@ function hideBooks() {
 }
 
 
+function deleteAuthor(authorId) {
+    let booksWithAuthor = JSON.parse(localStorage.getItem("books")).filter(book => book.authorIds.includes(authorId));
+    if (booksWithAuthor.length > 0) {
+        alert("Cannot delete author. There are books associated with this author: " + booksWithAuthor.map(book => book.title).join(", "));
+        return;
+    }
+    let authors = JSON.parse(localStorage.getItem("authors"));
+    authors = authors.filter(author => author.id !== authorId);
+    localStorage.setItem("authors", JSON.stringify(authors));
+    alert("Author deleted successfully.");
+}
+
+
+function deleteBook(bookId) {
+    let books = JSON.parse(localStorage.getItem("books"));
+    books = books.filter(book => book.id !== bookId);
+    localStorage.setItem("books", JSON.stringify(books));
+    alert("Book deleted successfully.");
+}
+
+
 function getCountryFromId(countryId) {
     const countries = JSON.parse(localStorage.getItem("countries"));
     const country = countries.find(c => c.id === countryId);
@@ -239,6 +271,8 @@ function getThemesFromIds(themeIds) {
 function updateAuthorForm() {
     const authorNationalitySelect = document.getElementById("author-nationality");
     const countries = JSON.parse(localStorage.getItem("countries"));
+    const deleteAuthorSelect = document.getElementById("delete-author");
+    const authors = JSON.parse(localStorage.getItem("authors"));
 
     countries.forEach(country => {
         const option = document.createElement("option");
@@ -246,18 +280,34 @@ function updateAuthorForm() {
         option.textContent = country.name;
         authorNationalitySelect.appendChild(option);
     });
+
+    authors.forEach(author => {
+        const option = document.createElement("option");
+        option.value = author.id;
+        option.textContent = author.name;
+        deleteAuthorSelect.appendChild(option);
+    });
 }
 
 
 function updateBookForm() {
     const bookAuthorSelect = document.getElementById("book-author");
     const authors = JSON.parse(localStorage.getItem("authors"));
+    const deleteBookSelect = document.getElementById("delete-book");
+    const books = JSON.parse(localStorage.getItem("books"));
 
     authors.forEach(author => {
         const option = document.createElement("option");
         option.value = author.id;
         option.textContent = author.name;
         bookAuthorSelect.appendChild(option);
+    });
+
+    books.forEach(book => {
+        const option = document.createElement("option");
+        option.value = book.id;
+        option.textContent = book.title;
+        deleteBookSelect.appendChild(option);
     });
 }
 
