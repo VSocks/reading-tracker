@@ -5,6 +5,9 @@ const getButton = document.getElementById("get-data");
 const addAuthorButton = document.getElementById("add-author");
 const displayAuthorsButton = document.getElementById("show-button-author");
 
+document.addEventListener("DOMContentLoaded", () => {
+    fetchData();
+});
 
 resetButton.addEventListener("click", () => {
     localStorage.clear();
@@ -33,7 +36,7 @@ displayAuthorsButton.addEventListener("click", () => {
 
 
 function addAuthor() {
-    const authorId = JSON.parse(localStorage.getItem("authors")).findLastIndex(author => author.id) + 1;
+    const authorId = JSON.parse(localStorage.getItem("authors")).at(-1).id + 1;
     const authorName = document.getElementById("author-name").value;
     const birthDate = document.getElementById("birth-date").value;
     const deathDate = document.getElementById("death-date").value;
@@ -41,6 +44,11 @@ function addAuthor() {
 
     if (!authorName) {
         alert("Please enter the author's name.");
+        return;
+    }
+
+    if (birthDate > deathDate) {
+        alert("Birthdate cannot be later than deathdate.");
         return;
     }
     
