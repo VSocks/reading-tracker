@@ -38,6 +38,15 @@ displayAuthorsButton.addEventListener("click", () => {
     displayAuthors();
 });
 
+addBookButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    addBook();
+});
+
+displayBooksButton.addEventListener("click", () => {
+    displayBooks();
+});
+
 
 function addAuthor() {
     const authorId = JSON.parse(localStorage.getItem("authors")).at(-1).id + 1;
@@ -76,6 +85,10 @@ function addBook() {
     const bookTitle = document.getElementById("book-title").value;
     const bookAuthorId = document.getElementById("book-author").value;
     const publicationYear = document.getElementById("publication-year").value;
+    const form = document.getElementById("form").value;
+    const modeOfExpression = document.getElementById("mode-of-expression").value;
+    const content = document.getElementById("content").value;
+    //const theme = document.getElementById("theme").value;
 
     if (!bookTitle) {
         alert("Please enter the book title.");
@@ -87,6 +100,10 @@ function addBook() {
         title: bookTitle,
         authorId: bookAuthorId,
         publicationYear: publicationYear,
+        form: form.value,
+        modeOfExpression: modeOfExpression,
+        content: content,
+        //theme: theme
     };
 
     let books = JSON.parse(localStorage.getItem("books"));
@@ -101,20 +118,53 @@ function displayAuthors() {
     const authorsList = document.getElementById("author-list");
     authorsList.innerHTML = "";
 
-    if (!authors || authors.length === 0) {
+    if (!authors) {
         authorsList.textContent = "No authors found.";
         return;
     }
 
     authors.forEach(author => {
         const listItem = document.createElement("li");
-        listItem.textContent = "ID: " + author.id + ", Name: " + author.name + ", Birthdate: " + author.birthDate + ", Deathdate: " + author.deathDate + ", Nationality: " + getCountryFromId(author.countryId);
+        listItem.textContent = "ID: " + author.id + 
+                                ", Name: " + author.name + 
+                                ", Birthdate: " + author.birthDate + 
+                                ", Deathdate: " + author.deathDate + 
+                                ", Nationality: " + getCountryFromId(author.countryId);
         authorsList.appendChild(listItem);
     });
 
     displayAuthorsButton.textContent = "Hide Authors";
     displayAuthorsButton.removeEventListener("click", displayAuthors);
     displayAuthorsButton.addEventListener("click", hideAuthors);
+}
+
+
+function displayBooks() {
+    const books = JSON.parse(localStorage.getItem("books"));
+    const booksList = document.getElementById("book-list");
+    booksList.innerHTML = "";
+
+    if (!books) {
+        booksList.textContent = "No books found.";
+        return;
+    }
+
+    books.forEach(book => {
+        const listItem = document.createElement("li");
+        listItem.textContent = "ID: " + book.id + 
+                                ", Title: " + book.title + 
+                                ", Authors: " + getAuthorsNamesFromIds(book.authorIds) + 
+                                ", Publication Year: " + book.publicationYear + 
+                                ", Form: " + book.form +
+                                ", Mode of Expression: " + book.mode + 
+                                ", Content: " + book.content +
+                                ", Themes: " + getThemesFromIds(book.themeIds);
+        booksList.appendChild(listItem);
+    });
+
+    displayBooksButton.textContent = "Hide Books";
+    displayBooksButton.removeEventListener("click", displayBooks);
+    displayBooksButton.addEventListener("click", hideBooks);
 }
 
 
@@ -129,11 +179,55 @@ function hideAuthors() {
 }
 
 
+function hideBooks() {
+    const booksList = document.getElementById("book-list");
+    for (let i = booksList.children.length - 1; i >= 0; i--) {
+        booksList.removeChild(booksList.children[i]);
+    }
+    displayBooksButton.textContent = "Show Books";
+    displayBooksButton.removeEventListener("click", hideBooks);
+    displayBooksButton.addEventListener("click", displayBooks);
+}
+
+
 function getCountryFromId(countryId) {
     const countries = JSON.parse(localStorage.getItem("countries"));
     const country = countries.find(c => c.id === countryId);
     return country ? country.name : "Unknown";
 }
+
+
+function getAuthorsNamesFromIds(authorIds) {
+    if (!authorIds || authorIds.length === 0) {
+        return "Not Specified";
+    }
+    const authors = JSON.parse(localStorage.getItem("authors"));
+    let authorNames = [];
+    authorIds.forEach(id => {
+        const author = authors.find(a => a.id === id);
+        if (author) {
+            authorNames.push(author.name);
+        }
+    });
+    return authorNames.join(", ");
+}
+
+
+function getThemesFromIds(themeIds) {
+    if (!themeIds || themeIds.length === 0) {
+        return "Not Specified";
+    }
+    const themes = JSON.parse(localStorage.getItem("themes"));
+    let themeNames = [];
+    themeIds.forEach(id => {
+        const theme = themes.find(t => t.id === id);
+        if (theme) {
+            themeNames.push(theme.name);
+        }
+    });
+    return themeNames.join(", ");
+}
+
 
 
 function fetchData() {
