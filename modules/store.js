@@ -5,17 +5,20 @@ const getButton = document.getElementById("get-data");
 
 const addAuthorButton = document.getElementById("add-author");
 const displayAuthorsButton = document.getElementById("show-button-author");
+const deleteAuthorButton = document.getElementById("delete-author-button");
+
 
 const addBookButton = document.getElementById("add-book");
 const displayBooksButton = document.getElementById("show-button-book");
-
-const deleteAuthorButton = document.getElementById("delete-author-button");
 const deleteBookButton = document.getElementById("delete-book-button");
+
+const addReadingButton = document.getElementById("add-reading");
+const displayReadingsButton = document.getElementById("show-button-reading");
+
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchData();
-    updateAuthorForm();
-    updateBookForm();
+    updateAllForms();
 });
 
 resetButton.addEventListener("click", () => {
@@ -68,6 +71,15 @@ deleteBookButton.addEventListener("click", () => {
         return;
     }
     deleteBook(bookId);
+});
+
+addReadingButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    addReading();
+});
+
+displayReadingsButton.addEventListener("click", () => {
+    displayReadings();
 });
 
 
@@ -141,6 +153,7 @@ function addBook() {
     localStorage.setItem("books", JSON.stringify(books));
     alert("Book added successfully.");
     updateBookForm();
+    updateReadingForm();
 }
 
 
@@ -199,6 +212,34 @@ function displayBooks() {
 }
 
 
+function displayReadings() {
+    const readings = JSON.parse(localStorage.getItem("readings"));
+    const readingsList = document.getElementById("reading-list");
+
+    if (!readings) {
+        readingsList.textContent = "No readings found.";
+        return;
+    }
+
+    readings.forEach(reading => {
+        const listItem = document.createElement("li");
+        listItem.textContent = "ID: " + reading.id +
+                                ", Book: " + getBookTitleFromId(reading.bookId) + 
+                                ", Status: " + reading.status + 
+                                ", Year Read: " + reading.yearRead + 
+                                ", Grade: " + reading.grade +
+                                ", Recommended By: " + reading.recommendedBy + 
+                                ", Priority: " + reading.priority +
+                                ", Notes: " + reading.notes;
+        readingsList.appendChild(listItem);
+    });
+
+    displayReadingsButton.textContent = "Hide Readings";
+    displayReadingsButton.removeEventListener("click", displayReadings);
+    displayReadingsButton.addEventListener("click", hideReadings);
+}
+
+
 function hideAuthors() {
     const authorsList = document.getElementById("author-list");
     for (let i = authorsList.children.length - 1; i >= 0; i--) {
@@ -218,6 +259,17 @@ function hideBooks() {
     displayBooksButton.textContent = "Show Books";
     displayBooksButton.removeEventListener("click", hideBooks);
     displayBooksButton.addEventListener("click", displayBooks);
+}
+
+
+function hideReadings() {
+    const readingsList = document.getElementById("reading-list");
+    for (let i = readingsList.children.length - 1; i >= 0; i--) {
+        readingsList.removeChild(readingsList.children[i]);
+    }
+    displayReadingsButton.textContent = "Show Readings";
+    displayReadingsButton.removeEventListener("click", hideReadings);
+    displayReadingsButton.addEventListener("click", displayReadings);
 }
 
 
@@ -283,6 +335,13 @@ function getThemesFromIds(themeIds) {
 }
 
 
+function getBookTitleFromId(bookId) {
+    const books = JSON.parse(localStorage.getItem("books"));
+    const book = books.find(b => b.id === bookId);
+    return book ? book.title : "Unknown";
+}
+
+
 function updateAuthorForm() {
     const authorNationalitySelect = document.getElementById("author-nationality");
     const countries = JSON.parse(localStorage.getItem("countries"));
@@ -324,6 +383,26 @@ function updateBookForm() {
         option.textContent = book.title;
         deleteBookSelect.appendChild(option);
     });
+}
+
+
+function updateReadingForm() {
+    const readingBookSelect = document.getElementById("reading-book");
+    const books = JSON.parse(localStorage.getItem("books"));
+    
+    books.forEach(book => {
+        const option = document.createElement("option");
+        option.value = book.id;
+        option.textContent = book.title;
+        readingBookSelect.appendChild(option);
+    });
+}
+
+
+function updateAllForms() {
+    updateAuthorForm();
+    updateBookForm();
+    updateReadingForm();
 }
 
 
