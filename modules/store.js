@@ -114,6 +114,12 @@ function addAuthor() {
     };
 
     let authors = JSON.parse(localStorage.getItem("authors"));
+    
+    if (authors.some(a => a.name === authorName)) {
+        alert("An author with this name already exists.");
+        return;
+    }
+
     authors.push(author);
     localStorage.setItem("authors", JSON.stringify(authors));
     alert("Author added successfully.");
@@ -134,6 +140,11 @@ function addBook() {
 
     if (!bookTitle) {
         alert("Please enter the book title.");
+        return;
+    }
+
+    if (publicationYear > new Date().getFullYear()) {
+        alert("Publication year cannot be in the future.");
         return;
     }
 
@@ -158,6 +169,7 @@ function addBook() {
 
 
 function addReading() {
+    //TODO: fazer ano lido obrigatório para status lido
     const readingId = JSON.parse(localStorage.getItem("readings")).at(-1).id + 1;
     const bookId = Number(document.getElementById("reading-book").value);
     const status = document.getElementById("reading-status").value;
@@ -169,6 +181,11 @@ function addReading() {
 
     if (!bookId) {
         alert("Please select a book.");
+        return;
+    }
+
+    if (yearRead > new Date().getFullYear()) {
+        alert("Year read cannot be in the future.");
         return;
     }
 
