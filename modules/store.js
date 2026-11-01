@@ -11,6 +11,8 @@ const displayBooksButton = document.getElementById("show-button-book");
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchData();
+    updateAuthorForm();
+    updateBookForm();
 });
 
 resetButton.addEventListener("click", () => {
@@ -62,6 +64,11 @@ function addAuthor() {
 
     if (birthDate > deathDate) {
         alert("Birthdate cannot be later than deathdate.");
+        return;
+    }
+
+    if (birthDate > new Date().toISOString()) {
+        alert("Birthdate cannot be in the future.");
         return;
     }
     
@@ -229,6 +236,31 @@ function getThemesFromIds(themeIds) {
 }
 
 
+function updateAuthorForm() {
+    const authorNationalitySelect = document.getElementById("author-nationality");
+    const countries = JSON.parse(localStorage.getItem("countries"));
+
+    countries.forEach(country => {
+        const option = document.createElement("option");
+        option.value = country.id;
+        option.textContent = country.name;
+        authorNationalitySelect.appendChild(option);
+    });
+}
+
+
+function updateBookForm() {
+    const bookAuthorSelect = document.getElementById("book-author");
+    const authors = JSON.parse(localStorage.getItem("authors"));
+
+    authors.forEach(author => {
+        const option = document.createElement("option");
+        option.value = author.id;
+        option.textContent = author.name;
+        bookAuthorSelect.appendChild(option);
+    });
+}
+
 
 function fetchData() {
     fetch("./data/seed.json")
@@ -241,14 +273,6 @@ function fetchData() {
         .then(data => {
             for (const [key, value] of Object.entries(JSON.parse(data))) {
                 localStorage.setItem(key, JSON.stringify(value));
-                if (key === "countries") {
-                    value.forEach(country => {
-                        const option = document.createElement("option");
-                        option.value = country.id;
-                        option.textContent = country.name;
-                        nationalitySelect.appendChild(option);
-                    });
-                }
             }
         })
         .catch(error => {
