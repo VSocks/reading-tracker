@@ -71,9 +71,31 @@ function displayAuthors() {
 
     authors.forEach(author => {
         const listItem = document.createElement("li");
-        listItem.textContent = "ID: " + author.id + ", Name: " + author.name + ", Birthdate: " + author.birthDate + ", Deathdate: " + author.deathDate + ", Nationality ID: " + author.countryId;
+        listItem.textContent = "ID: " + author.id + ", Name: " + author.name + ", Birthdate: " + author.birthDate + ", Deathdate: " + author.deathDate + ", Nationality: " + getCountryFromId(author.countryId);
         authorsList.appendChild(listItem);
     });
+
+    displayAuthorsButton.textContent = "Hide Authors";
+    displayAuthorsButton.removeEventListener("click", displayAuthors);
+    displayAuthorsButton.addEventListener("click", hideAuthors);
+}
+
+
+function hideAuthors() {
+    const authorsList = document.getElementById("author-list");
+    for (let i = authorsList.children.length - 1; i >= 0; i--) {
+        authorsList.removeChild(authorsList.children[i]);
+    }
+    displayAuthorsButton.textContent = "Show Authors";
+    displayAuthorsButton.removeEventListener("click", hideAuthors);
+    displayAuthorsButton.addEventListener("click", displayAuthors);
+}
+
+
+function getCountryFromId(countryId) {
+    const countries = JSON.parse(localStorage.getItem("countries"));
+    const country = countries.find(c => c.id === countryId);
+    return country ? country.name : "Unknown";
 }
 
 
