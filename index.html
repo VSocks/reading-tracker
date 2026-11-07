@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Reading Tracker</title>
-    <script type="module" src="./modules/store.js"></script>
+    <script type="module" src="./main.js"></script>
 </head>
 
 <body>
@@ -13,131 +13,9 @@
     <button id="reset-data" type="button">Reset data</button>
     <button id="clear-data" type="button">Clear data</button>
     <button id="get-data" type="button">Get data</button>
-
-
-    <h2>Authors</h2>
-    <form id="author-form">
-        <label for="author-name">Name</label>
-        <input type="text" id="author-name" required>
-
-        <label for="author-nationality">Nationality</label>
-        <select id="author-nationality">
-            <option value="">Not specified</option>
-        </select>
-
-        <label for="birth-date">Birthdate</label>
-        <input type="date" id="birth-date">
-
-        <label for="death-date">Deathdate</label>
-        <input type="date" id="death-date">
-
-        <button id="add-author" type="submit">Add author</button>
-        <button id="cancel-button-author" type="button">Cancel</button>
-
-        <label for="delete-author">Delete Author</label>
-        <select id="delete-author">
-            <option value="">Not specified</option>
-        </select>
-        <button id="delete-author-button" type="button">Delete Author</button>
-
-        <button id="show-button-author" type="button">Show Authors</button>
-    </form>
-    <ul id="author-list"></ul>
-
-    <h2>Books</h2>
-    <form id="book-form">
-        <label for="book-title">Title</label>
-        <input type="text" id="book-title" required>
-
-        <label for="book-author">Author</label>
-        <select id="book-author">
-            <option value="">Not Specified</option>
-        </select>
-
-        <label for="publication-year">Publication Year</label>
-        <input type="number" id="publication-year">
-
-        <label for="form">Form</label>
-        <select id="form">
-            <option value="novel">Novel</option>
-            <option value="novella">Novella</option>
-            <option value="short-story">Short Story</option>
-            <option value="short-story-collection">Short Story Collection</option>
-            <option value="play">Play</option>
-            <option value="essay">Essay</option>
-            <option value="treatise">Treatise</option>
-            <option value="diary">Diary</option>
-            <option value="graphic-novel">Graphic Novel</option>
-        </select>
-
-        <label for="mode-of-expression">Mode of Expression</label>
-        <select id="mode-of-expression">
-            <option value="prose">Prose</option>
-            <option value="drama">Drama</option>
-            <option value="poetry">Poetry</option>
-            <option value="sequential-art">Sequential Art</option>
-        </select>
-
-        <label for="content">Content</label>
-        <select id="content">
-            <option value="fiction">Fiction</option>
-            <option value="non-fiction">Non-Fiction</option>
-        </select>
-
-        <button id="add-book" type="submit">Add book</button>
-        <button id="cancel-button-book" type="button">Cancel</button>
-
-        <label for="delete-book">Delete Book</label>
-        <select id="delete-book">
-            <option value="">Not specified</option>
-        </select>
-        <button id="delete-book-button" type="button">Delete Book</button>
-
-        <button id="show-button-book" type="button">Show Books</button>
-    </form>
-    <ul id="book-list"></ul>
-
-    <h2>Readings</h2>
-    <form id="reading-form">
-        <label for="reading-book">Book</label>
-        <select id="reading-book" required>
-            <option value="">Not specified</option>
-        </select>
-
-        <label for="reading-status">Status</label>
-        <select id="reading-status" required>
-            <option value="Want to Read">Want to read</option>
-            <option value="Reading">Reading</option>
-            <option value="Paused">Paused</option>
-            <option value="Read">Read</option>
-            <option value="Abandoned">Abandoned</option>
-        </select>
-
-        <label for="year-read">Year Read</label>
-        <input type="number" id="year-read">
-
-        <label for="grade">Grade</label>
-        <input type="number" id="grade" min="0" max="10">
-
-        <label for="recommended-by">Recommended By</label>
-        <input type="text" id="recommended-by">
-
-        <label for="priority">Priority</label>
-        <select id="priority">
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-        </select>
-
-        <label for="notes">Notes</label>
-        <textarea id="notes"></textarea>
-
-        <button id="add-reading" type="submit">Add reading</button>
-        <button id="cancel-button-reading" type="button">Cancel</button>
-
-        <button id="show-button-reading" type="button">Show Readings</button>
-    </form>
-    <ul id="reading-list"></ul>
+    <a href="manage-authors.html">Manage Authors</a>
+    <a href="manage-books.html">Manage Books</a>
+    <a href="manage-readings.html">Manage Readings</a>
 </body>
 
 </html>

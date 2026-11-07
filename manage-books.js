@@ -1,0 +1,30 @@
+import {addBook, deleteBook} from "./modules/data-access.js";
+import {displayBooks, updateBookForm} from "./modules/rendering.js";
+
+
+const addBookButton = document.getElementById("add-book");
+const displayBooksButton = document.getElementById("show-button-book");
+const deleteBookButton = document.getElementById("delete-book-button");
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    updateBookForm();
+});
+
+addBookButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    addBook();
+});
+
+displayBooksButton.addEventListener("click", () => {
+    displayBooks();
+});
+
+deleteBookButton.addEventListener("click", () => {
+    const bookId = parseInt(document.getElementById("delete-book").value);
+    if (isNaN(bookId)) {
+        alert("Please select a book to delete.");
+        return;
+    }
+    deleteBook(bookId);
+});
