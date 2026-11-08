@@ -48,7 +48,7 @@ export async function addBook() {
     //TODO: atualizar para permitir uso de temas
     const bookId = JSON.parse(localStorage.getItem("books")).at(-1).id + 1;
     const bookTitle = document.getElementById("book-title").value;
-    const bookAuthorId = document.getElementById("book-author").value;
+    const bookAuthorIds = Array.from(document.getElementById("book-author").selectedOptions).map(option => parseInt(option.value));
     const publicationYear = document.getElementById("publication-year").value;
     const form = document.getElementById("form").value;
     const modeOfExpression = document.getElementById("mode-of-expression").value;
@@ -68,7 +68,7 @@ export async function addBook() {
     const book = {
         id: bookId,
         title: bookTitle,
-        authorId: bookAuthorId,
+        authorIds: bookAuthorIds,
         publicationYear: publicationYear,
         form: form.value,
         modeOfExpression: modeOfExpression,
@@ -81,7 +81,6 @@ export async function addBook() {
     localStorage.setItem("books", JSON.stringify(books));
     alert("Book added successfully.");
     updateBookForm();
-    updateReadingForm();
 }
 
 

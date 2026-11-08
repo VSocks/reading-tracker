@@ -15,12 +15,12 @@
         <input type="text" id="book-title" required>
 
         <label for="book-author">Author</label>
-        <select id="book-author">
+        <select multiple id="book-author">
             <option value="">Not Specified</option>
         </select>
 
         <label for="publication-year">Publication Year</label>
-        <input type="number" id="publication-year">
+        <input type="number" id="publication-year"/>
 
         <label for="form">Form</label>
         <select id="form">
@@ -48,6 +48,15 @@
             <option value="fiction">Fiction</option>
             <option value="non-fiction">Non-Fiction</option>
         </select>
+
+        <label for="themes-input">Themes</label>
+        <div id="themes-input">
+            <input type="text" id="tag-input"/>
+            <ul id="selected-tags"></ul>
+        </div>
+        <button id="add-theme">Add Theme</button>
+        <button id="suggest-tags">Suggest Tags</button>
+        <ul id="themes-suggestions"></ul>
 
         <button id="add-book" type="submit">Add book</button>
         <button id="cancel-button-book" type="button">Cancel</button>

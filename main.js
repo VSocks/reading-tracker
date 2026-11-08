@@ -1,6 +1,5 @@
 import { fetchData } from "./modules/data-access.js";
 
-const nationalitySelect = document.getElementById("author-nationality");
 const resetButton = document.getElementById("reset-data");
 const clearButton = document.getElementById("clear-data");
 const getButton = document.getElementById("get-data");

@@ -4,6 +4,7 @@ import {displayReadings, updateReadingForm} from "./modules/rendering.js";
 
 const addReadingButton = document.getElementById("add-reading");
 const displayReadingsButton = document.getElementById("show-button-reading");
+const tagInput = document.getElementById("tag-input");
 
 
 document.addEventListener("DOMContentLoaded", () => {

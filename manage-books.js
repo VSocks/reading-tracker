@@ -1,10 +1,13 @@
 import {addBook, deleteBook} from "./modules/data-access.js";
-import {displayBooks, updateBookForm} from "./modules/rendering.js";
+import {displayBooks, updateBookForm, suggestTag} from "./modules/rendering.js";
 
 
 const addBookButton = document.getElementById("add-book");
 const displayBooksButton = document.getElementById("show-button-book");
 const deleteBookButton = document.getElementById("delete-book-button");
+const tagInput = document.getElementById("tag-input");
+const addThemeButton = document.getElementById("add-theme");
+const suggestTagsButton = document.getElementById("suggest-tags");
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,4 +30,17 @@ deleteBookButton.addEventListener("click", () => {
         return;
     }
     deleteBook(bookId);
+});
+
+tagInput.addEventListener("keydown", () => {
+    suggestTag(tagInput.value);
+});
+
+addThemeButton.addEventListener("click", () => {
+    return; //placeholder
+    //addTheme();
+});
+
+suggestTagsButton.addEventListener("click", () => {
+    suggestTag(tagInput.value);
 });

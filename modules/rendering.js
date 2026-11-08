@@ -184,3 +184,51 @@ export function updateAllForms() {
     updateBookForm();
     updateReadingForm();
 }
+
+
+export function suggestTag(inputValue) {
+    const input = document.getElementById("tag-input");
+    const suggestionsList = document.getElementById("themes-suggestions");
+    const selectedTagsList = document.getElementById("selected-tags");
+    const themes = JSON.parse(localStorage.getItem("themes"));
+    inputValue = inputValue.trim().toLowerCase();
+
+    suggestionsList.innerHTML = "";
+
+    if (inputValue === "") {
+        suggestionsList.hidden = true;
+        return;
+    }
+
+    const filteredThemes = themes.filter(theme => theme.name.toLowerCase().includes(inputValue));
+
+    if (filteredThemes.length === 0) {
+        suggestionsList.hidden = true;
+        return;
+    }
+
+    filteredThemes.forEach(theme => {
+        const tag = document.createElement("span");
+        const suggestionItem = document.createElement("li");
+        tag.textContent = theme.name;
+        tag.value = theme.id;
+        tag.classList.add("tag");
+        suggestionItem.appendChild(tag);
+        suggestionItem.addEventListener("click", () => {
+            const newTag = tag.cloneNode(true);
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "x";
+            deleteButton.classList.add("delete-tag");
+            deleteButton.addEventListener("click", () => {
+                selectedTagsList.removeChild(newTag);
+            });
+            newTag.appendChild(deleteButton);
+            selectedTagsList.appendChild(newTag);
+            input.value = "";
+            suggestionsList.hidden = true;
+        });
+        suggestionsList.appendChild(suggestionItem);
+    });
+
+    suggestionsList.hidden = false;
+}
