@@ -53,7 +53,7 @@ export async function addBook() {
     const form = document.getElementById("form").value;
     const modeOfExpression = document.getElementById("mode-of-expression").value;
     const content = document.getElementById("content").value;
-    //const theme = document.getElementById("theme").value;
+    const themeIds = Array.from(document.getElementById("selected-tags").children).map(li => parseInt(li.value));
 
     if (!bookTitle) {
         alert("Please enter the book title.");
@@ -73,7 +73,7 @@ export async function addBook() {
         form: form.value,
         modeOfExpression: modeOfExpression,
         content: content,
-        //theme: theme
+        themeIds: themeIds
     };
 
     let books = JSON.parse(localStorage.getItem("books"));

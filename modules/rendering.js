@@ -208,26 +208,27 @@ export function suggestTag(inputValue) {
     }
 
     filteredThemes.forEach(theme => {
-        const tag = document.createElement("span");
-        const suggestionItem = document.createElement("li");
+        const tag = document.createElement("li");
         tag.textContent = theme.name;
         tag.value = theme.id;
         tag.classList.add("tag");
-        suggestionItem.appendChild(tag);
-        suggestionItem.addEventListener("click", () => {
-            const newTag = tag.cloneNode(true);
+        tag.addEventListener("click", () => {
+            const newTag = document.createElement("li");
+            newTag.textContent = tag.textContent;
+            newTag.value = tag.value;
+            newTag.classList.add("tag");
             const deleteButton = document.createElement("button");
             deleteButton.textContent = "x";
             deleteButton.classList.add("delete-tag");
             deleteButton.addEventListener("click", () => {
-                selectedTagsList.removeChild(newTag);
+                selectedTagsList.removeChild(newItem);
             });
             newTag.appendChild(deleteButton);
             selectedTagsList.appendChild(newTag);
             input.value = "";
             suggestionsList.hidden = true;
         });
-        suggestionsList.appendChild(suggestionItem);
+        suggestionsList.appendChild(tag);
     });
 
     suggestionsList.hidden = false;
