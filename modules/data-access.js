@@ -124,6 +124,34 @@ export async function addReading() {
 }
 
 
+export async function addTheme() {
+    const themeId = JSON.parse(localStorage.getItem("themes")).at(-1).id + 1;
+    const themeName = document.getElementById("tag-input").value;
+
+    if (!themeName) {
+        alert("Please enter a theme name.");
+        return;
+    }
+
+    let themes = JSON.parse(localStorage.getItem("themes"));
+    
+    if (themes.some(t => t.name === themeName)) {
+        alert("A theme with this name already exists.");
+        return;
+    }
+
+    const theme = {
+        id: themeId,
+        name: themeName
+    };
+
+    themes.push(theme);
+    localStorage.setItem("themes", JSON.stringify(themes));
+    alert("Theme added successfully.");
+    updateBookForm();
+}
+
+
 export async function deleteAuthor(authorId) {
     let booksWithAuthor = JSON.parse(localStorage.getItem("books")).filter(book => book.authorIds.includes(authorId));
     if (booksWithAuthor.length > 0) {
