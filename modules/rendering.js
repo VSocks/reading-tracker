@@ -169,6 +169,9 @@ export function updateBookForm() {
 export function updateReadingForm() {
     const readingBookSelect = document.getElementById("reading-book");
     const books = JSON.parse(localStorage.getItem("books"));
+    const yearReadSelect = document.getElementById("year-read");
+    const status = document.getElementById("reading-status").value;
+    const prioritySelect = document.getElementById("priority");
     
     books.forEach(book => {
         const option = document.createElement("option");
@@ -176,6 +179,20 @@ export function updateReadingForm() {
         option.textContent = book.title;
         readingBookSelect.appendChild(option);
     });
+
+    if (status == "Want to Read") {
+        prioritySelect.hidden = false;
+    } else {
+        prioritySelect.hidden = true;
+        prioritySelect.value = "";
+    }
+
+    if (status == "Read" || status == "Abandoned") {
+        yearReadSelect.hidden = false;
+    } else {
+        yearReadSelect.hidden = true;
+        yearReadSelect.value = null;
+    }
 }
 
 

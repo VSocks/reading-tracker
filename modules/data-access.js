@@ -1,4 +1,4 @@
-import {updateAuthorForm, updateBookForm, updateReadingForm} from "./rendering.js";
+import { updateAuthorForm, updateBookForm, updateReadingForm } from "./rendering.js";
 
 export async function addAuthor() {
     const authorId = JSON.parse(localStorage.getItem("authors")).at(-1).id + 1;
@@ -21,7 +21,7 @@ export async function addAuthor() {
         alert("Birthdate cannot be in the future.");
         return;
     }
-    
+
     const author = {
         id: authorId,
         name: authorName,
@@ -31,7 +31,7 @@ export async function addAuthor() {
     };
 
     let authors = JSON.parse(localStorage.getItem("authors"));
-    
+
     if (authors.some(a => a.name === authorName)) {
         alert("An author with this name already exists.");
         return;
@@ -45,7 +45,6 @@ export async function addAuthor() {
 
 
 export async function addBook() {
-    //TODO: atualizar para permitir uso de temas
     const bookId = JSON.parse(localStorage.getItem("books")).at(-1).id + 1;
     const bookTitle = document.getElementById("book-title").value;
     const bookAuthorIds = Array.from(document.getElementById("book-author").selectedOptions).map(option => parseInt(option.value));
@@ -62,6 +61,11 @@ export async function addBook() {
 
     if (publicationYear > new Date().getFullYear()) {
         alert("Publication year cannot be in the future.");
+        return;
+    }
+
+    if (publicationYear === 0) {
+        alert("Please enter a valid publication year.");
         return;
     }
 
@@ -100,6 +104,31 @@ export async function addReading() {
         return;
     }
 
+    if (!status) {
+        alert("Please select a reading status.");
+        return;
+    }
+
+    if (status === "Read" && !yearRead) {
+        alert("Please enter the year read for a completed reading.");
+        return;
+    }
+
+    if ((status === "Read") && !grade) {
+        alert("Please enter a grade for a completed reading.");
+        return;
+    }
+
+    if (yearRead && isNaN(yearRead)) {
+        alert("Year read must be a number.");
+        return;
+    }
+
+    if (grade && (isNaN(grade) || grade < 0 || grade > 10)) {
+        alert("Grade must be a number between 0 and 10.");
+        return;
+    }
+
     if (yearRead > new Date().getFullYear()) {
         alert("Year read cannot be in the future.");
         return;
@@ -134,7 +163,7 @@ export async function addTheme() {
     }
 
     let themes = JSON.parse(localStorage.getItem("themes"));
-    
+
     if (themes.some(t => t.name === themeName)) {
         alert("A theme with this name already exists.");
         return;
