@@ -1,5 +1,5 @@
-import {addBook, deleteBook, addTheme} from "./modules/data-access.js";
-import {displayBooks, updateBookForm, suggestTag} from "./modules/rendering.js";
+import {addBook, deleteBook, addTheme} from "../modules/data-access.js";
+import {displayBooks, updateBookForm, suggestTag} from "../modules/rendering.js";
 
 
 const addBookButton = document.getElementById("add-book");

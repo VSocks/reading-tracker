@@ -1,5 +1,3 @@
-import { updateAuthorForm, updateBookForm, updateReadingForm } from "./rendering.js";
-
 export async function addAuthor() {
     const authorId = JSON.parse(localStorage.getItem("authors")).at(-1).id + 1;
     const authorName = document.getElementById("author-name").value;
@@ -40,7 +38,6 @@ export async function addAuthor() {
     authors.push(author);
     localStorage.setItem("authors", JSON.stringify(authors));
     alert("Author added successfully.");
-    updateAuthorForm();
 }
 
 
@@ -149,7 +146,6 @@ export async function addReading() {
     readings.push(reading);
     localStorage.setItem("readings", JSON.stringify(readings));
     alert("Reading added successfully.");
-    updateReadingForm();
 }
 
 
@@ -177,7 +173,6 @@ export async function addTheme() {
     themes.push(theme);
     localStorage.setItem("themes", JSON.stringify(themes));
     alert("Theme added successfully.");
-    updateBookForm();
 }
 
 
@@ -191,7 +186,6 @@ export async function deleteAuthor(authorId) {
     authors = authors.filter(author => author.id !== authorId);
     localStorage.setItem("authors", JSON.stringify(authors));
     alert("Author deleted successfully.");
-    updateAuthorForm();
 }
 
 
@@ -201,7 +195,15 @@ export async function deleteBook(bookId) {
     books = books.filter(book => book.id !== bookId);
     localStorage.setItem("books", JSON.stringify(books));
     alert("Book deleted successfully.");
-    updateBookForm();
+}
+
+
+export async function deleteReading(readingId) {
+    //TODO: deletar livro deve deletar readings associadas após mensagem de confirmação
+    let readings = JSON.parse(localStorage.getItem("readings"));
+    readings = readings.filter(reading => reading.id !== readingId);
+    localStorage.setItem("readings", JSON.stringify(readings));
+    alert("Reading deleted successfully.");
 }
 
 

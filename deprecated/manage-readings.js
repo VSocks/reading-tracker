@@ -1,5 +1,5 @@
-import {addReading} from "./modules/data-access.js";
-import {displayReadings, updateReadingForm} from "./modules/rendering.js";
+import {addReading} from "../modules/data-access.js";
+import {displayReadings, updateReadingForm} from "../modules/rendering.js";
 
 
 const addReadingButton = document.getElementById("add-reading");

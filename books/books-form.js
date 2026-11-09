@@ -27,8 +27,8 @@ deleteBookButton.addEventListener("click", () => {
     deleteBook(bookId);
 });
 
-tagInput.addEventListener("keydown", () => {
-    suggestTag(tagInput.value);
+tagInput.addEventListener("input", () => {
+    suggestTag();
 });
 
 suggestTagsButton.addEventListener("click", () => {

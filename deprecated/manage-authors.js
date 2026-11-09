@@ -1,5 +1,5 @@
-import {addAuthor, deleteAuthor} from "./modules/data-access.js";
-import {displayAuthors, updateAuthorForm} from "./modules/rendering.js";
+import {addAuthor, deleteAuthor} from "../modules/data-access.js";
+import {displayAuthors, updateAuthorForm} from "../modules/rendering.js";
 
 
 const addAuthorButton = document.getElementById("add-author");

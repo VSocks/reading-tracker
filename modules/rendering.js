@@ -1,4 +1,5 @@
-import {getCountryFromId, getAuthorsNamesFromIds, getThemesFromIds, getBookTitleFromId} from "./utils.js";
+import { getCountryFromId, getAuthorsNamesFromIds, getThemesFromIds, getBookTitleFromId } from "./utils.js";
+import { deleteAuthor, deleteBook, deleteReading } from "./data-access.js";
 
 export function displayAuthors() {
     const authors = JSON.parse(localStorage.getItem("authors"));
@@ -11,11 +12,20 @@ export function displayAuthors() {
 
     authors.forEach(author => {
         const listItem = document.createElement("li");
-        listItem.textContent = "ID: " + author.id + 
-                                ", Name: " + author.name + 
-                                ", Birthdate: " + author.birthDate + 
-                                ", Deathdate: " + author.deathDate + 
-                                ", Nationality: " + getCountryFromId(author.countryId);
+        const editButton = document.createElement("button");
+        const deleteButton = document.createElement("button");
+        deleteButton.addEventListener("click", () => {
+            deleteAuthor(author.id);
+        }); //por algum motivo ("click", deleteAuthor(author.id)) dá problema mas esse funciona
+        editButton.textContent = "Edit";
+        deleteButton.textContent = "Delete";
+        listItem.textContent = "ID: " + author.id +
+            ", Name: " + author.name +
+            ", Birthdate: " + author.birthDate +
+            ", Deathdate: " + author.deathDate +
+            ", Nationality: " + getCountryFromId(author.countryId);
+        listItem.appendChild(editButton);
+        listItem.appendChild(deleteButton);
         authorsList.appendChild(listItem);
     });
 }
@@ -32,14 +42,23 @@ export function displayBooks() {
 
     books.forEach(book => {
         const listItem = document.createElement("li");
-        listItem.textContent = "ID: " + book.id + 
-                                ", Title: " + book.title + 
-                                ", Authors: " + getAuthorsNamesFromIds(book.authorIds) + 
-                                ", Publication Year: " + book.publicationYear + 
-                                ", Form: " + book.form +
-                                ", Mode of Expression: " + book.mode + 
-                                ", Content: " + book.content +
-                                ", Themes: " + getThemesFromIds(book.themeIds);
+        const editButton = document.createElement("button");
+        const deleteButton = document.createElement("button");
+        deleteButton.addEventListener("click", () => {
+            deleteBook(book.id);
+        });
+        editButton.textContent = "Edit";
+        deleteButton.textContent = "Delete";
+        listItem.textContent = "ID: " + book.id +
+            ", Title: " + book.title +
+            ", Authors: " + getAuthorsNamesFromIds(book.authorIds) +
+            ", Publication Year: " + book.publicationYear +
+            ", Form: " + book.form +
+            ", Mode of Expression: " + book.mode +
+            ", Content: " + book.content +
+            ", Themes: " + getThemesFromIds(book.themeIds);
+        listItem.appendChild(editButton);
+        listItem.appendChild(deleteButton);
         booksList.appendChild(listItem);
     });
 }
@@ -56,14 +75,23 @@ export function displayReadings() {
 
     readings.forEach(reading => {
         const listItem = document.createElement("li");
+        const editButton = document.createElement("button");
+        const deleteButton = document.createElement("button");
+        deleteButton.addEventListener("click", () => {
+            deleteReading(reading.id);
+        });
+        editButton.textContent = "Edit";
+        deleteButton.textContent = "Delete";
         listItem.textContent = "ID: " + reading.id +
-                                ", Book: " + getBookTitleFromId(reading.bookId) + 
-                                ", Status: " + reading.status + 
-                                ", Year Read: " + reading.yearRead + 
-                                ", Grade: " + reading.grade +
-                                ", Recommended By: " + reading.recommendedBy + 
-                                ", Priority: " + reading.priority +
-                                ", Notes: " + reading.notes;
+            ", Book: " + getBookTitleFromId(reading.bookId) +
+            ", Status: " + reading.status +
+            ", Year Read: " + reading.yearRead +
+            ", Grade: " + reading.grade +
+            ", Recommended By: " + reading.recommendedBy +
+            ", Priority: " + reading.priority +
+            ", Notes: " + reading.notes;
+        listItem.appendChild(editButton);
+        listItem.appendChild(deleteButton);
         readingsList.appendChild(listItem);
     });
 }
@@ -155,7 +183,7 @@ export function updateReadingForm() {
     const yearReadSelect = document.getElementById("year-read");
     const status = document.getElementById("reading-status").value;
     const prioritySelect = document.getElementById("priority");
-    
+
     books.forEach(book => {
         const option = document.createElement("option");
         option.value = book.id;
@@ -186,12 +214,12 @@ export function updateAllForms() {
 }
 
 
-export function suggestTag(inputValue) {
+export function suggestTag() {
     const input = document.getElementById("tag-input");
     const suggestionsList = document.getElementById("themes-suggestions");
     const selectedTagsList = document.getElementById("selected-tags");
     const themes = JSON.parse(localStorage.getItem("themes"));
-    inputValue = inputValue.trim().toLowerCase();
+    const inputValue = input.value.trim().toLowerCase();
 
     if (inputValue === "") {
         suggestionsList.hidden = true;
