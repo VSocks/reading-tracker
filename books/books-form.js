@@ -5,7 +5,6 @@ import {updateBookForm, suggestTag} from "../modules/rendering.js";
 const addBookButton = document.getElementById("add-book");
 const tagInput = document.getElementById("tag-input");
 const addThemeButton = document.getElementById("add-new-theme");
-const suggestTagsButton = document.getElementById("suggest-tags");
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -18,10 +17,6 @@ addBookButton.addEventListener("click", (event) => {
 });
 
 tagInput.addEventListener("input", () => {
-    suggestTag();
-});
-
-suggestTagsButton.addEventListener("click", () => {
     suggestTag();
 });
 

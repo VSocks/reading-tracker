@@ -190,16 +190,24 @@ export async function deleteAuthor(authorId) {
 
 
 export async function deleteBook(bookId) {
-    //TODO: deletar livro deve deletar readings associadas após mensagem de confirmação
-    let books = JSON.parse(localStorage.getItem("books"));
-    books = books.filter(book => book.id !== bookId);
-    localStorage.setItem("books", JSON.stringify(books));
-    alert("Book deleted successfully.");
+    const readings = JSON.parse(localStorage.getItem("readings"));
+    const readingsWithBook = readings.filter(reading => reading.bookId === bookId);
+
+    if (readingsWithBook.length !== 0) {
+        if (confirm("This books has " + readingsWithBook.length + " associated readings, deleting it will delete the readings as well. Proceed?")) {
+            readingsWithBook.forEach(reading => {
+                deleteReading(reading.id);
+            });
+            let books = JSON.parse(localStorage.getItem("books"));
+            books = books.filter(book => book.id !== bookId);
+            localStorage.setItem("books", JSON.stringify(books));
+            alert("Book deleted successfully.");
+        }
+    }
 }
 
 
 export async function deleteReading(readingId) {
-    //TODO: deletar livro deve deletar readings associadas após mensagem de confirmação
     let readings = JSON.parse(localStorage.getItem("readings"));
     readings = readings.filter(reading => reading.id !== readingId);
     localStorage.setItem("readings", JSON.stringify(readings));
