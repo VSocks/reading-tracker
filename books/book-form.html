@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Books</title>
+    <script type="module" src="./books-form.js"></script>
+</head>
+
+<body>
+    <h2>Books</h2>
+    <form id="book-form">
+        <label for="book-title">Title</label>
+        <input type="text" id="book-title">
+
+        <label for="book-author">Author</label>
+        <select multiple id="book-author">
+            <option value="">Not Specified</option>
+        </select>
+
+        <label for="publication-year">Publication Year</label>
+        <input type="number" id="publication-year"/>
+
+        <label for="form">Form</label>
+        <select id="form">
+            <option value="novel">Novel</option>
+            <option value="novella">Novella</option>
+            <option value="short-story">Short Story</option>
+            <option value="short-story-collection">Short Story Collection</option>
+            <option value="play">Play</option>
+            <option value="essay">Essay</option>
+            <option value="treatise">Treatise</option>
+            <option value="diary">Diary</option>
+            <option value="graphic-novel">Graphic Novel</option>
+        </select>
+
+        <label for="mode-of-expression">Mode of Expression</label>
+        <select id="mode-of-expression">
+            <option value="prose">Prose</option>
+            <option value="drama">Drama</option>
+            <option value="poetry">Poetry</option>
+            <option value="sequential-art">Sequential Art</option>
+        </select>
+
+        <label for="content">Content</label>
+        <select id="content">
+            <option value="fiction">Fiction</option>
+            <option value="non-fiction">Non-Fiction</option>
+        </select>
+
+        <label for="themes-input">Themes</label>
+        <div id="themes-input">
+            <input type="text" id="tag-input"/>
+            <ul id="selected-tags"></ul>
+        </div>
+        <button id="add-new-theme">Add New Theme</button>
+        <button id="suggest-tags">Suggest Tags</button>
+        <ul id="themes-suggestions"></ul>
+
+        <button id="add-book" type="submit">Add book</button>
+        <button id="cancel-button-book" type="button">Cancel</button>
+
+        <label for="delete-book">Delete Book</label>
+        <select id="delete-book">
+            <option value="">Not specified</option>
+        </select>
+        <button id="delete-book-button" type="button">Delete Book</button>
+</body>
+
+</html>

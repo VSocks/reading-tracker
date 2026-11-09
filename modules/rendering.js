@@ -1,10 +1,8 @@
 import {getCountryFromId, getAuthorsNamesFromIds, getThemesFromIds, getBookTitleFromId} from "./utils.js";
 
 export function displayAuthors() {
-    const displayAuthorsButton = document.getElementById("show-button-author");
     const authors = JSON.parse(localStorage.getItem("authors"));
     const authorsList = document.getElementById("author-list");
-    authorsList.innerHTML = "";
 
     if (!authors) {
         authorsList.textContent = "No authors found.";
@@ -20,18 +18,12 @@ export function displayAuthors() {
                                 ", Nationality: " + getCountryFromId(author.countryId);
         authorsList.appendChild(listItem);
     });
-
-    displayAuthorsButton.textContent = "Hide Authors";
-    displayAuthorsButton.removeEventListener("click", displayAuthors);
-    displayAuthorsButton.addEventListener("click", hideAuthors);
 }
 
 
 export function displayBooks() {
-    const displayBooksButton = document.getElementById("show-button-book");
     const books = JSON.parse(localStorage.getItem("books"));
     const booksList = document.getElementById("book-list");
-    booksList.innerHTML = "";
 
     if (!books) {
         booksList.textContent = "No books found.";
@@ -50,15 +42,10 @@ export function displayBooks() {
                                 ", Themes: " + getThemesFromIds(book.themeIds);
         booksList.appendChild(listItem);
     });
-
-    displayBooksButton.textContent = "Hide Books";
-    displayBooksButton.removeEventListener("click", displayBooks);
-    displayBooksButton.addEventListener("click", hideBooks);
 }
 
 
 export function displayReadings() {
-    const displayReadingsButton = document.getElementById("show-button-reading");
     const readings = JSON.parse(localStorage.getItem("readings"));
     const readingsList = document.getElementById("reading-list");
 
@@ -79,10 +66,6 @@ export function displayReadings() {
                                 ", Notes: " + reading.notes;
         readingsList.appendChild(listItem);
     });
-
-    displayReadingsButton.textContent = "Hide Readings";
-    displayReadingsButton.removeEventListener("click", displayReadings);
-    displayReadingsButton.addEventListener("click", hideReadings);
 }
 
 
