@@ -193,8 +193,6 @@ export function suggestTag(inputValue) {
     const themes = JSON.parse(localStorage.getItem("themes"));
     inputValue = inputValue.trim().toLowerCase();
 
-    suggestionsList.innerHTML = "";
-
     if (inputValue === "") {
         suggestionsList.hidden = true;
         return;
@@ -221,7 +219,7 @@ export function suggestTag(inputValue) {
             deleteButton.textContent = "x";
             deleteButton.classList.add("delete-tag");
             deleteButton.addEventListener("click", () => {
-                selectedTagsList.removeChild(newItem);
+                selectedTagsList.removeChild(newTag);
             });
             newTag.appendChild(deleteButton);
             selectedTagsList.appendChild(newTag);
