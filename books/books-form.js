@@ -1,9 +1,8 @@
-import {addBook, deleteBook, addTheme} from "../modules/data-access.js";
+import {addBook, addTheme} from "../modules/data-access.js";
 import {updateBookForm, suggestTag} from "../modules/rendering.js";
 
 
 const addBookButton = document.getElementById("add-book");
-const deleteBookButton = document.getElementById("delete-book-button");
 const tagInput = document.getElementById("tag-input");
 const addThemeButton = document.getElementById("add-new-theme");
 const suggestTagsButton = document.getElementById("suggest-tags");
@@ -18,21 +17,12 @@ addBookButton.addEventListener("click", (event) => {
     addBook();
 });
 
-deleteBookButton.addEventListener("click", () => {
-    const bookId = parseInt(document.getElementById("delete-book").value);
-    if (isNaN(bookId)) {
-        alert("Please select a book to delete.");
-        return;
-    }
-    deleteBook(bookId);
-});
-
 tagInput.addEventListener("input", () => {
     suggestTag();
 });
 
 suggestTagsButton.addEventListener("click", () => {
-    suggestTag(tagInput.value);
+    suggestTag();
 });
 
 addThemeButton.addEventListener("click", () => {
