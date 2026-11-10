@@ -10,23 +10,37 @@ export function displayAuthors() {
         return;
     }
 
+    Object.keys(authors[0]).forEach(key => {
+        const header = document.createElement("th");
+        header.textContent = key;
+        authorsList.appendChild(header);
+    });
+
     authors.forEach(author => {
-        const listItem = document.createElement("li");
+        const tableItem = document.createElement("tr");
         const editButton = document.createElement("button");
         const deleteButton = document.createElement("button");
         deleteButton.addEventListener("click", () => {
             deleteAuthor(author.id);
         }); //por algum motivo ("click", deleteAuthor(author.id)) dá problema mas esse funciona
+        Object.keys(author).forEach(key => {
+            const row = document.createElement("td");
+            if (key == "countryId") {
+                row.textContent = getCountryFromId(author[key]);
+            } else {
+                row.textContent = author[key];
+            }
+
+            if (author[key] == null) {
+                row.textContent = "-";
+            }
+            tableItem.appendChild(row);
+        });
         editButton.textContent = "Edit";
         deleteButton.textContent = "Delete";
-        listItem.textContent = "ID: " + author.id +
-            ", Name: " + author.name +
-            ", Birthdate: " + author.birthDate +
-            ", Deathdate: " + author.deathDate +
-            ", Nationality: " + getCountryFromId(author.countryId);
-        listItem.appendChild(editButton);
-        listItem.appendChild(deleteButton);
-        authorsList.appendChild(listItem);
+        tableItem.appendChild(editButton);
+        tableItem.appendChild(deleteButton);
+        authorsList.appendChild(tableItem);
     });
 }
 
@@ -181,8 +195,10 @@ export function updateReadingForm() {
     const readingBookSelect = document.getElementById("reading-book");
     const books = JSON.parse(localStorage.getItem("books"));
     const yearReadSelect = document.getElementById("year-read");
+    const yearReadSection = document.getElementById("year-read-section");
     const status = document.getElementById("reading-status").value;
     const prioritySelect = document.getElementById("priority");
+    const prioritySection = document.getElementById("priority-section");
 
     books.forEach(book => {
         const option = document.createElement("option");
@@ -192,25 +208,18 @@ export function updateReadingForm() {
     });
 
     if (status == "Want to Read") {
-        prioritySelect.hidden = false;
+        prioritySection.hidden = false;
     } else {
-        prioritySelect.hidden = true;
+        prioritySection.hidden = true;
         prioritySelect.value = "";
     }
 
     if (status == "Read" || status == "Abandoned") {
-        yearReadSelect.hidden = false;
+        yearReadSection.hidden = false;
     } else {
-        yearReadSelect.hidden = true;
+        yearReadSection.hidden = true;
         yearReadSelect.value = null;
     }
-}
-
-
-export function updateAllForms() {
-    updateAuthorForm();
-    updateBookForm();
-    updateReadingForm();
 }
 
 
