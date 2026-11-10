@@ -1,4 +1,6 @@
 export function validateAuthorAddition(authorName, birthDate, deathDate) {
+    authorName = authorName.trim().toLowerCase();
+
     if (!authorName) {
         alert("Please enter the author's name.");
         return false;
@@ -16,7 +18,7 @@ export function validateAuthorAddition(authorName, birthDate, deathDate) {
 
     let authors = JSON.parse(localStorage.getItem("authors"));
 
-    if (authors.some(a => a.name === authorName)) {
+    if (authors.some(a => a.name.trim().toLowerCase() === authorName)) {
         alert("An author with this name already exists.");
         return false;
     }
@@ -45,7 +47,7 @@ export function validateBookAddition(bookTitle, publicationYear) {
 }
 
 
-export function validateReadingAddition(bookId, status, yearRead, grade) {
+export function validateReadingAddition(bookId, status, yearRead, publicationYear, grade) {
     if (!bookId) {
         alert("Please select a book.");
         return false;
@@ -78,6 +80,11 @@ export function validateReadingAddition(bookId, status, yearRead, grade) {
 
     if (yearRead > new Date().getFullYear()) {
         alert("Year read cannot be in the future.");
+        return false;
+    }
+
+    if (yearRead < publicationYear) {
+        alert("Year read cannot be before publication year.");
         return false;
     }
 

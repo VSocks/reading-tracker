@@ -42,3 +42,10 @@ export function getBookTitleFromId(bookId) {
     const book = books.find(b => b.id === bookId);
     return book ? book.title : "Unknown";
 }
+
+
+export function getPublicationYearFromId(bookId) {
+    const books = JSON.parse(localStorage.getItem("books"));
+    const book = books.find(b => b.id === bookId);
+    return book ? book.publicationYear : "Unknown";
+}

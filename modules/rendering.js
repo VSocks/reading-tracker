@@ -79,6 +79,7 @@ export function displayTable() {
     });
 }
 
+
 export function updateAuthorForm() {
     const authorNationalitySelect = document.getElementById("author-nationality");
     const countries = JSON.parse(localStorage.getItem("countries"));
@@ -135,6 +136,7 @@ export function updateReadingForm() {
         yearReadSelect.value = null;
     }
 }
+
 
 export function suggestTag() {
     const input = document.getElementById("tag-input");

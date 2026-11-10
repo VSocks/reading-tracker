@@ -1,5 +1,6 @@
 import { validateAuthorAddition, validateBookAddition, validateReadingAddition, validateThemeAddition, validateAuthorDeletion } from "./validation.js";
 import { addTag } from "./rendering.js";
+import { getPublicationYearFromId } from "./utils.js";
 
 export async function addAuthor() {
     const authorId = JSON.parse(localStorage.getItem("authors")).at(-1).id + 1;
@@ -68,8 +69,9 @@ export async function addReading() {
     const recommendedBy = document.getElementById("recommended-by").value;
     const priority = document.getElementById("priority").value;
     const notes = document.getElementById("notes").value;
+    const publicationYear = getPublicationYearFromId(bookId);
 
-    if (!validateReadingAddition(bookId, status, yearRead, grade)) {
+    if (!validateReadingAddition(bookId, status, yearRead, publicationYear, grade)) {
         return;
     }
 
