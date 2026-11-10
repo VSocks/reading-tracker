@@ -134,11 +134,9 @@ export function updateReadingForm() {
     }
 }
 
-//TODO: descobrir porque não está funcionando direito e consertar
 export function suggestTag() {
     const input = document.getElementById("tag-input");
     const suggestionsList = document.getElementById("themes-suggestions");
-    const selectedTagsList = document.getElementById("selected-tags");
     const themes = JSON.parse(localStorage.getItem("themes"));
     const inputValue = input.value.trim().toLowerCase();
 
@@ -154,29 +152,42 @@ export function suggestTag() {
         return;
     }
 
+    suggestionsList.innerHTML = ""
+
     filteredThemes.forEach(theme => {
         const tag = document.createElement("li");
         tag.textContent = theme.name;
         tag.value = theme.id;
         tag.classList.add("tag");
         tag.addEventListener("click", () => {
-            const newTag = document.createElement("li");
-            newTag.textContent = tag.textContent;
-            newTag.value = tag.value;
-            newTag.classList.add("tag");
-            const deleteButton = document.createElement("button");
-            deleteButton.textContent = "x";
-            deleteButton.classList.add("delete-tag");
-            deleteButton.addEventListener("click", () => {
-                selectedTagsList.removeChild(newTag);
-            });
-            newTag.appendChild(deleteButton);
-            selectedTagsList.appendChild(newTag);
-            input.value = "";
-            suggestionsList.hidden = true;
+            addTag(tag.value, tag.textContent);
         });
         suggestionsList.appendChild(tag);
     });
 
     suggestionsList.hidden = false;
+}
+
+
+export function addTag(value, text) {
+    const selectedTagsList = document.getElementById("selected-tags");
+    const suggestionsList = document.getElementById("themes-suggestions");
+    const input = document.getElementById("tag-input");
+    const tag = document.createElement("li");
+    
+    tag.value = value;
+    tag.textContent = text;
+    tag.classList.add("tag");
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "x";
+    deleteButton.classList.add("delete-tag");
+    deleteButton.addEventListener("click", () => {
+        selectedTagsList.removeChild(tag);
+    });
+
+    tag.appendChild(deleteButton);
+    selectedTagsList.appendChild(tag);
+    input.value = "";
+    suggestionsList.hidden = true;
 }

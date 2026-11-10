@@ -1,4 +1,5 @@
 import { validateAuthorAddition, validateBookAddition, validateReadingAddition, validateThemeAddition, validateAuthorDeletion } from "./validation.js";
+import { addTag } from "./rendering.js";
 
 export async function addAuthor() {
     const authorId = JSON.parse(localStorage.getItem("authors")).at(-1).id + 1;
@@ -108,6 +109,8 @@ export async function addTheme() {
     themes.push(theme);
     localStorage.setItem("themes", JSON.stringify(themes));
     alert("Theme added successfully.");
+
+    addTag(theme.id, theme.name)
 }
 
 
