@@ -1,3 +1,5 @@
+import { getAllBooks } from "./data-access.js";
+
 export function validateAuthorAddition(authorName, birthDate, deathDate) {
     authorName = authorName.trim().toLowerCase();
 
@@ -110,7 +112,7 @@ export function validateThemeAddition(themeName) {
 
 
 export function validateAuthorDeletion(authorId) {
-    let booksWithAuthor = JSON.parse(localStorage.getItem("books")).filter(book => book.authorIds.includes(authorId));
+    let booksWithAuthor = getAllBooks().filter(book => book.authorIds.includes(authorId));
 
     if (booksWithAuthor.length > 0) {
         alert("Cannot delete author. There are books associated with this author: " + booksWithAuthor.map(book => book.title).join(", "));

@@ -14,14 +14,17 @@
     <form id="book-form">
         <label for="book-title">Title</label>
         <input type="text" id="book-title">
+        <br>
 
         <label for="book-author">Author</label> <!---TODO: encontrar maneira melhor de selecionar multiplos autores-->
         <select multiple id="book-author">
             <option value="">Not Specified</option>
         </select>
+        <br>
 
         <label for="publication-year">Publication Year</label>
         <input type="number" id="publication-year" />
+        <br>
 
         <label for="form">Form</label>
         <select id="form">
@@ -35,6 +38,7 @@
             <option value="Diary">Diary</option>
             <option value="Graphic Novel">Graphic Novel</option>
         </select>
+        <br>
 
         <label for="mode-of-expression">Mode of Expression</label>
         <select id="mode-of-expression">
@@ -43,20 +47,25 @@
             <option value="Poetry">Poetry</option>
             <option value="Sequential Art">Sequential Art</option>
         </select>
+        <br>
 
         <label for="content">Content</label>
         <select id="content">
             <option value="Fiction">Fiction</option>
             <option value="Non-fiction">Non-Fiction</option>
         </select>
+        <br>
 
         <label for="themes-input">Themes</label>
         <div id="themes-input">
             <input type="text" id="tag-input" />
+            <button id="add-new-theme" type="button">Create New Theme</button>
             <ul id="selected-tags"></ul>
         </div>
-        <button id="add-new-theme" type="button">Add New Theme</button>
         <ul id="themes-suggestions"></ul>
+        <br>
+
+        <!--TODO: adicionar seção opcional de first reading-->
 
         <button id="add-book" type="submit">Add book</button>
         <button id="cancel-button-book" type="button">Cancel</button>
