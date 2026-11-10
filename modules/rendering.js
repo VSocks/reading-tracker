@@ -145,7 +145,7 @@ export function displayReadings() {
     });
 }
 
-
+/* Funções que provavelmente não serão mais utilizadas
 export function hideAuthors() {
     const displayAuthorsButton = document.getElementById("show-button-author");
     const authorsList = document.getElementById("author-list");
@@ -179,14 +179,12 @@ export function hideReadings() {
     displayReadingsButton.textContent = "Show Readings";
     displayReadingsButton.removeEventListener("click", hideReadings);
     displayReadingsButton.addEventListener("click", displayReadings);
-}
+}*/
 
 
 export function updateAuthorForm() {
     const authorNationalitySelect = document.getElementById("author-nationality");
     const countries = JSON.parse(localStorage.getItem("countries"));
-    const deleteAuthorSelect = document.getElementById("delete-author");
-    const authors = JSON.parse(localStorage.getItem("authors"));
 
     countries.forEach(country => {
         const option = document.createElement("option");
@@ -194,34 +192,18 @@ export function updateAuthorForm() {
         option.textContent = country.name;
         authorNationalitySelect.appendChild(option);
     });
-
-    authors.forEach(author => {
-        const option = document.createElement("option");
-        option.value = author.id;
-        option.textContent = author.name;
-        deleteAuthorSelect.appendChild(option);
-    });
 }
 
 
 export function updateBookForm() {
     const bookAuthorSelect = document.getElementById("book-author");
     const authors = JSON.parse(localStorage.getItem("authors"));
-    const deleteBookSelect = document.getElementById("delete-book");
-    const books = JSON.parse(localStorage.getItem("books"));
 
     authors.forEach(author => {
         const option = document.createElement("option");
         option.value = author.id;
         option.textContent = author.name;
         bookAuthorSelect.appendChild(option);
-    });
-
-    books.forEach(book => {
-        const option = document.createElement("option");
-        option.value = book.id;
-        option.textContent = book.title;
-        deleteBookSelect.appendChild(option);
     });
 }
 
@@ -257,7 +239,7 @@ export function updateReadingForm() {
     }
 }
 
-
+//TODO: descobrir porque não está funcionando direito e consertar
 export function suggestTag() {
     const input = document.getElementById("tag-input");
     const suggestionsList = document.getElementById("themes-suggestions");

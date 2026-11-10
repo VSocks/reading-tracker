@@ -1,22 +1,13 @@
+import {validateAuthorDeletion} from "./validation.js";
+
 export async function addAuthor() {
     const authorId = JSON.parse(localStorage.getItem("authors")).at(-1).id + 1;
     const authorName = document.getElementById("author-name").value;
     const birthDate = document.getElementById("birth-date").value;
     const deathDate = document.getElementById("death-date").value;
-    const nationality = nationalitySelect.value;
+    const nationality = document.getElementById("author-nationality").value;
 
-    if (!authorName) {
-        alert("Please enter the author's name.");
-        return;
-    }
-
-    if (birthDate > deathDate) {
-        alert("Birthdate cannot be later than deathdate.");
-        return;
-    }
-
-    if (birthDate > new Date().toISOString()) {
-        alert("Birthdate cannot be in the future.");
+    if (!validateAuthorDeletion(authorName, birthDate, deathDate)) {
         return;
     }
 
@@ -29,12 +20,6 @@ export async function addAuthor() {
     };
 
     let authors = JSON.parse(localStorage.getItem("authors"));
-
-    if (authors.some(a => a.name === authorName)) {
-        alert("An author with this name already exists.");
-        return;
-    }
-
     authors.push(author);
     localStorage.setItem("authors", JSON.stringify(authors));
     alert("Author added successfully.");
@@ -211,7 +196,7 @@ export async function deleteReading(readingId) {
     let readings = JSON.parse(localStorage.getItem("readings"));
     readings = readings.filter(reading => reading.id !== readingId);
     localStorage.setItem("readings", JSON.stringify(readings));
-    alert("Reading deleted successfully.");
+    alert("Reading deleted successfully."); //Provavelmente retirar para quando deletar multiplas readings
 }
 
 
