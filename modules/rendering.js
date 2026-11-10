@@ -1,5 +1,5 @@
 import { getCountryFromId, getAuthorsNamesFromIds, getThemesFromIds, getBookTitleFromId } from "./utils.js";
-import { deleteAuthor, deleteBook, deleteReading } from "./data-access.js";
+import { deleteAuthor, deleteBook, deleteReading, getAllAuthors, getAllBooks, getAllReadings, getAllCountries, getAllThemes } from "./data-access.js";
 
 export function displayTable() {
     let table;
@@ -8,15 +8,15 @@ export function displayTable() {
 
     if (document.getElementById("author-list")) {
         table = "authors";
-        items = JSON.parse(localStorage.getItem("authors"));
+        items = getAllAuthors();
         list = document.getElementById("author-list");
     } else if (document.getElementById("book-list")) {
         table = "books";
-        items = JSON.parse(localStorage.getItem("books"));
+        items = getAllBooks();
         list = document.getElementById("book-list");
     } else if (document.getElementById("reading-list")) {
         table = "readings";
-        items = JSON.parse(localStorage.getItem("readings"));
+        items = getAllReadings();
         list = document.getElementById("reading-list");
     }
 
@@ -82,7 +82,7 @@ export function displayTable() {
 
 export function updateAuthorForm() {
     const authorNationalitySelect = document.getElementById("author-nationality");
-    const countries = JSON.parse(localStorage.getItem("countries"));
+    const countries = getAllCountries();
 
     countries.forEach(country => {
         const option = document.createElement("option");
@@ -95,7 +95,7 @@ export function updateAuthorForm() {
 
 export function updateBookForm() {
     const bookAuthorSelect = document.getElementById("book-author");
-    const authors = JSON.parse(localStorage.getItem("authors"));
+    const authors = getAllAuthors();
 
     authors.forEach(author => {
         const option = document.createElement("option");
@@ -141,7 +141,7 @@ export function updateReadingForm() {
 export function suggestTag() {
     const input = document.getElementById("tag-input");
     const suggestionsList = document.getElementById("themes-suggestions");
-    const themes = JSON.parse(localStorage.getItem("themes"));
+    const themes = getAllThemes();
     const inputValue = input.value.trim().toLowerCase();
 
     if (inputValue === "") {

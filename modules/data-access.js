@@ -2,6 +2,33 @@ import { validateAuthorAddition, validateBookAddition, validateReadingAddition, 
 import { addTag } from "./rendering.js";
 import { getPublicationYearFromId } from "./utils.js";
 
+
+export function getAllAuthors() {
+    return JSON.parse(localStorage.getItem("authors"));
+}
+
+
+export function getAllBooks() {
+    return JSON.parse(localStorage.getItem("books"));
+}
+
+
+export function getAllReadings() {
+    return JSON.parse(localStorage.getItem("readings"));
+}
+
+
+export function getAllCountries() {
+    return JSON.parse(localStorage.getItem("countries"));
+}
+
+
+export function getAllThemes() {
+    return JSON.parse(localStorage.getItem("themes"));
+}
+
+
+
 export async function addAuthor() {
     const authorId = JSON.parse(localStorage.getItem("authors")).at(-1).id + 1;
     const authorName = document.getElementById("author-name").value;
