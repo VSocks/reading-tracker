@@ -10,7 +10,7 @@ export function displayAuthors() {
         return;
     }
 
-    Object.keys(authors[0]).forEach(key => {
+    Object.keys(authors[0]).forEach(key => { //Refatorar para dar títulos apropriados às colunas
         const header = document.createElement("th");
         header.textContent = key;
         authorsList.appendChild(header);
@@ -20,22 +20,25 @@ export function displayAuthors() {
         const tableItem = document.createElement("tr");
         const editButton = document.createElement("button");
         const deleteButton = document.createElement("button");
+
         deleteButton.addEventListener("click", () => {
             deleteAuthor(author.id);
         }); //por algum motivo ("click", deleteAuthor(author.id)) dá problema mas esse funciona
+
         Object.keys(author).forEach(key => {
             const row = document.createElement("td");
-            if (key == "countryId") {
+            if (key === "countryId") {
                 row.textContent = getCountryFromId(author[key]);
             } else {
                 row.textContent = author[key];
             }
 
-            if (author[key] == null) {
+            if (author[key] == null || author[key].length === 0) {
                 row.textContent = "-";
             }
             tableItem.appendChild(row);
         });
+
         editButton.textContent = "Edit";
         deleteButton.textContent = "Delete";
         tableItem.appendChild(editButton);
@@ -44,7 +47,7 @@ export function displayAuthors() {
     });
 }
 
-
+//Provavelmente posso combinar as funções de display depois
 export function displayBooks() {
     const books = JSON.parse(localStorage.getItem("books"));
     const booksList = document.getElementById("book-list");
@@ -54,26 +57,43 @@ export function displayBooks() {
         return;
     }
 
+    Object.keys(books[0]).forEach(key => {
+        const header = document.createElement("th");
+        header.textContent = key;
+        booksList.appendChild(header);
+    });
+
     books.forEach(book => {
-        const listItem = document.createElement("li");
+        const tableItem = document.createElement("tr");
         const editButton = document.createElement("button");
         const deleteButton = document.createElement("button");
+
         deleteButton.addEventListener("click", () => {
             deleteBook(book.id);
         });
+
         editButton.textContent = "Edit";
         deleteButton.textContent = "Delete";
-        listItem.textContent = "ID: " + book.id +
-            ", Title: " + book.title +
-            ", Authors: " + getAuthorsNamesFromIds(book.authorIds) +
-            ", Publication Year: " + book.publicationYear +
-            ", Form: " + book.form +
-            ", Mode of Expression: " + book.mode +
-            ", Content: " + book.content +
-            ", Themes: " + getThemesFromIds(book.themeIds);
-        listItem.appendChild(editButton);
-        listItem.appendChild(deleteButton);
-        booksList.appendChild(listItem);
+
+        Object.keys(book).forEach(key => {
+            const row = document.createElement("td");
+            if (key === "authorIds") {
+                row.textContent = getAuthorsNamesFromIds(book[key]);
+            } else if (key === "themeIds") {
+                row.textContent = getThemesFromIds(book[key]);
+            } else {
+                row.textContent = book[key];
+            }
+
+            if (book[key] === null || book[key].length === 0) {
+                row.textContent = "-";
+            }
+            tableItem.appendChild(row);
+        })
+
+        tableItem.appendChild(editButton);
+        tableItem.appendChild(deleteButton);
+        booksList.appendChild(tableItem);
     });
 }
 
