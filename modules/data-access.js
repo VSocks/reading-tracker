@@ -1,4 +1,4 @@
-import {validateAuthorDeletion} from "./validation.js";
+import { validateAuthorAddition, validateBookAddition, validateReadingAddition, validateThemeAddition, validateAuthorDeletion } from "./validation.js";
 
 export async function addAuthor() {
     const authorId = JSON.parse(localStorage.getItem("authors")).at(-1).id + 1;
@@ -7,7 +7,7 @@ export async function addAuthor() {
     const deathDate = document.getElementById("death-date").value;
     const nationality = document.getElementById("author-nationality").value;
 
-    if (!validateAuthorDeletion(authorName, birthDate, deathDate)) {
+    if (!validateAuthorAddition(authorName, birthDate, deathDate)) {
         return;
     }
 
@@ -36,18 +36,7 @@ export async function addBook() {
     const content = document.getElementById("content").value;
     const themeIds = Array.from(document.getElementById("selected-tags").children).map(li => parseInt(li.value));
 
-    if (!bookTitle) {
-        alert("Please enter the book title.");
-        return;
-    }
-
-    if (publicationYear > new Date().getFullYear()) {
-        alert("Publication year cannot be in the future.");
-        return;
-    }
-
-    if (publicationYear === 0) {
-        alert("Please enter a valid publication year.");
+    if (!validateBookAddition(bookTitle, publicationYear)) {
         return;
     }
 
@@ -71,7 +60,6 @@ export async function addBook() {
 
 
 export async function addReading() {
-    //TODO: fazer ano lido obrigatório para status lido, nota obrigatória para status lido ou abandonado
     const readingId = JSON.parse(localStorage.getItem("readings")).at(-1).id + 1;
     const bookId = Number(document.getElementById("reading-book").value);
     const status = document.getElementById("reading-status").value;
@@ -81,38 +69,7 @@ export async function addReading() {
     const priority = document.getElementById("priority").value;
     const notes = document.getElementById("notes").value;
 
-    if (!bookId) {
-        alert("Please select a book.");
-        return;
-    }
-
-    if (!status) {
-        alert("Please select a reading status.");
-        return;
-    }
-
-    if (status === "Read" && !yearRead) {
-        alert("Please enter the year read for a completed reading.");
-        return;
-    }
-
-    if ((status === "Read") && !grade) {
-        alert("Please enter a grade for a completed reading.");
-        return;
-    }
-
-    if (yearRead && isNaN(yearRead)) {
-        alert("Year read must be a number.");
-        return;
-    }
-
-    if (grade && (isNaN(grade) || grade < 0 || grade > 10)) {
-        alert("Grade must be a number between 0 and 10.");
-        return;
-    }
-
-    if (yearRead > new Date().getFullYear()) {
-        alert("Year read cannot be in the future.");
+    if (!validateReadingAddition(bookId, status, yearRead, grade)) {
         return;
     }
 
@@ -138,15 +95,7 @@ export async function addTheme() {
     const themeId = JSON.parse(localStorage.getItem("themes")).at(-1).id + 1;
     const themeName = document.getElementById("tag-input").value;
 
-    if (!themeName) {
-        alert("Please enter a theme name.");
-        return;
-    }
-
-    let themes = JSON.parse(localStorage.getItem("themes"));
-
-    if (themes.some(t => t.name === themeName)) {
-        alert("A theme with this name already exists.");
+    if (!validateThemeAddition(themeName)) {
         return;
     }
 
@@ -155,6 +104,7 @@ export async function addTheme() {
         name: themeName
     };
 
+    let themes = JSON.parse(localStorage.getItem("themes"));
     themes.push(theme);
     localStorage.setItem("themes", JSON.stringify(themes));
     alert("Theme added successfully.");
@@ -162,11 +112,10 @@ export async function addTheme() {
 
 
 export async function deleteAuthor(authorId) {
-    let booksWithAuthor = JSON.parse(localStorage.getItem("books")).filter(book => book.authorIds.includes(authorId));
-    if (booksWithAuthor.length > 0) {
-        alert("Cannot delete author. There are books associated with this author: " + booksWithAuthor.map(book => book.title).join(", "));
+    if (!validateAuthorDeletion(authorId)) {
         return;
     }
+
     let authors = JSON.parse(localStorage.getItem("authors"));
     authors = authors.filter(author => author.id !== authorId);
     localStorage.setItem("authors", JSON.stringify(authors));
