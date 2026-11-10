@@ -1,5 +1,5 @@
-import {displayBooks} from "../modules/rendering.js";
+import {displayTable} from "../modules/rendering.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    displayBooks();
+    displayTable();
 });

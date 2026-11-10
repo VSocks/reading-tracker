@@ -1,5 +1,5 @@
-import {displayAuthors} from "../modules/rendering.js";
+import {displayTable} from "../modules/rendering.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    displayAuthors();
+    displayTable();
 });
