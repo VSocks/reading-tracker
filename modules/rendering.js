@@ -107,26 +107,41 @@ export function displayReadings() {
         return;
     }
 
+    Object.keys(readings[0]).forEach(key => {
+        const header = document.createElement("th");
+        header.textContent = key;
+        readingsList.appendChild(header);
+    });
+
     readings.forEach(reading => {
-        const listItem = document.createElement("li");
+        const tableItem = document.createElement("tr");
         const editButton = document.createElement("button");
         const deleteButton = document.createElement("button");
+
         deleteButton.addEventListener("click", () => {
             deleteReading(reading.id);
         });
+
         editButton.textContent = "Edit";
         deleteButton.textContent = "Delete";
-        listItem.textContent = "ID: " + reading.id +
-            ", Book: " + getBookTitleFromId(reading.bookId) +
-            ", Status: " + reading.status +
-            ", Year Read: " + reading.yearRead +
-            ", Grade: " + reading.grade +
-            ", Recommended By: " + reading.recommendedBy +
-            ", Priority: " + reading.priority +
-            ", Notes: " + reading.notes;
-        listItem.appendChild(editButton);
-        listItem.appendChild(deleteButton);
-        readingsList.appendChild(listItem);
+        
+        Object.keys(reading).forEach(key => {
+            const row = document.createElement("td");
+            if (key === "bookId") {
+                row.textContent = getBookTitleFromId(reading[key]);
+            } else {
+                row.textContent = reading[key];
+            }
+
+            if (reading[key] === null || reading[key].length === 0) {
+                row.textContent = "-";
+            }
+            tableItem.appendChild(row);
+        })
+
+        tableItem.appendChild(editButton);
+        tableItem.appendChild(deleteButton);
+        readingsList.appendChild(tableItem);
     });
 }
 
