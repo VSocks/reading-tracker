@@ -59,6 +59,8 @@ export function displayTable() {
                 row.textContent = getThemesFromIds(item[key]);
             } else if (key === "bookId") {
                 row.textContent = getBookTitleFromId(item[key]);
+            } else if (key === "publicationYear" && item[key] < 0) {
+                row.textContent = (-1 * item[key]) + "BC";
             } else {
                 row.textContent = item[key];
             }

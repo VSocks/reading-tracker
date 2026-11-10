@@ -46,8 +46,8 @@ export async function addBook() {
         title: bookTitle,
         authorIds: bookAuthorIds,
         publicationYear: publicationYear,
-        form: form.value,
-        modeOfExpression: modeOfExpression,
+        form: form,
+        mode: modeOfExpression,
         content: content,
         themeIds: themeIds
     };
@@ -56,7 +56,6 @@ export async function addBook() {
     books.push(book);
     localStorage.setItem("books", JSON.stringify(books));
     alert("Book added successfully.");
-    updateBookForm();
 }
 
 
@@ -131,16 +130,17 @@ export async function deleteBook(bookId) {
     const readingsWithBook = readings.filter(reading => reading.bookId === bookId);
 
     if (readingsWithBook.length !== 0) {
-        if (confirm("This books has " + readingsWithBook.length + " associated readings, deleting it will delete the readings as well. Proceed?")) {
-            readingsWithBook.forEach(reading => {
-                deleteReading(reading.id);
-            });
-            let books = JSON.parse(localStorage.getItem("books"));
-            books = books.filter(book => book.id !== bookId);
-            localStorage.setItem("books", JSON.stringify(books));
-            alert("Book deleted successfully.");
+        if (!confirm("This books has " + readingsWithBook.length + " associated readings, deleting it will delete the readings as well. Proceed?")) {
+            return;
         }
     }
+    readingsWithBook.forEach(reading => {
+        deleteReading(reading.id);
+    });
+    let books = JSON.parse(localStorage.getItem("books"));
+    books = books.filter(book => book.id !== bookId);
+    localStorage.setItem("books", JSON.stringify(books));
+    alert("Book deleted successfully.");
 }
 
 
