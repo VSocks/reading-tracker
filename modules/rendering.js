@@ -1,5 +1,5 @@
-import { getCountryFromId, getAuthorsNamesFromIds, getThemesFromIds, getBookTitleFromId } from "./utils.js";
-import { addAuthor, editAuthor, deleteAuthor, getAllAuthors, getAuthor } from "./data-access.js";
+import { getAuthorsNamesFromIds, getCountryFromId, getThemesFromIds, getBookTitleFromId } from "./data-access.js";
+import { addAuthor, editAuthor, deleteAuthor, getAllAuthors, getAuthor, getCountry, getTheme } from "./data-access.js";
 import { addBook, deleteBook, getAllBooks, getBook } from "./data-access.js";
 import { addReading, deleteReading, getAllReadings, getReading } from "./data-access.js";
 import { getAllCountries, getAllThemes } from "./data-access.js";
@@ -69,8 +69,8 @@ export function displayTable() {
         Object.keys(item).forEach(key => {
             const row = document.createElement("td");
             if (key === "countryId") {
-                row.textContent = getCountryFromId(item[key]);
-            } else if (key === "authorIds") {
+                row.textContent = getCountryFromId(item[key]); //Funções redundantes quando tem getCountry getAuthor etc mas acessar os valores por essas
+            } else if (key === "authorIds") {                  //Por algum motivo não funcionava
                 row.textContent = getAuthorsNamesFromIds(item[key]);
             } else if (key === "themeIds") {
                 row.textContent = getThemesFromIds(item[key]);

@@ -1,6 +1,5 @@
 import { validateAuthorAddition, validateBookAddition, validateReadingAddition, validateThemeAddition, validateAuthorDeletion } from "./validation.js";
 import { addTag } from "./rendering.js";
-import { getPublicationYearFromId } from "./utils.js";
 
 
 export function getAllAuthors() {
@@ -55,6 +54,59 @@ export function getAllThemes() {
 export function getTheme(id) {
     const themes = getAllThemes();
     return themes.find(theme => theme.id === id);
+}
+
+
+export function getCountryFromId(countryId) {
+    const countries = getAllCountries();
+    const country = countries.find(c => c.id === countryId);
+    return country ? country.name : "Unknown";
+}
+
+
+export function getAuthorsNamesFromIds(authorIds) {
+    if (!authorIds || authorIds.length === 0) {
+        return "Not Specified";
+    }
+    const authors = getAllAuthors();
+    let authorNames = [];
+    authorIds.forEach(id => {
+        const author = authors.find(a => a.id === id);
+        if (author) {
+            authorNames.push(author.name);
+        }
+    });
+    return authorNames.join(", ");
+}
+
+
+export function getThemesFromIds(themeIds) {
+    if (!themeIds || themeIds.length === 0) {
+        return "Not Specified";
+    }
+    const themes = getAllThemes();
+    let themeNames = [];
+    themeIds.forEach(id => {
+        const theme = themes.find(t => t.id === id);
+        if (theme) {
+            themeNames.push(theme.name);
+        }
+    });
+    return themeNames.join(", ");
+}
+
+
+export function getBookTitleFromId(bookId) {
+    const books = getAllBooks();
+    const book = books.find(b => b.id === bookId);
+    return book ? book.title : "Unknown";
+}
+
+
+export function getPublicationYearFromId(bookId) {
+    const books = getAllBooks();
+    const book = books.find(b => b.id === bookId);
+    return book ? book.publicationYear : "Unknown";
 }
 
 
@@ -126,7 +178,7 @@ export async function addReading() {
     const recommendedBy = document.getElementById("recommended-by").value;
     const priority = document.getElementById("priority").value;
     const notes = document.getElementById("notes").value;
-    const publicationYear = getPublicationYearFromId(bookId);
+    const publicationYear = getBook(bookId).publicationYear;
 
     if (!validateReadingAddition(bookId, status, yearRead, publicationYear, grade)) {
         return;
