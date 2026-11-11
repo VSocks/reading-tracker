@@ -1,6 +1,6 @@
 import { getAuthorsNamesFromIds, getCountryFromId, getThemesFromIds, getBookTitleFromId } from "./data-access.js";
 import { addAuthor, editAuthor, deleteAuthor, getAllAuthors, getAuthor, getCountry, getTheme } from "./data-access.js";
-import { addBook, deleteBook, getAllBooks, getBook } from "./data-access.js";
+import { addBook, editBook, deleteBook, getAllBooks, getBook } from "./data-access.js";
 import { addReading, deleteReading, getAllReadings, getReading } from "./data-access.js";
 import { getAllCountries, getAllThemes } from "./data-access.js";
 
@@ -139,7 +139,13 @@ export function updateAuthorForm() {
 
 
 export function updateBookForm() {
+    const bookTitle = document.getElementById("book-title");
     const bookAuthorSelect = document.getElementById("book-author");
+    const publicationYear = document.getElementById("publication-year");
+    const form = document.getElementById("form");
+    const modeOfExpression = document.getElementById("mode-of-expression");
+    const content = document.getElementById("content");
+    const submitBookButton = document.getElementById("add-book");
     const authors = getAllAuthors();
 
     authors.forEach(author => {
@@ -148,6 +154,34 @@ export function updateBookForm() {
         option.textContent = author.name;
         bookAuthorSelect.appendChild(option);
     });
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (id === null) {
+        submitAuthor.textContent = "Add Author";
+        submitAuthor.addEventListener("click", (event) => {
+            event.preventDefault();
+            addBook();
+        });
+    } else {
+        const itemId = Number(id);
+        const book = getBook(itemId);
+        bookTitle.value = book.title;
+        bookAuthorSelect.value = book.authorIds;
+        publicationYear.value = book.publicationYear;
+        form.value = book.form;
+        modeOfExpression.value = book.mode;
+        content.value = book.content;
+        
+        book.themeIds.forEach(tag => addTag(tag, getTheme(tag).name));
+        
+        submitBookButton.textContent = "Edit Book";
+        submitBookButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            editBook(itemId);
+        });
+    }
 }
 
 

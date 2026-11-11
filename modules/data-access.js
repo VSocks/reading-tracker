@@ -264,18 +264,18 @@ export async function deleteReading(readingId) {
 
 
 export async function editAuthor(authorId) {
-    let authors = JSON.parse(localStorage.getItem("authors"));
-    let authorIndex = authors.findIndex(a => a.id === authorId);
+    let authors = getAllAuthors();
+    const authorIndex = authors.findIndex(a => a.id === authorId);
     let author = authors[authorIndex];
 
     const authorName = document.getElementById("author-name").value;
     const birthDate = document.getElementById("birth-date").value;
     const deathDate = document.getElementById("death-date").value;
     const nationality = Number(document.getElementById("author-nationality").value); //Javascript convertendo números para strings como sempre
-/* validação precisa ser diferense...
-    if (!validateAuthorSubmission(authorName, birthDate, deathDate)) {
-        return;
-    }*/
+    /* validação precisa ser diferense...
+        if (!validateAuthorSubmission(authorName, birthDate, deathDate)) {
+            return;
+        }*/
 
     author = {
         id: authorId,
@@ -284,10 +284,42 @@ export async function editAuthor(authorId) {
         birthDate: birthDate,
         deathDate: deathDate,
     };
-    
+
     authors.splice(authorIndex, 1, author);
     localStorage.setItem("authors", JSON.stringify(authors));
     alert("Author edited successfully.");
+}
+
+
+export async function editBook(bookId) { //Talvez posso mesclar funções de adicionar e editar
+    let books = getAllBooks();
+    const bookIndex = books.findIndex(b => b.id === bookId);
+    let book = books[bookIndex];
+
+    const bookTitle = document.getElementById("book-title").value;
+    const bookAuthorIds = Array.from(document.getElementById("book-author").selectedOptions).map(option => parseInt(option.value));
+    const publicationYear = document.getElementById("publication-year").value;
+    const form = document.getElementById("form").value;
+    const modeOfExpression = document.getElementById("mode-of-expression").value;
+    const content = document.getElementById("content").value;
+    const themeIds = Array.from(document.getElementById("selected-tags").children).map(li => parseInt(li.value));
+
+    //Adicionar validação
+
+    book = {
+        id: bookId,
+        title: bookTitle,
+        authorIds: bookAuthorIds,
+        publicationYear: publicationYear,
+        form: form,
+        mode: modeOfExpression,
+        content: content,
+        themeIds: themeIds
+    };
+
+    books.splice(bookIndex, 1, book);
+    localStorage.setItem("books", JSON.stringify(books)); //Talvez criar funções setters também
+    alert("Book edited successfully.");
 }
 
 
