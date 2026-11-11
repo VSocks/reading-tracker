@@ -1,10 +1,24 @@
 import { getCountryFromId, getAuthorsNamesFromIds, getThemesFromIds, getBookTitleFromId } from "./utils.js";
-import { deleteAuthor, deleteBook, deleteReading, getAllAuthors, getAllBooks, getAllReadings, getAllCountries, getAllThemes } from "./data-access.js";
+import { addAuthor, editAuthor, deleteAuthor, getAllAuthors, getAuthor } from "./data-access.js";
+import { addBook, deleteBook, getAllBooks, getBook } from "./data-access.js";
+import { addReading, deleteReading, getAllReadings, getReading } from "./data-access.js";
+import { getAllCountries, getAllThemes } from "./data-access.js";
 
 export function displayTable() {
     let table;
     let items; //Depois dair nomes melhores às variáveis...
     let list;
+
+    const formPages = {
+        authors: "./author-form.html",
+        books: "./book-form.html",
+        readings: "./reading-form.html"
+    };
+
+    function goToEditPage(formPage, itemId) {
+        const params = new URLSearchParams({ id: itemId });
+        window.location.href = formPage + "?" + params.toString();
+    }
 
     if (document.getElementById("author-list")) {
         table = "authors";
@@ -48,6 +62,9 @@ export function displayTable() {
                 deleteReading(item.id);
             });
         }
+        editButton.addEventListener("click", () => {
+            goToEditPage(formPages[table], item.id);
+        });
 
         Object.keys(item).forEach(key => {
             const row = document.createElement("td");
@@ -81,8 +98,12 @@ export function displayTable() {
 
 
 export function updateAuthorForm() {
+    const authorName = document.getElementById("author-name");
     const authorNationalitySelect = document.getElementById("author-nationality");
+    const authorBirthDate = document.getElementById("birth-date");
+    const authorDeathDate = document.getElementById("death-date");
     const countries = getAllCountries();
+    const submitAuthor = document.getElementById("submit-author");
 
     countries.forEach(country => {
         const option = document.createElement("option");
@@ -90,6 +111,30 @@ export function updateAuthorForm() {
         option.textContent = country.name;
         authorNationalitySelect.appendChild(option);
     });
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (id === null) {
+        submitAuthor.textContent = "Add Author";
+        submitAuthor.addEventListener("click", (event) => {
+            event.preventDefault();
+            addAuthor();
+        });
+    } else {
+        const itemId = Number(id);
+        const author = getAuthor(itemId);
+        authorName.value = author.name;
+        authorNationalitySelect.value = author.countryId;
+        authorBirthDate.value = author.birthDate;
+        authorDeathDate.value = author.deathDate;
+
+        submitAuthor.textContent = "Edit Author";
+        submitAuthor.addEventListener("click", (event) => {
+            event.preventDefault();
+            editAuthor(itemId);
+        });
+    }
 }
 
 
@@ -178,7 +223,7 @@ export function addTag(value, text) {
     const suggestionsList = document.getElementById("themes-suggestions");
     const input = document.getElementById("tag-input");
     const tag = document.createElement("li");
-    
+
     tag.value = value;
     tag.textContent = text;
     tag.classList.add("tag");

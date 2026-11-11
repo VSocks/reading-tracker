@@ -8,8 +8,20 @@ export function getAllAuthors() {
 }
 
 
+export function getAuthor(id) {
+    const authors = getAllAuthors();
+    return authors.find(author => author.id === id);
+}
+
+
 export function getAllBooks() {
     return JSON.parse(localStorage.getItem("books"));
+}
+
+
+export function getBook(id) {
+    const books = getAllBooks();
+    return books.find(book => book.id === id);
 }
 
 
@@ -18,13 +30,31 @@ export function getAllReadings() {
 }
 
 
+export function getReading(id) {
+    const readings = getAllReadings();
+    return readings.find(reading => reading.id === id);
+}
+
+
 export function getAllCountries() {
     return JSON.parse(localStorage.getItem("countries"));
 }
 
 
+export function getCountry(id) {
+    const countries = getAllCountries();
+    return countries.find(country => country.id === id);
+}
+
+
 export function getAllThemes() {
     return JSON.parse(localStorage.getItem("themes"));
+}
+
+
+export function getTheme(id) {
+    const themes = getAllThemes();
+    return themes.find(theme => theme.id === id);
 }
 
 
@@ -178,6 +208,34 @@ export async function deleteReading(readingId) {
     readings = readings.filter(reading => reading.id !== readingId);
     localStorage.setItem("readings", JSON.stringify(readings));
     alert("Reading deleted successfully."); //Provavelmente retirar para quando deletar multiplas readings
+}
+
+
+export async function editAuthor(authorId) {
+    let authors = JSON.parse(localStorage.getItem("authors"));
+    let authorIndex = authors.findIndex(a => a.id === authorId);
+    let author = authors[authorIndex];
+
+    const authorName = document.getElementById("author-name").value;
+    const birthDate = document.getElementById("birth-date").value;
+    const deathDate = document.getElementById("death-date").value;
+    const nationality = Number(document.getElementById("author-nationality").value); //Javascript convertendo números para strings como sempre
+/* validação precisa ser diferense...
+    if (!validateAuthorSubmission(authorName, birthDate, deathDate)) {
+        return;
+    }*/
+
+    author = {
+        id: authorId,
+        name: authorName,
+        countryId: nationality,
+        birthDate: birthDate,
+        deathDate: deathDate,
+    };
+    
+    authors.splice(authorIndex, 1, author);
+    localStorage.setItem("authors", JSON.stringify(authors));
+    alert("Author edited successfully.");
 }
 
 
