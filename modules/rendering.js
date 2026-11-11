@@ -1,7 +1,7 @@
 import { getAuthorsNamesFromIds, getCountryFromId, getThemesFromIds, getBookTitleFromId } from "./data-access.js";
 import { addAuthor, editAuthor, deleteAuthor, getAllAuthors, getAuthor, getCountry, getTheme } from "./data-access.js";
 import { addBook, editBook, deleteBook, getAllBooks, getBook } from "./data-access.js";
-import { addReading, deleteReading, getAllReadings, getReading } from "./data-access.js";
+import { addReading, editReading, deleteReading, getAllReadings, getReading } from "./data-access.js";
 import { getAllCountries, getAllThemes } from "./data-access.js";
 
 export function displayTable() {
@@ -173,9 +173,9 @@ export function updateBookForm() {
         form.value = book.form;
         modeOfExpression.value = book.mode;
         content.value = book.content;
-        
+
         book.themeIds.forEach(tag => addTag(tag, getTheme(tag).name));
-        
+
         submitBookButton.textContent = "Edit Book";
         submitBookButton.addEventListener("click", (event) => {
             event.preventDefault();
@@ -187,12 +187,17 @@ export function updateBookForm() {
 
 export function updateReadingForm() {
     const readingBookSelect = document.getElementById("reading-book");
-    const books = JSON.parse(localStorage.getItem("books"));
+    const books = getAllBooks();
     const yearReadSelect = document.getElementById("year-read");
     const yearReadSection = document.getElementById("year-read-section");
-    const status = document.getElementById("reading-status").value;
+    const statusSelect = document.getElementById("reading-status");
+    const status = statusSelect.value;
+    const grade = document.getElementById("grade");
     const prioritySelect = document.getElementById("priority");
     const prioritySection = document.getElementById("priority-section");
+    const submitReading = document.getElementById("submit-reading");
+    const recommendedBy = document.getElementById("recommended-by");
+    const notes = document.getElementById("notes");
 
     books.forEach(book => {
         const option = document.createElement("option");
@@ -213,6 +218,33 @@ export function updateReadingForm() {
     } else {
         yearReadSection.hidden = true;
         yearReadSelect.value = null;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (id === null) {
+        submitReading.textContent = "Add Author";
+        submitReading.addEventListener("click", (event) => {
+            event.preventDefault();
+            addReading();
+        });
+    } else {
+        const itemId = Number(id);
+        const reading = getReading(itemId);
+        readingBookSelect.value = reading.bookId;
+        statusSelect.value = reading.status; //Quebrado no modo edição porque o form é atualizado sempre que muda. Consertar depois
+        yearReadSelect.value = reading.yearRead;
+        grade.value = reading.grade;
+        recommendedBy.value = reading.recommendedBy;
+        prioritySelect.value = reading.priority;
+        notes.value = reading.notes;
+
+        submitReading.textContent = "Edit Reading";
+        submitReading.addEventListener("click", (event) => {
+            event.preventDefault();
+            editReading(itemId);
+        });
     }
 }
 

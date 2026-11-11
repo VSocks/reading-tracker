@@ -323,6 +323,38 @@ export async function editBook(bookId) { //Talvez posso mesclar funções de adi
 }
 
 
+export async function editReading(readingId) {
+    let readings = getAllReadings();
+    const readingIndex = readings.findIndex(r => r.id === readingId);
+    let reading = readings[readingIndex];
+
+
+    const bookId = Number(document.getElementById("reading-book").value); //Provavelmente mover esse monte de variável para algum arquivo separado
+    const status = document.getElementById("reading-status").value;
+    const yearRead = document.getElementById("year-read").value;
+    const grade = document.getElementById("grade").value;
+    const recommendedBy = document.getElementById("recommended-by").value;
+    const priority = document.getElementById("priority").value;
+    const notes = document.getElementById("notes").value;
+    //const publicationYear = getBook(bookId).publicationYear;
+
+    reading = {
+        id: readingId,
+        bookId: bookId,
+        status: status,
+        yearRead: yearRead,
+        grade: grade,
+        recommendedBy: recommendedBy,
+        priority: priority,
+        notes: notes
+    };
+
+    readings.splice(readingIndex, 1, reading);
+    localStorage.setItem("readings", JSON.stringify(readings));
+    alert("Reading edited successfully.");
+}
+
+
 export async function fetchData() {
     fetch("./data/seed.json")
         .then(response => {
