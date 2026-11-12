@@ -51,7 +51,7 @@ export function validateBookSubmission(bookTitle, publicationYear) {
 }
 
 
-export function validateReadingAddition(bookId, status, yearRead, publicationYear, grade) {
+export function validateReadingSubmission(bookId, status, yearRead, publicationYear, grade) {
     if (!bookId) {
         alert("Please select a book.");
         return false;

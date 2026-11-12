@@ -1,7 +1,7 @@
 import { getAuthorsNamesFromIds, getCountryFromId, getThemesFromIds, getBookTitleFromId } from "./data-access.js";
 import { submitAuthor, getAllAuthors, getAuthor, getCountry, getTheme } from "./data-access.js";
 import { submitBook, deleteBook, getAllBooks, getBook } from "./data-access.js";
-import { addReading, editReading, deleteReading, getAllReadings, getReading } from "./data-access.js";
+import { submitReading, deleteReading, getAllReadings, getReading } from "./data-access.js";
 import { getAllCountries, getAllThemes } from "./data-access.js";
 
 export function displayTable() {
@@ -195,7 +195,7 @@ export function updateReadingForm() {
     const grade = document.getElementById("grade");
     const prioritySelect = document.getElementById("priority");
     const prioritySection = document.getElementById("priority-section");
-    const submitReading = document.getElementById("submit-reading");
+    const submitReadingButton = document.getElementById("submit-reading");
     const recommendedBy = document.getElementById("recommended-by");
     const notes = document.getElementById("notes");
 
@@ -224,10 +224,10 @@ export function updateReadingForm() {
     const id = params.get("id");
 
     if (id === null) {
-        submitReading.textContent = "Add Reading";
-        submitReading.addEventListener("click", (event) => {
+        submitReadingButton.textContent = "Add Reading";
+        submitReadingButton.addEventListener("click", (event) => {
             event.preventDefault();
-            addReading();
+            submitReading(undefined);
         });
     } else {
         const itemId = Number(id);
@@ -240,10 +240,10 @@ export function updateReadingForm() {
         prioritySelect.value = reading.priority;
         notes.value = reading.notes;
 
-        submitReading.textContent = "Edit Reading";
-        submitReading.addEventListener("click", (event) => {
+        submitReadingButton.textContent = "Edit Reading";
+        submitReadingButton.addEventListener("click", (event) => {
             event.preventDefault();
-            editReading(itemId);
+            submitReading(itemId);
         });
     }
 }

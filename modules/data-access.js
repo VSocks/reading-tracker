@@ -1,4 +1,4 @@
-import { validateAuthorSubmission, validateBookSubmission, validateReadingAddition, validateThemeAddition, validateAuthorDeletion } from "./validation.js";
+import { validateAuthorSubmission, validateBookSubmission, validateReadingSubmission, validateThemeAddition, validateAuthorDeletion } from "./validation.js";
 import { addTag } from "./rendering.js";
 
 
@@ -131,7 +131,7 @@ export async function submitAuthor(authorId) {
     const authors = getAllAuthors();
 
     if (authorId === undefined) {
-        authorId = getAllAuthors().at(-1).id + 1;
+        authorId = authors.at(-1).id + 1;
         author.id = authorId;
         authors.push(author);
         localStorage.setItem("authors", JSON.stringify(authors));
@@ -172,7 +172,7 @@ export async function submitBook(bookId) {
     const books = getAllBooks();
 
     if (bookId === undefined) {
-        bookId = getAllBooks().at(-1).id + 1;
+        bookId = books.at(-1).id + 1;
         book.id = bookId;
         books.push(book);
         localStorage.setItem("books", JSON.stringify(books));
@@ -186,8 +186,7 @@ export async function submitBook(bookId) {
 }
 
 
-export async function addReading() {
-    const readingId = JSON.parse(localStorage.getItem("readings")).at(-1).id + 1;
+export async function submitReading(readingId) {
     const bookId = Number(document.getElementById("reading-book").value);
     const status = document.getElementById("reading-status").value;
     const yearRead = Number(document.getElementById("year-read").value);
@@ -197,11 +196,11 @@ export async function addReading() {
     const notes = document.getElementById("notes").value;
     const publicationYear = getBook(bookId).publicationYear;
 
-    if (!validateReadingAddition(bookId, status, yearRead, publicationYear, grade)) {
+    if (!validateReadingSubmission(bookId, status, yearRead, publicationYear, grade)) {
         return;
     }
 
-    const reading = {
+    let reading = {
         id: readingId,
         bookId: bookId,
         status: status,
@@ -212,10 +211,20 @@ export async function addReading() {
         notes: notes
     };
 
-    let readings = JSON.parse(localStorage.getItem("readings"));
-    readings.push(reading);
-    localStorage.setItem("readings", JSON.stringify(readings));
-    alert("Reading added successfully.");
+    const readings = getAllReadings();
+
+    if (readingId === undefined) {
+        readingId = readings.at(-1).id + 1;
+        reading.id = readingId;
+        readings.push(reading);
+        localStorage.setItem("readings", JSON.stringify(readings));
+        alert("Reading added successfully.");
+    } else {
+        const readingIndex = readings.findIndex(r => r.id === readingId);
+        readings.splice(readingIndex, 1, reading);
+        localStorage.setItem("readings", JSON.stringify(readings));
+        alert("Reading edited successfully.");
+    }
 }
 
 
@@ -277,38 +286,6 @@ export async function deleteReading(readingId) {
     readings = readings.filter(reading => reading.id !== readingId);
     localStorage.setItem("readings", JSON.stringify(readings));
     alert("Reading deleted successfully."); //Provavelmente retirar para quando deletar multiplas readings
-}
-
-
-export async function editReading(readingId) {
-    let readings = getAllReadings();
-    const readingIndex = readings.findIndex(r => r.id === readingId);
-    let reading = readings[readingIndex];
-
-
-    const bookId = Number(document.getElementById("reading-book").value); //Provavelmente mover esse monte de variável para algum arquivo separado
-    const status = document.getElementById("reading-status").value;
-    const yearRead = document.getElementById("year-read").value;
-    const grade = document.getElementById("grade").value;
-    const recommendedBy = document.getElementById("recommended-by").value;
-    const priority = document.getElementById("priority").value;
-    const notes = document.getElementById("notes").value;
-    //const publicationYear = getBook(bookId).publicationYear;
-
-    reading = {
-        id: readingId,
-        bookId: bookId,
-        status: status,
-        yearRead: yearRead,
-        grade: grade,
-        recommendedBy: recommendedBy,
-        priority: priority,
-        notes: notes
-    };
-
-    readings.splice(readingIndex, 1, reading);
-    localStorage.setItem("readings", JSON.stringify(readings));
-    alert("Reading edited successfully.");
 }
 
 
