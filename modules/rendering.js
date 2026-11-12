@@ -1,6 +1,6 @@
 import { getAuthorsNamesFromIds, getCountryFromId, getThemesFromIds, getBookTitleFromId } from "./data-access.js";
-import { submitAuthor, deleteAuthor, getAllAuthors, getAuthor, getCountry, getTheme } from "./data-access.js";
-import { addBook, editBook, deleteBook, getAllBooks, getBook } from "./data-access.js";
+import { submitAuthor, getAllAuthors, getAuthor, getCountry, getTheme } from "./data-access.js";
+import { submitBook, deleteBook, getAllBooks, getBook } from "./data-access.js";
 import { addReading, editReading, deleteReading, getAllReadings, getReading } from "./data-access.js";
 import { getAllCountries, getAllThemes } from "./data-access.js";
 
@@ -162,7 +162,7 @@ export function updateBookForm() {
         submitBookButton.textContent = "Add Book";
         submitBookButton.addEventListener("click", (event) => {
             event.preventDefault();
-            addBook();
+            submitBook(undefined);
         });
     } else {
         const itemId = Number(id);
@@ -179,7 +179,7 @@ export function updateBookForm() {
         submitBookButton.textContent = "Edit Book";
         submitBookButton.addEventListener("click", (event) => {
             event.preventDefault();
-            editBook(itemId);
+            submitBook(itemId);
         });
     }
 }

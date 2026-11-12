@@ -31,7 +31,7 @@ export function validateAuthorSubmission(authorName, birthDate, deathDate) {
 }
 
 
-export function validateBookAddition(bookTitle, publicationYear) {
+export function validateBookSubmission(bookTitle, publicationYear) {
     if (!bookTitle) {
         alert("Please enter the book title.");
         return false;

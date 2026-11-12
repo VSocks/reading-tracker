@@ -1,4 +1,4 @@
-import { validateAuthorSubmission, validateBookAddition, validateReadingAddition, validateThemeAddition, validateAuthorDeletion } from "./validation.js";
+import { validateAuthorSubmission, validateBookSubmission, validateReadingAddition, validateThemeAddition, validateAuthorDeletion } from "./validation.js";
 import { addTag } from "./rendering.js";
 
 
@@ -110,7 +110,6 @@ export function getPublicationYearFromId(bookId) {
 }
 
 
-
 export async function submitAuthor(authorId) {
     const authorName = document.getElementById("author-name").value;
     const birthDate = document.getElementById("birth-date").value;
@@ -129,7 +128,7 @@ export async function submitAuthor(authorId) {
         deathDate: deathDate,
     };
 
-    let authors = getAllAuthors();
+    const authors = getAllAuthors();
 
     if (authorId === undefined) {
         authorId = getAllAuthors().at(-1).id + 1;
@@ -146,8 +145,7 @@ export async function submitAuthor(authorId) {
 }
 
 
-export async function addBook() {
-    const bookId = JSON.parse(localStorage.getItem("books")).at(-1).id + 1;
+export async function submitBook(bookId) {
     const bookTitle = document.getElementById("book-title").value;
     const bookAuthorIds = Array.from(document.getElementById("book-author").selectedOptions).map(option => parseInt(option.value));
     const publicationYear = Number(document.getElementById("publication-year").value);
@@ -156,11 +154,11 @@ export async function addBook() {
     const content = document.getElementById("content").value;
     const themeIds = Array.from(document.getElementById("selected-tags").children).map(li => parseInt(li.value));
 
-    if (!validateBookAddition(bookTitle, publicationYear)) {
+    if (!validateBookSubmission(bookTitle, publicationYear)) {
         return;
     }
 
-    const book = {
+    let book = {
         id: bookId,
         title: bookTitle,
         authorIds: bookAuthorIds,
@@ -171,10 +169,20 @@ export async function addBook() {
         themeIds: themeIds
     };
 
-    let books = JSON.parse(localStorage.getItem("books"));
-    books.push(book);
-    localStorage.setItem("books", JSON.stringify(books));
-    alert("Book added successfully.");
+    const books = getAllBooks();
+
+    if (bookId === undefined) {
+        bookId = getAllBooks().at(-1).id + 1;
+        book.id = bookId;
+        books.push(book);
+        localStorage.setItem("books", JSON.stringify(books));
+        alert("Book added successfully.");
+    } else {
+        const bookIndex = books.findIndex(b => b.id === bookId);
+        books.splice(bookIndex, 1, book);
+        localStorage.setItem("books", JSON.stringify(books)); //Talvez criar funções setters também
+        alert("Book edited successfully.");
+    }
 }
 
 
@@ -269,38 +277,6 @@ export async function deleteReading(readingId) {
     readings = readings.filter(reading => reading.id !== readingId);
     localStorage.setItem("readings", JSON.stringify(readings));
     alert("Reading deleted successfully."); //Provavelmente retirar para quando deletar multiplas readings
-}
-
-
-export async function editBook(bookId) { //Talvez posso mesclar funções de adicionar e editar
-    let books = getAllBooks();
-    const bookIndex = books.findIndex(b => b.id === bookId);
-    let book = books[bookIndex];
-
-    const bookTitle = document.getElementById("book-title").value;
-    const bookAuthorIds = Array.from(document.getElementById("book-author").selectedOptions).map(option => parseInt(option.value));
-    const publicationYear = Number(document.getElementById("publication-year").value);
-    const form = document.getElementById("form").value;
-    const modeOfExpression = document.getElementById("mode-of-expression").value;
-    const content = document.getElementById("content").value;
-    const themeIds = Array.from(document.getElementById("selected-tags").children).map(li => parseInt(li.value));
-
-    //Adicionar validação
-
-    book = {
-        id: bookId,
-        title: bookTitle,
-        authorIds: bookAuthorIds,
-        publicationYear: publicationYear,
-        form: form,
-        mode: modeOfExpression,
-        content: content,
-        themeIds: themeIds
-    };
-
-    books.splice(bookIndex, 1, book);
-    localStorage.setItem("books", JSON.stringify(books)); //Talvez criar funções setters também
-    alert("Book edited successfully.");
 }
 
 
