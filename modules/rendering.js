@@ -1,5 +1,5 @@
 import { getAuthorsNamesFromIds, getCountryFromId, getThemesFromIds, getBookTitleFromId } from "./data-access.js";
-import { addAuthor, editAuthor, deleteAuthor, getAllAuthors, getAuthor, getCountry, getTheme } from "./data-access.js";
+import { submitAuthor, deleteAuthor, getAllAuthors, getAuthor, getCountry, getTheme } from "./data-access.js";
 import { addBook, editBook, deleteBook, getAllBooks, getBook } from "./data-access.js";
 import { addReading, editReading, deleteReading, getAllReadings, getReading } from "./data-access.js";
 import { getAllCountries, getAllThemes } from "./data-access.js";
@@ -82,7 +82,7 @@ export function displayTable() {
                 row.textContent = item[key];
             }
 
-            if (item[key] == null || item[key].length === 0) {
+            if (item[key] === null || item[key] === 0 || item[key].length === 0) { // === 0 é necessário por conta de conversões de null para numero
                 row.textContent = "-";
             }
             tableItem.appendChild(row);
@@ -103,7 +103,7 @@ export function updateAuthorForm() {
     const authorBirthDate = document.getElementById("birth-date");
     const authorDeathDate = document.getElementById("death-date");
     const countries = getAllCountries();
-    const submitAuthor = document.getElementById("submit-author");
+    const submitAuthorButton = document.getElementById("submit-author");
 
     countries.forEach(country => {
         const option = document.createElement("option");
@@ -116,10 +116,10 @@ export function updateAuthorForm() {
     const id = params.get("id");
 
     if (id === null) {
-        submitAuthor.textContent = "Add Author";
-        submitAuthor.addEventListener("click", (event) => {
+        submitAuthorButton.textContent = "Add Author";
+        submitAuthorButton.addEventListener("click", (event) => {
             event.preventDefault();
-            addAuthor();
+            submitAuthor();
         });
     } else {
         const itemId = Number(id);
@@ -129,10 +129,10 @@ export function updateAuthorForm() {
         authorBirthDate.value = author.birthDate;
         authorDeathDate.value = author.deathDate;
 
-        submitAuthor.textContent = "Edit Author";
-        submitAuthor.addEventListener("click", (event) => {
+        submitAuthorButton.textContent = "Edit Author";
+        submitAuthorButton.addEventListener("click", (event) => {
             event.preventDefault();
-            editAuthor(itemId);
+            submitAuthor(itemId);
         });
     }
 }
@@ -159,8 +159,8 @@ export function updateBookForm() {
     const id = params.get("id");
 
     if (id === null) {
-        submitAuthor.textContent = "Add Author";
-        submitAuthor.addEventListener("click", (event) => {
+        submitBookButton.textContent = "Add Book";
+        submitBookButton.addEventListener("click", (event) => {
             event.preventDefault();
             addBook();
         });
@@ -224,7 +224,7 @@ export function updateReadingForm() {
     const id = params.get("id");
 
     if (id === null) {
-        submitReading.textContent = "Add Author";
+        submitReading.textContent = "Add Reading";
         submitReading.addEventListener("click", (event) => {
             event.preventDefault();
             addReading();

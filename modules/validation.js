@@ -1,6 +1,6 @@
 import { getAllBooks } from "./data-access.js";
 
-export function validateAuthorAddition(authorName, birthDate, deathDate) {
+export function validateAuthorSubmission(authorName, birthDate, deathDate) {
     authorName = authorName.trim().toLowerCase();
 
     if (!authorName) {
@@ -20,9 +20,11 @@ export function validateAuthorAddition(authorName, birthDate, deathDate) {
 
     let authors = JSON.parse(localStorage.getItem("authors"));
 
-    if (authors.some(a => a.name.trim().toLowerCase() === authorName)) {
-        alert("An author with this name already exists.");
-        return false;
+    if (document.getElementById("submit-author").textContent == "Add Author") { //Talvez não a melhor maneira de checar isso
+        if (authors.some(a => a.name.trim().toLowerCase() === authorName)) {
+            alert("An author with this name already exists.");
+            return false;
+        }
     }
 
     return true;
@@ -40,7 +42,7 @@ export function validateBookAddition(bookTitle, publicationYear) {
         return false;
     }
 
-    if (publicationYear == 0) {
+    if (publicationYear === 0) {
         alert("Please enter a valid publication year.");
         return false;
     }
@@ -106,6 +108,7 @@ export function validateThemeAddition(themeName) {
         alert("A theme with this name already exists.");
         return false;
     }
+
 
     return true;
 }

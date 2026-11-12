@@ -1,4 +1,4 @@
-import { validateAuthorAddition, validateBookAddition, validateReadingAddition, validateThemeAddition, validateAuthorDeletion } from "./validation.js";
+import { validateAuthorSubmission, validateBookAddition, validateReadingAddition, validateThemeAddition, validateAuthorDeletion } from "./validation.js";
 import { addTag } from "./rendering.js";
 
 
@@ -60,7 +60,7 @@ export function getTheme(id) {
 export function getCountryFromId(countryId) {
     const countries = getAllCountries();
     const country = countries.find(c => c.id === countryId);
-    return country ? country.name : "Unknown";
+    return country ? country.name : null;
 }
 
 
@@ -111,18 +111,17 @@ export function getPublicationYearFromId(bookId) {
 
 
 
-export async function addAuthor() {
-    const authorId = JSON.parse(localStorage.getItem("authors")).at(-1).id + 1;
+export async function submitAuthor(authorId) {
     const authorName = document.getElementById("author-name").value;
     const birthDate = document.getElementById("birth-date").value;
     const deathDate = document.getElementById("death-date").value;
-    const nationality = document.getElementById("author-nationality").value;
+    const nationality = Number(document.getElementById("author-nationality").value);
 
-    if (!validateAuthorAddition(authorName, birthDate, deathDate)) {
+    if (!validateAuthorSubmission(authorName, birthDate, deathDate)) {
         return;
     }
 
-    const author = {
+    let author = {
         id: authorId,
         name: authorName,
         countryId: nationality,
@@ -130,10 +129,20 @@ export async function addAuthor() {
         deathDate: deathDate,
     };
 
-    let authors = JSON.parse(localStorage.getItem("authors"));
-    authors.push(author);
-    localStorage.setItem("authors", JSON.stringify(authors));
-    alert("Author added successfully.");
+    let authors = getAllAuthors();
+
+    if (authorId === undefined) {
+        authorId = getAllAuthors().at(-1).id + 1;
+        author.id = authorId;
+        authors.push(author);
+        localStorage.setItem("authors", JSON.stringify(authors));
+        alert("Author added successfully.");
+    } else {
+        const authorIndex = authors.findIndex(a => a.id === authorId);
+        authors.splice(authorIndex, 1, author);
+        localStorage.setItem("authors", JSON.stringify(authors));
+        alert("Author edited successfully.");
+    }
 }
 
 
@@ -141,7 +150,7 @@ export async function addBook() {
     const bookId = JSON.parse(localStorage.getItem("books")).at(-1).id + 1;
     const bookTitle = document.getElementById("book-title").value;
     const bookAuthorIds = Array.from(document.getElementById("book-author").selectedOptions).map(option => parseInt(option.value));
-    const publicationYear = document.getElementById("publication-year").value;
+    const publicationYear = Number(document.getElementById("publication-year").value);
     const form = document.getElementById("form").value;
     const modeOfExpression = document.getElementById("mode-of-expression").value;
     const content = document.getElementById("content").value;
@@ -173,7 +182,7 @@ export async function addReading() {
     const readingId = JSON.parse(localStorage.getItem("readings")).at(-1).id + 1;
     const bookId = Number(document.getElementById("reading-book").value);
     const status = document.getElementById("reading-status").value;
-    const yearRead = document.getElementById("year-read").value;
+    const yearRead = Number(document.getElementById("year-read").value);
     const grade = document.getElementById("grade").value;
     const recommendedBy = document.getElementById("recommended-by").value;
     const priority = document.getElementById("priority").value;
@@ -263,34 +272,6 @@ export async function deleteReading(readingId) {
 }
 
 
-export async function editAuthor(authorId) {
-    let authors = getAllAuthors();
-    const authorIndex = authors.findIndex(a => a.id === authorId);
-    let author = authors[authorIndex];
-
-    const authorName = document.getElementById("author-name").value;
-    const birthDate = document.getElementById("birth-date").value;
-    const deathDate = document.getElementById("death-date").value;
-    const nationality = Number(document.getElementById("author-nationality").value); //Javascript convertendo números para strings como sempre
-    /* validação precisa ser diferense...
-        if (!validateAuthorSubmission(authorName, birthDate, deathDate)) {
-            return;
-        }*/
-
-    author = {
-        id: authorId,
-        name: authorName,
-        countryId: nationality,
-        birthDate: birthDate,
-        deathDate: deathDate,
-    };
-
-    authors.splice(authorIndex, 1, author);
-    localStorage.setItem("authors", JSON.stringify(authors));
-    alert("Author edited successfully.");
-}
-
-
 export async function editBook(bookId) { //Talvez posso mesclar funções de adicionar e editar
     let books = getAllBooks();
     const bookIndex = books.findIndex(b => b.id === bookId);
@@ -298,7 +279,7 @@ export async function editBook(bookId) { //Talvez posso mesclar funções de adi
 
     const bookTitle = document.getElementById("book-title").value;
     const bookAuthorIds = Array.from(document.getElementById("book-author").selectedOptions).map(option => parseInt(option.value));
-    const publicationYear = document.getElementById("publication-year").value;
+    const publicationYear = Number(document.getElementById("publication-year").value);
     const form = document.getElementById("form").value;
     const modeOfExpression = document.getElementById("mode-of-expression").value;
     const content = document.getElementById("content").value;
