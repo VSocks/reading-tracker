@@ -1,5 +1,5 @@
-import { updateAuthorForm } from "../modules/rendering.js";
+import { loadAuthorForm } from "../modules/rendering.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    updateAuthorForm();
+    loadAuthorForm();
 });

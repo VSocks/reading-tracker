@@ -97,7 +97,7 @@ export function displayTable() {
 }
 
 
-export function updateAuthorForm() {
+export function loadAuthorForm() {
     const authorName = document.getElementById("author-name");
     const authorNationalitySelect = document.getElementById("author-nationality");
     const authorBirthDate = document.getElementById("birth-date");
@@ -138,7 +138,7 @@ export function updateAuthorForm() {
 }
 
 
-export function updateBookForm() {
+export function loadBookForm() {
     const bookTitle = document.getElementById("book-title");
     const bookAuthorSelect = document.getElementById("book-author");
     const publicationYear = document.getElementById("publication-year");
@@ -185,16 +185,13 @@ export function updateBookForm() {
 }
 
 
-export function updateReadingForm() {
+export function loadReadingForm() {
     const readingBookSelect = document.getElementById("reading-book");
     const books = getAllBooks();
     const yearReadSelect = document.getElementById("year-read");
-    const yearReadSection = document.getElementById("year-read-section");
     const statusSelect = document.getElementById("reading-status");
-    const status = statusSelect.value;
     const grade = document.getElementById("grade");
     const prioritySelect = document.getElementById("priority");
-    const prioritySection = document.getElementById("priority-section");
     const submitReadingButton = document.getElementById("submit-reading");
     const recommendedBy = document.getElementById("recommended-by");
     const notes = document.getElementById("notes");
@@ -205,20 +202,6 @@ export function updateReadingForm() {
         option.textContent = book.title;
         readingBookSelect.appendChild(option);
     });
-
-    if (status == "Want to Read") {
-        prioritySection.hidden = false;
-    } else {
-        prioritySection.hidden = true;
-        prioritySelect.value = "";
-    }
-
-    if (status == "Read" || status == "Abandoned") {
-        yearReadSection.hidden = false;
-    } else {
-        yearReadSection.hidden = true;
-        yearReadSelect.value = null;
-    }
 
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
@@ -245,6 +228,30 @@ export function updateReadingForm() {
             event.preventDefault();
             submitReading(itemId);
         });
+    }
+}
+
+
+export function updateReadingForm() {
+    const yearReadSection = document.getElementById("year-read-section");
+    const yearReadSelect = document.getElementById("year-read");
+    const statusSelect = document.getElementById("reading-status");
+    const status = statusSelect.value;
+    const prioritySection = document.getElementById("priority-section");
+    const prioritySelect = document.getElementById("priority");
+    
+    if (status == "Want to Read") {
+        prioritySection.hidden = false;
+    } else {
+        prioritySection.hidden = true;
+        prioritySelect.value = "";
+    }
+
+    if (status == "Read" || status == "Abandoned") {
+        yearReadSection.hidden = false;
+    } else {
+        yearReadSection.hidden = true;
+        yearReadSelect.value = null;
     }
 }
 
