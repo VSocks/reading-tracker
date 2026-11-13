@@ -1,6 +1,4 @@
-import { getAllBooks } from "./data-access.js";
-
-export function validateAuthorSubmission(authorName, birthDate, deathDate) {
+export function validateAuthorSubmission(authorName, birthDate, deathDate, authors) {
     authorName = authorName.trim().toLowerCase();
 
     if (!authorName) {
@@ -17,8 +15,6 @@ export function validateAuthorSubmission(authorName, birthDate, deathDate) {
         alert("Birthdate cannot be in the future.");
         return false;
     }
-
-    let authors = JSON.parse(localStorage.getItem("authors"));
 
     if (document.getElementById("submit-author").textContent == "Add Author") { //Talvez não a melhor maneira de checar isso
         if (authors.some(a => a.name.trim().toLowerCase() === authorName)) {
@@ -96,31 +92,51 @@ export function validateReadingSubmission(bookId, status, yearRead, publicationY
 }
 
 
-export function validateThemeAddition(themeName) {
+export function validateThemeAddition(themeName, themes) {
     if (!themeName) {
         alert("Please enter a theme name.");
         return false;
     }
 
-    let themes = JSON.parse(localStorage.getItem("themes"));
-
     if (themes.some(t => t.name === themeName)) {
         alert("A theme with this name already exists.");
         return false;
     }
-
-
     return true;
 }
 
 
-export function validateAuthorDeletion(authorId) {
-    let booksWithAuthor = getAllBooks().filter(book => book.authorIds.includes(authorId));
-
+export function validateAuthorDeletion(booksWithAuthor) {
     if (booksWithAuthor.length > 0) {
         alert("Cannot delete author. There are books associated with this author: " + booksWithAuthor.map(book => book.title).join(", "));
         return false;
+    } else {
+        if (confirm("Are you sure you want to delete this author?")) {
+            return true;
+        }
     }
+    return false;
+}
 
-    return true;
+
+export function validateBookDeletion(readingsWithBook) {
+    if (readingsWithBook.length !== 0) {
+        if (!confirm("This books has " + readingsWithBook.length + " associated readings, deleting it will delete the readings as well. Proceed?")) {
+            return true;
+        }
+    } else {
+        if (confirm("Are you sure you want to delete this book?")) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+export function validateReadingDeletion() {
+    if (confirm("Are you sure you want to delete this reading?")) {
+        return true;
+    } else {
+        return false;
+    }
 }
