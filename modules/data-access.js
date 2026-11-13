@@ -162,12 +162,11 @@ export async function submitBook(bookId) {
     const bookAuthorIds = Array.from(document.getElementById("book-author").selectedOptions).map(option => parseInt(option.value));
     const publicationYearSelect = document.getElementById("publication-year"); //Voceis não tem ideia de quanto problema essa string me deu
     const publicationYear = Number(publicationYearSelect.value);
-    const publicationYearString = String(publicationYearSelect.value);
+    const publicationYearText = String(publicationYearSelect.value);
     const form = document.getElementById("form").value;
     const modeOfExpression = document.getElementById("mode-of-expression").value;
     const content = document.getElementById("content").value;
     const themeIds = Array.from(document.getElementById("selected-tags").children).map(li => parseInt(li.value));
-
 
     let book = {
         id: bookId,
@@ -182,8 +181,9 @@ export async function submitBook(bookId) {
 
     book = nullifyBlank(book);
 
+    console.log(publicationYear, publicationYearText);
 
-    if (!validateBookSubmission(book.title, publicationYearString)) { //Fazer essa validação funcionar foi mais difícil do que deveria ter sido
+    if (!validateBookSubmission(book.title, publicationYearText)) { //Fazer essa validação funcionar foi mais difícil do que deveria ter sido
         return;
     }
 
@@ -212,7 +212,11 @@ export async function submitReading(readingId) {
     const recommendedBy = document.getElementById("recommended-by").value;
     const priority = document.getElementById("priority").value;
     const notes = document.getElementById("notes").value;
-    const publicationYear = getBook(bookId).publicationYear;
+    let publicationYear;
+    
+    if (bookId) {
+        publicationYear = getBook(bookId).publicationYear;
+    } 
 
     let reading = {
         id: readingId,
@@ -227,7 +231,7 @@ export async function submitReading(readingId) {
 
     reading = nullifyBlank(reading);
 
-    if (!validateReadingSubmission(reading.bookId, reading.status, reading.yearRead, reading.publicationYear, reading.grade)) {
+    if (!validateReadingSubmission(reading.bookId, reading.status, reading.yearRead, publicationYear, reading.grade)) {
         return;
     }
 

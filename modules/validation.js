@@ -42,7 +42,7 @@ export function validateBookSubmission(bookTitle, publicationYear) {
         return false;
     }
 
-    if (publicationYear === "0") {
+    if (publicationYear == "0") {
         alert("Please enter a valid publication year.");
         return false;
     }
