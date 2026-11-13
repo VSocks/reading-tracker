@@ -126,7 +126,7 @@ export function validateAuthorDeletion(booksWithAuthor) {
 
 export function validateBookDeletion(readingsWithBook) {
     if (readingsWithBook.length !== 0) {
-        if (!confirm("This books has " + readingsWithBook.length + " associated readings, deleting it will delete the readings as well. Proceed?")) {
+        if (confirm("This books has " + readingsWithBook.length + " associated readings, deleting it will delete the readings as well. Proceed?")) {
             return true;
         }
     } else {

@@ -1,10 +1,10 @@
 import { getAuthorsNamesFromIds, getCountryFromId, getThemesFromIds, getBookTitleFromId } from "./data-access.js";
-import { submitAuthor, getAllAuthors, getAuthor, getTheme } from "./data-access.js";
+import { submitAuthor, deleteAuthor, getAllAuthors, getAuthor, getTheme } from "./data-access.js";
 import { submitBook, deleteBook, getAllBooks, getBook } from "./data-access.js";
 import { submitReading, deleteReading, getAllReadings, getReading } from "./data-access.js";
 import { getAllCountries, getAllThemes } from "./data-access.js";
 
-export function displayTable() {
+export async function displayTable() {
     let table;
     let items; //Depois dair nomes melhores às variáveis...
     let list;
@@ -22,15 +22,15 @@ export function displayTable() {
 
     if (document.getElementById("author-list")) {
         table = "authors";
-        items = getAllAuthors();
+        items = await getAllAuthors();
         list = document.getElementById("author-list");
     } else if (document.getElementById("book-list")) {
         table = "books";
-        items = getAllBooks();
+        items = await getAllBooks();
         list = document.getElementById("book-list");
     } else if (document.getElementById("reading-list")) {
         table = "readings";
-        items = getAllReadings();
+        items = await getAllReadings();
         list = document.getElementById("reading-list");
     }
 
@@ -38,44 +38,44 @@ export function displayTable() {
         list.textContent = "No items found.";
     }
 
-    Object.keys(items[0]).forEach(key => { //Refatorar para dar títulos apropriados às colunas
+    for (const key of Object.keys(items[0])) { //Refatorar para dar títulos apropriados às colunas
         const header = document.createElement("th");
         header.textContent = key;
         list.appendChild(header);
-    });
+    }
 
-    items.forEach(item => {
+    for (const item of items) {
         const tableItem = document.createElement("tr");
         const editButton = document.createElement("button");
         const deleteButton = document.createElement("button");
 
         if (table === "authors") {
-            deleteButton.addEventListener("click", () => {
-                deleteAuthor(item.id);
+            deleteButton.addEventListener("click", async () => {
+                await deleteAuthor(item.id);
             }); //por algum motivo ("click", deleteAuthor(author.id)) dá problema mas esse funciona
         } else if (table === "books") {
-            deleteButton.addEventListener("click", () => {
-                deleteBook(item.id);
+            deleteButton.addEventListener("click", async () => {
+                await deleteBook(item.id);
             });
         } else if (table === "readings") {
-            deleteButton.addEventListener("click", () => {
-                deleteReading(item.id);
+            deleteButton.addEventListener("click", async () => {
+                await deleteReading(item.id);
             });
         }
         editButton.addEventListener("click", () => {
             goToEditPage(formPages[table], item.id);
         });
 
-        Object.keys(item).forEach(key => {
+        for (const key of Object.keys(item)) {
             const row = document.createElement("td");
             if (key === "countryId") {
-                row.textContent = getCountryFromId(item[key]); //Funções redundantes quando tem getCountry getAuthor etc mas acessar os valores por essas
+                row.textContent = await getCountryFromId(item[key]); //Funções redundantes quando tem getCountry getAuthor etc mas acessar os valores por essas
             } else if (key === "authorIds") {                  //Por algum motivo não funcionava
-                row.textContent = getAuthorsNamesFromIds(item[key]);
+                row.textContent = await getAuthorsNamesFromIds(item[key]);
             } else if (key === "themeIds") {
-                row.textContent = getThemesFromIds(item[key]);
+                row.textContent = await getThemesFromIds(item[key]);
             } else if (key === "bookId") {
-                row.textContent = getBookTitleFromId(item[key]);
+                row.textContent = await getBookTitleFromId(item[key]);
             } else if (key === "publicationYear" && item[key] < 0) {
                 row.textContent = (-1 * item[key]) + "BC";
             } else {
@@ -86,59 +86,59 @@ export function displayTable() {
                 row.textContent = "-";
             }
             tableItem.appendChild(row);
-        });
+        }
 
         editButton.textContent = "Edit";
         deleteButton.textContent = "Delete";
         tableItem.appendChild(editButton);
         tableItem.appendChild(deleteButton);
         list.appendChild(tableItem);
-    });
+    }
 }
 
 
-export function loadAuthorForm() {
+export async function loadAuthorForm() {
     const authorName = document.getElementById("author-name");
     const authorNationalitySelect = document.getElementById("author-nationality");
     const authorBirthDate = document.getElementById("birth-date");
     const authorDeathDate = document.getElementById("death-date");
-    const countries = getAllCountries();
+    const countries = await getAllCountries();
     const submitAuthorButton = document.getElementById("submit-author");
 
-    countries.forEach(country => {
+    for (const country of countries) {
         const option = document.createElement("option");
         option.value = country.id;
         option.textContent = country.name;
         authorNationalitySelect.appendChild(option);
-    });
+    }
 
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
 
     if (id === null) {
         submitAuthorButton.textContent = "Add Author";
-        submitAuthorButton.addEventListener("click", (event) => {
+        submitAuthorButton.addEventListener("click", async (event) => {
             event.preventDefault();
-            submitAuthor();
+            await submitAuthor(undefined);
         });
     } else {
         const itemId = Number(id);
-        const author = getAuthor(itemId);
+        const author = await getAuthor(itemId);
         authorName.value = author.name;
         authorNationalitySelect.value = author.countryId;
         authorBirthDate.value = author.birthDate;
         authorDeathDate.value = author.deathDate;
 
         submitAuthorButton.textContent = "Edit Author";
-        submitAuthorButton.addEventListener("click", (event) => {
+        submitAuthorButton.addEventListener("click", async (event) => {
             event.preventDefault();
-            submitAuthor(itemId);
+            await submitAuthor(itemId);
         });
     }
 }
 
 
-export function loadBookForm() {
+export async function loadBookForm() {
     const bookTitle = document.getElementById("book-title");
     const bookAuthorSelect = document.getElementById("book-author");
     const publicationYear = document.getElementById("publication-year");
@@ -146,27 +146,27 @@ export function loadBookForm() {
     const modeOfExpression = document.getElementById("mode-of-expression");
     const content = document.getElementById("content");
     const submitBookButton = document.getElementById("add-book");
-    const authors = getAllAuthors();
+    const authors = await getAllAuthors();
 
-    authors.forEach(author => {
+    for (const author of authors) {
         const option = document.createElement("option");
         option.value = author.id;
         option.textContent = author.name;
         bookAuthorSelect.appendChild(option);
-    });
+    }
 
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
 
     if (id === null) {
         submitBookButton.textContent = "Add Book";
-        submitBookButton.addEventListener("click", (event) => {
+        submitBookButton.addEventListener("click", async (event) => {
             event.preventDefault();
-            submitBook(undefined);
+            await submitBook(undefined);
         });
     } else {
         const itemId = Number(id);
-        const book = getBook(itemId);
+        const book = await getBook(itemId);
         bookTitle.value = book.title;
         bookAuthorSelect.value = book.authorIds;
         publicationYear.value = book.publicationYear;
@@ -174,20 +174,23 @@ export function loadBookForm() {
         modeOfExpression.value = book.mode;
         content.value = book.content;
 
-        book.themeIds.forEach(tag => addTag(tag, getTheme(tag).name));
+        for (const tag of book.themeIds) {
+            const tagTheme = await getTheme(tag);
+            addTag(tag, tagTheme.name);
+        }
 
         submitBookButton.textContent = "Edit Book";
-        submitBookButton.addEventListener("click", (event) => {
+        submitBookButton.addEventListener("click", async (event) => {
             event.preventDefault();
-            submitBook(itemId);
+            await submitBook(itemId);
         });
     }
 }
 
 
-export function loadReadingForm() {
+export async function loadReadingForm() {
     const readingBookSelect = document.getElementById("reading-book");
-    const books = getAllBooks();
+    const books = await getAllBooks();
     const yearReadSelect = document.getElementById("year-read");
     const statusSelect = document.getElementById("reading-status");
     const grade = document.getElementById("grade");
@@ -196,25 +199,25 @@ export function loadReadingForm() {
     const recommendedBy = document.getElementById("recommended-by");
     const notes = document.getElementById("notes");
 
-    books.forEach(book => {
+    for (const book of books) {
         const option = document.createElement("option");
         option.value = book.id;
         option.textContent = book.title;
         readingBookSelect.appendChild(option);
-    });
+    }
 
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
 
     if (id === null) {
         submitReadingButton.textContent = "Add Reading";
-        submitReadingButton.addEventListener("click", (event) => {
+        submitReadingButton.addEventListener("click", async (event) => {
             event.preventDefault();
-            submitReading(undefined);
+            await submitReading(undefined);
         });
     } else {
         const itemId = Number(id);
-        const reading = getReading(itemId);
+        const reading = await getReading(itemId);
         readingBookSelect.value = reading.bookId;
         statusSelect.value = reading.status; //Quebrado no modo edição porque o form é atualizado sempre que muda. Consertar depois
         yearReadSelect.value = reading.yearRead;
@@ -224,9 +227,9 @@ export function loadReadingForm() {
         notes.value = reading.notes;
 
         submitReadingButton.textContent = "Edit Reading";
-        submitReadingButton.addEventListener("click", (event) => {
+        submitReadingButton.addEventListener("click", async (event) => {
             event.preventDefault();
-            submitReading(itemId);
+            await submitReading(itemId);
         });
     }
 }
@@ -239,7 +242,7 @@ export function updateReadingForm() {
     const status = statusSelect.value;
     const prioritySection = document.getElementById("priority-section");
     const prioritySelect = document.getElementById("priority");
-    
+
     if (status == "Want to Read") {
         prioritySection.hidden = false;
     } else {
@@ -256,10 +259,10 @@ export function updateReadingForm() {
 }
 
 
-export function suggestTag() {
+export async function suggestTag() {
     const input = document.getElementById("tag-input");
     const suggestionsList = document.getElementById("themes-suggestions");
-    const themes = getAllThemes();
+    const themes = await getAllThemes();
     const inputValue = input.value.trim().toLowerCase();
 
     if (inputValue === "") {
@@ -276,7 +279,7 @@ export function suggestTag() {
 
     suggestionsList.innerHTML = ""
 
-    filteredThemes.forEach(theme => {
+    for (const theme of filteredThemes) {
         const tag = document.createElement("li");
         tag.textContent = theme.name;
         tag.value = theme.id;
@@ -285,7 +288,7 @@ export function suggestTag() {
             addTag(tag.value, tag.textContent);
         });
         suggestionsList.appendChild(tag);
-    });
+    }
 
     suggestionsList.hidden = false;
 }

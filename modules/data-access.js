@@ -2,120 +2,120 @@ import { validateAuthorSubmission, validateBookSubmission, validateReadingSubmis
 import { addTag } from "./rendering.js";
 
 
-export function getAllAuthors() {
+export async function getAllAuthors() {
     return JSON.parse(localStorage.getItem("authors"));
 }
 
 
-export function getAuthor(id) {
-    const authors = getAllAuthors();
+export async function getAuthor(id) {
+    const authors = await getAllAuthors();
     return authors.find(author => author.id === id);
 }
 
 
-export function getAllBooks() {
+export async function getAllBooks() {
     return JSON.parse(localStorage.getItem("books"));
 }
 
 
-export function getBook(id) {
-    const books = getAllBooks();
+export async function getBook(id) {
+    const books = await getAllBooks();
     return books.find(book => book.id === id);
 }
 
 
-export function getAllReadings() {
+export async function getAllReadings() {
     return JSON.parse(localStorage.getItem("readings"));
 }
 
 
-export function getReading(id) {
-    const readings = getAllReadings();
+export async function getReading(id) {
+    const readings = await getAllReadings();
     return readings.find(reading => reading.id === id);
 }
 
 
-export function getAllCountries() {
+export async function getAllCountries() {
     return JSON.parse(localStorage.getItem("countries"));
 }
 
 
-export function getCountry(id) {
-    const countries = getAllCountries();
+export async function getCountry(id) {
+    const countries = await getAllCountries();
     return countries.find(country => country.id === id);
 }
 
 
-export function getAllThemes() {
+export async function getAllThemes() {
     return JSON.parse(localStorage.getItem("themes"));
 }
 
 
-export function getTheme(id) {
-    const themes = getAllThemes();
+export async function getTheme(id) {
+    const themes = await getAllThemes();
     return themes.find(theme => theme.id === id);
 }
 
 
-export function getCountryFromId(countryId) {
-    const countries = getAllCountries();
+export async function getCountryFromId(countryId) {
+    const countries = await getAllCountries();
     const country = countries.find(c => c.id === countryId);
     return country ? country.name : null;
 }
 
 
-export function getAuthorsNamesFromIds(authorIds) {
+export async function getAuthorsNamesFromIds(authorIds) {
     if (!authorIds || authorIds.length === 0) {
         return "Not Specified";
     }
-    const authors = getAllAuthors();
+    const authors = await getAllAuthors();
     let authorNames = [];
-    authorIds.forEach(id => {
+    for (const id of authorIds) {
         const author = authors.find(a => a.id === id);
         if (author) {
             authorNames.push(author.name);
         }
-    });
+    }
     return authorNames.join(", ");
 }
 
 
-export function getThemesFromIds(themeIds) {
+export async function getThemesFromIds(themeIds) {
     if (!themeIds || themeIds.length === 0) {
         return "Not Specified";
     }
-    const themes = getAllThemes();
+    const themes = await getAllThemes();
     let themeNames = [];
-    themeIds.forEach(id => {
+    for (const id of themeIds) {
         const theme = themes.find(t => t.id === id);
         if (theme) {
             themeNames.push(theme.name);
         }
-    });
+    }
     return themeNames.join(", ");
 }
 
 
-export function getBookTitleFromId(bookId) {
-    const books = getAllBooks();
+export async function getBookTitleFromId(bookId) {
+    const books = await getAllBooks();
     const book = books.find(b => b.id === bookId);
     return book ? book.title : "Unknown";
 }
 
 
-export function getPublicationYearFromId(bookId) {
-    const books = getAllBooks();
+export async function getPublicationYearFromId(bookId) {
+    const books = await getAllBooks();
     const book = books.find(b => b.id === bookId);
     return book ? book.publicationYear : "Unknown";
 }
 
 
 export function nullifyBlank(obj) {
-    Object.keys(obj).forEach(key => {
+    for (const key of Object.keys(obj)) {
         if (obj[key] === "" || obj[key] === 0 || obj[key] === undefined) {
             obj[key] = null;
         }
-    });
+    }
     return obj;
 }
 
@@ -135,7 +135,7 @@ export async function submitAuthor(authorId) {
     };
 
     author = nullifyBlank(author);
-    const authors = getAllAuthors();
+    const authors = await getAllAuthors();
 
     if (!validateAuthorSubmission(author.name, author.birthDate, author.deathDate, authors)) {
         return;
@@ -180,13 +180,11 @@ export async function submitBook(bookId) {
 
     book = nullifyBlank(book);
 
-    console.log(publicationYear, publicationYearText);
-
     if (!validateBookSubmission(book.title, publicationYearText)) { //Fazer essa validação funcionar foi mais difícil do que deveria ter sido
         return;
     }
 
-    const books = getAllBooks();
+    const books = await getAllBooks();
 
     if (bookId === undefined || bookId === null) {
         bookId = books.at(-1).id + 1;
@@ -214,7 +212,8 @@ export async function submitReading(readingId) {
     let publicationYear;
 
     if (bookId) {
-        publicationYear = getBook(bookId).publicationYear;
+        let book = await getBook(bookId);
+        publicationYear = book.publicationYear;
     }
 
     let reading = {
@@ -234,7 +233,7 @@ export async function submitReading(readingId) {
         return;
     }
 
-    const readings = getAllReadings();
+    const readings = await getAllReadings();
 
     if (readingId === undefined || readingId === null) {
         readingId = readings.at(-1).id + 1;
@@ -252,7 +251,7 @@ export async function submitReading(readingId) {
 
 
 export async function addTheme() {
-    let themes = getAllThemes();
+    let themes = await getAllThemes();
     const themeId = themes.at(-1).id + 1;
     const themeName = document.getElementById("tag-input").value;
 
@@ -265,7 +264,7 @@ export async function addTheme() {
         name: themeName
     };
 
-    
+
     themes.push(theme);
     localStorage.setItem("themes", JSON.stringify(themes));
     alert("Theme added successfully.");
@@ -275,13 +274,14 @@ export async function addTheme() {
 
 
 export async function deleteAuthor(authorId) {
-    const booksWithAuthor = getAllBooks().filter(book => book.authorIds.includes(authorId));
+    const books = await getAllBooks();
+    const booksWithAuthor = books.filter(book => book.authorIds.includes(authorId));
 
     if (!validateAuthorDeletion(booksWithAuthor)) {
         return;
     }
 
-    let authors = getAllAuthors();
+    let authors = await getAllAuthors();
     authors = authors.filter(author => author.id !== authorId);
     localStorage.setItem("authors", JSON.stringify(authors));
     alert("Author deleted successfully.");
@@ -289,18 +289,18 @@ export async function deleteAuthor(authorId) {
 
 
 export async function deleteBook(bookId) {
-    const readings = getAllReadings();
+    const readings = await getAllReadings();
     const readingsWithBook = readings.filter(reading => reading.bookId === bookId);
 
     if (!validateBookDeletion(readingsWithBook)) {
         return;
     }
 
-    readingsWithBook.forEach(reading => {
-        deleteReadingNoConfirm(reading.id);
-    });
+    for (const reading of readingsWithBook) {
+        await deleteReadingNoConfirm(reading.id);
+    }
 
-    let books = getAllBooks();
+    let books = await getAllBooks();
     books = books.filter(book => book.id !== bookId);
     localStorage.setItem("books", JSON.stringify(books));
     alert("Book deleted successfully.");
@@ -311,35 +311,32 @@ export async function deleteReading(readingId) {
     if (!validateReadingDeletion()) {
         return;
     }
-    
-    let readings = getAllReadings();
+
+    let readings = await getAllReadings();
     readings = readings.filter(reading => reading.id !== readingId);
     localStorage.setItem("readings", JSON.stringify(readings));
-    alert("Reading deleted successfully."); //Provavelmente retirar para quando deletar multiplas readings
+    alert("Reading deleted successfully.");
 }
 
 
 export async function deleteReadingNoConfirm(readingId) {
-    let readings = getAllReadings();
+    let readings = await getAllReadings();
     readings = readings.filter(reading => reading.id !== readingId);
     localStorage.setItem("readings", JSON.stringify(readings));
 }
 
 
 export async function fetchData() {
-    fetch("./data/seed.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("HTTP error: " + response.status);
-            }
-            return response.text();
-        })
-        .then(data => {
-            for (const [key, value] of Object.entries(JSON.parse(data))) {
-                localStorage.setItem(key, JSON.stringify(value));
-            }
-        })
-        .catch(error => {
-            console.error("Error fetching seed.json: ", error);
-        });
+    try {
+        const response = await fetch("./data/seed.json");
+        if (!response.ok) {
+            throw new Error("HTTP error: " + response.status);
+        }
+        const data = await response.json();
+        for (const [key, value] of Object.entries(data)) {
+            localStorage.setItem(key, JSON.stringify(value));
+        }
+    } catch (error) {
+        console.error("Error fetching seed.json: ", error);
+    }
 }

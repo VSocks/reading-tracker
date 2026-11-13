@@ -8,9 +8,9 @@ const getButton = document.getElementById("get-data");
  //   fetchData();
 //});
 
-resetButton.addEventListener("click", () => {
+resetButton.addEventListener("click", async () => {
     localStorage.clear();
-    fetchData();
+    await fetchData();
     alert("Data has been reset.");
 });
 
@@ -19,7 +19,7 @@ clearButton.addEventListener("click", () => {
     alert("All data has been cleared.");
 });
 
-getButton.addEventListener("click", () => {
-    fetchData();
+getButton.addEventListener("click", async () => {
+    await fetchData();
     alert("Data has been fetched and stored in localStorage.");
 });

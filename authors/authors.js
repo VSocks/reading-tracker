@@ -1,5 +1,5 @@
 import {displayTable} from "../modules/rendering.js";
 
-document.addEventListener("DOMContentLoaded", () => {
-    displayTable();
+document.addEventListener("DOMContentLoaded", async () => {
+    await displayTable();
 });

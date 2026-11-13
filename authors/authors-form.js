@@ -1,5 +1,5 @@
 import { loadAuthorForm } from "../modules/rendering.js";
 
-document.addEventListener("DOMContentLoaded", () => {
-    loadAuthorForm();
+document.addEventListener("DOMContentLoaded", async () => {
+    await loadAuthorForm();
 });
