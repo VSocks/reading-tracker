@@ -239,10 +239,6 @@ export function updateReadingForm() {
     const status = statusSelect.value;
     const prioritySection = document.getElementById("priority-section");
     const prioritySelect = document.getElementById("priority");
-    const grade = document.getElementById("grade");
-    const gradeValue = document.getElementById("grade-value");
-
-    gradeValue.textContent = grade.value;
     
     if (status == "Want to Read") {
         prioritySection.hidden = false;

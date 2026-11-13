@@ -207,7 +207,7 @@ export async function submitReading(readingId) {
     const bookId = Number(document.getElementById("reading-book").value);
     const status = document.getElementById("reading-status").value;
     const yearRead = Number(document.getElementById("year-read").value);
-    const grade = document.getElementById("grade").value;
+    const grade = Number(document.getElementById("grade").value);
     const recommendedBy = document.getElementById("recommended-by").value;
     const priority = document.getElementById("priority").value;
     const notes = document.getElementById("notes").value;

@@ -88,6 +88,11 @@ export function validateReadingSubmission(bookId, status, yearRead, publicationY
         return false;
     }
 
+    if (grade % 0.5 !== 0) {
+        alert("Grade must be in steps of 0.5");
+        return false;
+    }
+
     return true;
 }
 
