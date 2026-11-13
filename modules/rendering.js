@@ -1,5 +1,5 @@
 import { getAuthorsNamesFromIds, getCountryFromId, getThemesFromIds, getBookTitleFromId } from "./data-access.js";
-import { submitAuthor, getAllAuthors, getAuthor, getCountry, getTheme } from "./data-access.js";
+import { submitAuthor, getAllAuthors, getAuthor, getTheme } from "./data-access.js";
 import { submitBook, deleteBook, getAllBooks, getBook } from "./data-access.js";
 import { submitReading, deleteReading, getAllReadings, getReading } from "./data-access.js";
 import { getAllCountries, getAllThemes } from "./data-access.js";

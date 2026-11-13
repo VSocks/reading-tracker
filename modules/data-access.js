@@ -110,6 +110,16 @@ export function getPublicationYearFromId(bookId) {
 }
 
 
+export function nullifyBlank(obj){
+    Object.keys(obj).forEach(key => {
+        if (obj[key] === "" || obj[key] === 0) {
+            obj[key] = null;
+        }
+    });
+    return obj;
+}
+
+
 export async function submitAuthor(authorId) {
     const authorName = document.getElementById("author-name").value;
     const birthDate = document.getElementById("birth-date").value;
@@ -130,14 +140,16 @@ export async function submitAuthor(authorId) {
 
     const authors = getAllAuthors();
 
-    if (authorId === undefined) {
+    if (authorId === undefined || authorId === null) {
         authorId = authors.at(-1).id + 1;
         author.id = authorId;
+        author = nullifyBlank(author);
         authors.push(author);
         localStorage.setItem("authors", JSON.stringify(authors));
         alert("Author added successfully.");
     } else {
         const authorIndex = authors.findIndex(a => a.id === authorId);
+        author = nullifyBlank(author);
         authors.splice(authorIndex, 1, author);
         localStorage.setItem("authors", JSON.stringify(authors));
         alert("Author edited successfully.");
@@ -171,14 +183,16 @@ export async function submitBook(bookId) {
 
     const books = getAllBooks();
 
-    if (bookId === undefined) {
+    if (bookId === undefined || bookId === null) {
         bookId = books.at(-1).id + 1;
         book.id = bookId;
+        book = nullifyBlank(book);
         books.push(book);
         localStorage.setItem("books", JSON.stringify(books));
         alert("Book added successfully.");
     } else {
         const bookIndex = books.findIndex(b => b.id === bookId);
+        book = nullifyBlank(book);
         books.splice(bookIndex, 1, book);
         localStorage.setItem("books", JSON.stringify(books)); //Talvez criar funções setters também
         alert("Book edited successfully.");
@@ -216,11 +230,13 @@ export async function submitReading(readingId) {
     if (readingId === undefined) {
         readingId = readings.at(-1).id + 1;
         reading.id = readingId;
+        reading = nullifyBlank(reading);
         readings.push(reading);
         localStorage.setItem("readings", JSON.stringify(readings));
         alert("Reading added successfully.");
     } else {
         const readingIndex = readings.findIndex(r => r.id === readingId);
+        reading = nullifyBlank(reading);
         readings.splice(readingIndex, 1, reading);
         localStorage.setItem("readings", JSON.stringify(readings));
         alert("Reading edited successfully.");

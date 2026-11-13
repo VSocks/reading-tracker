@@ -87,7 +87,7 @@ export function validateReadingSubmission(bookId, status, yearRead, publicationY
         return false;
     }
 
-    if (yearRead < publicationYear) {
+    if ((status === "Read" || status === "Abandoned") && yearRead < publicationYear) {
         alert("Year read cannot be before publication year.");
         return false;
     }
