@@ -82,7 +82,7 @@ export function displayTable() {
                 row.textContent = item[key];
             }
 
-            if (item[key] === null || item[key] === 0 || item[key].length === 0) { // === 0 é necessário por conta de conversões de null para numero
+            if (item[key] === null || item[key] === 0 || item[key].length === 0) {
                 row.textContent = "-";
             }
             tableItem.appendChild(row);
@@ -244,7 +244,7 @@ export function updateReadingForm() {
         prioritySection.hidden = false;
     } else {
         prioritySection.hidden = true;
-        prioritySelect.value = "";
+        prioritySelect.value = null;
     }
 
     if (status == "Read" || status == "Abandoned") {

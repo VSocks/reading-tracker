@@ -112,7 +112,7 @@ export function getPublicationYearFromId(bookId) {
 
 export function nullifyBlank(obj){
     Object.keys(obj).forEach(key => {
-        if (obj[key] === "" || obj[key] === 0) {
+        if (obj[key] === "" || obj[key] === 0 || obj[key] === undefined) {
             obj[key] = null;
         }
     });
@@ -126,10 +126,6 @@ export async function submitAuthor(authorId) {
     const deathDate = document.getElementById("death-date").value;
     const nationality = Number(document.getElementById("author-nationality").value);
 
-    if (!validateAuthorSubmission(authorName, birthDate, deathDate)) {
-        return;
-    }
-
     let author = {
         id: authorId,
         name: authorName,
@@ -138,18 +134,22 @@ export async function submitAuthor(authorId) {
         deathDate: deathDate,
     };
 
+    author = nullifyBlank(author);
+
+    if (!validateAuthorSubmission(author.name, author.birthDate, author.deathDate)) {
+        return;
+    }
+
     const authors = getAllAuthors();
 
     if (authorId === undefined || authorId === null) {
         authorId = authors.at(-1).id + 1;
         author.id = authorId;
-        author = nullifyBlank(author);
         authors.push(author);
         localStorage.setItem("authors", JSON.stringify(authors));
         alert("Author added successfully.");
     } else {
         const authorIndex = authors.findIndex(a => a.id === authorId);
-        author = nullifyBlank(author);
         authors.splice(authorIndex, 1, author);
         localStorage.setItem("authors", JSON.stringify(authors));
         alert("Author edited successfully.");
@@ -160,15 +160,14 @@ export async function submitAuthor(authorId) {
 export async function submitBook(bookId) {
     const bookTitle = document.getElementById("book-title").value;
     const bookAuthorIds = Array.from(document.getElementById("book-author").selectedOptions).map(option => parseInt(option.value));
-    const publicationYear = Number(document.getElementById("publication-year").value);
+    const publicationYearSelect = document.getElementById("publication-year"); //Voceis não tem ideia de quanto problema essa string me deu
+    const publicationYear = Number(publicationYearSelect.value);
+    const publicationYearString = String(publicationYearSelect.value);
     const form = document.getElementById("form").value;
     const modeOfExpression = document.getElementById("mode-of-expression").value;
     const content = document.getElementById("content").value;
     const themeIds = Array.from(document.getElementById("selected-tags").children).map(li => parseInt(li.value));
 
-    if (!validateBookSubmission(bookTitle, publicationYear)) {
-        return;
-    }
 
     let book = {
         id: bookId,
@@ -181,18 +180,23 @@ export async function submitBook(bookId) {
         themeIds: themeIds
     };
 
+    book = nullifyBlank(book);
+
+
+    if (!validateBookSubmission(book.title, publicationYearString)) { //Fazer essa validação funcionar foi mais difícil do que deveria ter sido
+        return;
+    }
+
     const books = getAllBooks();
 
     if (bookId === undefined || bookId === null) {
         bookId = books.at(-1).id + 1;
         book.id = bookId;
-        book = nullifyBlank(book);
         books.push(book);
         localStorage.setItem("books", JSON.stringify(books));
         alert("Book added successfully.");
     } else {
         const bookIndex = books.findIndex(b => b.id === bookId);
-        book = nullifyBlank(book);
         books.splice(bookIndex, 1, book);
         localStorage.setItem("books", JSON.stringify(books)); //Talvez criar funções setters também
         alert("Book edited successfully.");
@@ -210,10 +214,6 @@ export async function submitReading(readingId) {
     const notes = document.getElementById("notes").value;
     const publicationYear = getBook(bookId).publicationYear;
 
-    if (!validateReadingSubmission(bookId, status, yearRead, publicationYear, grade)) {
-        return;
-    }
-
     let reading = {
         id: readingId,
         bookId: bookId,
@@ -225,9 +225,15 @@ export async function submitReading(readingId) {
         notes: notes
     };
 
+    reading = nullifyBlank(reading);
+
+    if (!validateReadingSubmission(reading.bookId, reading.status, reading.yearRead, reading.publicationYear, reading.grade)) {
+        return;
+    }
+
     const readings = getAllReadings();
 
-    if (readingId === undefined) {
+    if (readingId === undefined || readingId === null) {
         readingId = readings.at(-1).id + 1;
         reading.id = readingId;
         reading = nullifyBlank(reading);
