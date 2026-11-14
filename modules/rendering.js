@@ -1,9 +1,10 @@
 import { getAuthorsNamesFromIds, getCountryFromId, getThemesFromIds, getBookTitleFromId } from "./data-access.js";
-import { deleteAuthor, getAllAuthors, getAuthor, getTheme } from "./data-access.js";
-import { deleteBook, getAllBooks, getBook } from "./data-access.js";
-import { deleteReading, getAllReadings, getReading } from "./data-access.js";
+import { getAllAuthors, getAuthor, getTheme } from "./data-access.js";
+import { getAllBooks, getBook } from "./data-access.js";
+import { getAllReadings, getReading } from "./data-access.js";
 import { getAllCountries, getAllThemes } from "./data-access.js";
 import { submitAuthorForm, submitBookForm, submitReadingForm } from "./form-handlers.js";
+import { requestAuthorDeletion, requestBookDeletion, requestReadingDeletion } from "./form-handlers.js";
 
 export async function displayTable() {
     let table;
@@ -52,15 +53,15 @@ export async function displayTable() {
 
         if (table === "authors") {
             deleteButton.addEventListener("click", async () => {
-                await deleteAuthor(item.id);
+                await requestAuthorDeletion(item.id);
             }); //por algum motivo ("click", deleteAuthor(author.id)) dá problema mas esse funciona
         } else if (table === "books") {
             deleteButton.addEventListener("click", async () => {
-                await deleteBook(item.id);
+                await requestBookDeletion(item.id);
             });
         } else if (table === "readings") {
             deleteButton.addEventListener("click", async () => {
-                await deleteReading(item.id);
+                await requestReadingDeletion(item.id);
             });
         }
         editButton.addEventListener("click", () => {
@@ -169,7 +170,11 @@ export async function loadBookForm() {
         const itemId = Number(id);
         const book = await getBook(itemId);
         bookTitle.value = book.title;
-        bookAuthorSelect.value = book.authorIds;
+        for (let option of bookAuthorSelect.children) { //Consertar...
+            if (book.authorIds.includes(option.value)) {
+                option.selected = true;
+            }
+        }
         publicationYear.value = book.publicationYear;
         form.value = book.form;
         modeOfExpression.value = book.mode;
@@ -220,7 +225,8 @@ export async function loadReadingForm() {
         const itemId = Number(id);
         const reading = await getReading(itemId);
         readingBookSelect.value = reading.bookId;
-        statusSelect.value = reading.status; //Quebrado no modo edição porque o form é atualizado sempre que muda. Consertar depois
+        statusSelect.value = reading.status;
+        updateReadingForm();
         yearReadSelect.value = reading.yearRead;
         grade.value = reading.grade;
         recommendedBy.value = reading.recommendedBy;
@@ -244,7 +250,7 @@ export function updateReadingForm() {
     const prioritySection = document.getElementById("priority-section");
     const prioritySelect = document.getElementById("priority");
 
-    if (status == "Want to Read") {
+    if (status == "Want to read") {
         prioritySection.hidden = false;
     } else {
         prioritySection.hidden = true;

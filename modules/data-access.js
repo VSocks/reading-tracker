@@ -202,12 +202,6 @@ export async function deleteReadingsWithBook(readingsWithBook) {
 }
 
 
-export async function deleteReadingNoConfirm(readingId) {
-    let readings = await getAllReadings();
-    readings = readings.filter(reading => reading.id !== readingId);
-    localStorage.setItem("readings", JSON.stringify(readings));
-}
-
 export async function fetchData() {
     try {
         const response = await fetch("./data/seed.json");

@@ -1,7 +1,5 @@
 export function validateAuthorSubmission(authorId, authorName, birthDate, deathDate, authors) {
-    authorName = authorName.trim().toLowerCase();
-
-    if (!authorName) {
+    if (authorName === null || !authorName) {
         alert("Please enter the author's name.");
         return false;
     }
@@ -15,15 +13,11 @@ export function validateAuthorSubmission(authorId, authorName, birthDate, deathD
         alert("Birthdate cannot be in the future.");
         return false;
     }
-    
-    //Problema: se não ignorar nomes iguais quando editando não posso manter o nome do autor
-    //Mas ao fazer isso também posso editar para um outro nome já existente na lista de autores
-    //O que não deveria acontecer. Consertar depois
-    if (authorId === null || authorId === undefined) {
-        if (authors.some(a => a.name.trim().toLowerCase() === authorName)) {
-            alert("An author with this name already exists.");
-            return false;
-        }
+
+    authorName = authorName.trim().toLowerCase();
+    if (authors.some(a => a.id !== authorId && a.name.trim().toLowerCase() === authorName)) {
+        alert("An author with this name already exists.");
+        return false;
     }
 
     return true;

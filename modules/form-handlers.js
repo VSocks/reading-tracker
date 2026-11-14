@@ -1,7 +1,7 @@
 import { submitAuthor, submitBook, submitReading } from "./data-access.js";
 import { deleteAuthor, deleteBook, deleteReading } from "./data-access.js";
 import { deleteReadingsWithBook } from "./data-access.js";
-import { getAllAuthors, getAllBooks, getAllReadings } from "./data-access.js";
+import { getAllAuthors, getAllBooks, getAllReadings, getAllThemes } from "./data-access.js";
 import { getBook } from "./data-access.js";
 import { addTheme } from "./data-access.js";
 import { validateAuthorSubmission, validateBookSubmission, validateReadingSubmission, validateThemeAddition } from "./validation.js";
@@ -34,10 +34,11 @@ export async function submitAuthorForm(authorId) {
 
     author = nullifyBlank(author);
     const authors = await getAllAuthors();
+    const isNew = author.id === null;
 
     if (validateAuthorSubmission(author.id, author.name, author.birthDate, author.deathDate, authors)) {
         await submitAuthor(author);
-        if (author.id === null) {
+        if (isNew) {
             alert("Author added successfully");
         } else {
             alert("Author edited successfully");
@@ -70,10 +71,11 @@ export async function submitBookForm(bookId) {
     };
 
     book = nullifyBlank(book);
+    const isNew = book.id === null;
 
     if (validateBookSubmission(book.title, publicationYearText)) { //Fazer essa validação funcionar foi mais difícil do que deveria ter sido
         await submitBook(book);
-        if (book.id === null) {
+        if (isNew) {
             alert("Book added successfully");
         } else {
             alert("Book edited successfully");
@@ -110,10 +112,11 @@ export async function submitReadingForm(readingId) {
     };
 
     reading = nullifyBlank(reading);
+    const isNew = reading.id === null
 
     if (validateReadingSubmission(reading.bookId, reading.status, reading.yearRead, publicationYear, reading.grade)) {
         await submitReading(reading);
-        if (reading.id === null) {
+        if (isNew) {
             alert("Reading added successfully");
         } else {
             alert("Reading edited successfully");
@@ -133,9 +136,11 @@ export async function submitTheme() { //Não funciona por algum motivo
     };
 
     if (validateThemeAddition(themeName, themes)) {
-        await addTheme(theme);
+        theme = await addTheme(theme);
         alert("Theme added successfully.");
+        return theme;
     }
+    return null;
 }
 
 
@@ -164,7 +169,7 @@ export async function requestBookDeletion(bookId) {
 
 export async function requestReadingDeletion(readingId) {
     if (validateReadingDeletion()) {
-        deleteReading(readingId);
+        await deleteReading(readingId);
         alert("Reading deleted successfully.");
     }
 }
