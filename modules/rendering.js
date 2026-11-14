@@ -1,12 +1,13 @@
 import { getAuthorsNamesFromIds, getCountryFromId, getThemesFromIds, getBookTitleFromId } from "./data-access.js";
-import { submitAuthor, deleteAuthor, getAllAuthors, getAuthor, getTheme } from "./data-access.js";
-import { submitBook, deleteBook, getAllBooks, getBook } from "./data-access.js";
-import { submitReading, deleteReading, getAllReadings, getReading } from "./data-access.js";
+import { deleteAuthor, getAllAuthors, getAuthor, getTheme } from "./data-access.js";
+import { deleteBook, getAllBooks, getBook } from "./data-access.js";
+import { deleteReading, getAllReadings, getReading } from "./data-access.js";
 import { getAllCountries, getAllThemes } from "./data-access.js";
+import { submitAuthorForm, submitBookForm, submitReadingForm } from "./form-handlers.js";
 
 export async function displayTable() {
     let table;
-    let items; //Depois dair nomes melhores às variáveis...
+    let items; //Depois dar nomes melhores às variáveis...
     let list;
 
     const formPages = {
@@ -119,7 +120,7 @@ export async function loadAuthorForm() {
         submitAuthorButton.textContent = "Add Author";
         submitAuthorButton.addEventListener("click", async (event) => {
             event.preventDefault();
-            await submitAuthor(undefined);
+            await submitAuthorForm(undefined);
         });
     } else {
         const itemId = Number(id);
@@ -132,7 +133,7 @@ export async function loadAuthorForm() {
         submitAuthorButton.textContent = "Edit Author";
         submitAuthorButton.addEventListener("click", async (event) => {
             event.preventDefault();
-            await submitAuthor(itemId);
+            await submitAuthorForm(itemId);
         });
     }
 }
@@ -162,7 +163,7 @@ export async function loadBookForm() {
         submitBookButton.textContent = "Add Book";
         submitBookButton.addEventListener("click", async (event) => {
             event.preventDefault();
-            await submitBook(undefined);
+            await submitBookForm(undefined);
         });
     } else {
         const itemId = Number(id);
@@ -182,7 +183,7 @@ export async function loadBookForm() {
         submitBookButton.textContent = "Edit Book";
         submitBookButton.addEventListener("click", async (event) => {
             event.preventDefault();
-            await submitBook(itemId);
+            await submitBookForm(itemId);
         });
     }
 }
@@ -213,7 +214,7 @@ export async function loadReadingForm() {
         submitReadingButton.textContent = "Add Reading";
         submitReadingButton.addEventListener("click", async (event) => {
             event.preventDefault();
-            await submitReading(undefined);
+            await submitReadingForm(undefined);
         });
     } else {
         const itemId = Number(id);
@@ -229,7 +230,7 @@ export async function loadReadingForm() {
         submitReadingButton.textContent = "Edit Reading";
         submitReadingButton.addEventListener("click", async (event) => {
             event.preventDefault();
-            await submitReading(itemId);
+            await submitReadingForm(itemId);
         });
     }
 }

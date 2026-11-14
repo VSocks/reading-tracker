@@ -1,7 +1,3 @@
-import { validateAuthorSubmission, validateBookSubmission, validateReadingSubmission, validateThemeAddition, validateAuthorDeletion, validateBookDeletion, validateReadingDeletion } from "./validation.js";
-import { addTag } from "./rendering.js";
-
-
 export async function getAllAuthors() {
     return JSON.parse(localStorage.getItem("authors"));
 }
@@ -120,202 +116,89 @@ export function nullifyBlank(obj) {
 }
 
 
-export async function submitAuthor(authorId) {
-    const authorName = document.getElementById("author-name").value;
-    const birthDate = document.getElementById("birth-date").value;
-    const deathDate = document.getElementById("death-date").value;
-    const nationality = Number(document.getElementById("author-nationality").value);
-
-    let author = {
-        id: authorId,
-        name: authorName,
-        countryId: nationality,
-        birthDate: birthDate,
-        deathDate: deathDate,
-    };
-
-    author = nullifyBlank(author);
+export async function submitAuthor(author) {
     const authors = await getAllAuthors();
 
-    if (!validateAuthorSubmission(author.name, author.birthDate, author.deathDate, authors)) {
-        return;
-    }
-
-    if (authorId === undefined || authorId === null) {
-        authorId = authors.at(-1).id + 1;
-        author.id = authorId;
+    if (author.id === undefined || author.id === null) {
+        author.id = authors.at(-1).id + 1;
         authors.push(author);
         localStorage.setItem("authors", JSON.stringify(authors));
-        alert("Author added successfully.");
     } else {
-        const authorIndex = authors.findIndex(a => a.id === authorId);
+        const authorIndex = authors.findIndex(a => a.id === author.id);
         authors.splice(authorIndex, 1, author);
         localStorage.setItem("authors", JSON.stringify(authors));
-        alert("Author edited successfully.");
     }
 }
 
 
-export async function submitBook(bookId) {
-    const bookTitle = document.getElementById("book-title").value;
-    const bookAuthorIds = Array.from(document.getElementById("book-author").selectedOptions).map(option => parseInt(option.value));
-    const publicationYearSelect = document.getElementById("publication-year"); //Voceis não tem ideia de quanto problema essa string me deu
-    const publicationYear = Number(publicationYearSelect.value);
-    const publicationYearText = String(publicationYearSelect.value);
-    const form = document.getElementById("form").value;
-    const modeOfExpression = document.getElementById("mode-of-expression").value;
-    const content = document.getElementById("content").value;
-    const themeIds = Array.from(document.getElementById("selected-tags").children).map(li => parseInt(li.value));
-
-    let book = {
-        id: bookId,
-        title: bookTitle,
-        authorIds: bookAuthorIds,
-        publicationYear: publicationYear,
-        form: form,
-        mode: modeOfExpression,
-        content: content,
-        themeIds: themeIds
-    };
-
-    book = nullifyBlank(book);
-
-    if (!validateBookSubmission(book.title, publicationYearText)) { //Fazer essa validação funcionar foi mais difícil do que deveria ter sido
-        return;
-    }
-
+export async function submitBook(book) {
     const books = await getAllBooks();
 
-    if (bookId === undefined || bookId === null) {
-        bookId = books.at(-1).id + 1;
-        book.id = bookId;
+    if (book.id === undefined || book.id === null) {
+        book.id = books.at(-1).id + 1;
         books.push(book);
         localStorage.setItem("books", JSON.stringify(books));
-        alert("Book added successfully.");
     } else {
-        const bookIndex = books.findIndex(b => b.id === bookId);
+        const bookIndex = books.findIndex(b => b.id === book.id);
         books.splice(bookIndex, 1, book);
         localStorage.setItem("books", JSON.stringify(books)); //Talvez criar funções setters também
-        alert("Book edited successfully.");
     }
 }
 
 
-export async function submitReading(readingId) {
-    const bookId = Number(document.getElementById("reading-book").value);
-    const status = document.getElementById("reading-status").value;
-    const yearRead = Number(document.getElementById("year-read").value);
-    const grade = Number(document.getElementById("grade").value);
-    const recommendedBy = document.getElementById("recommended-by").value;
-    const priority = document.getElementById("priority").value;
-    const notes = document.getElementById("notes").value;
-    let publicationYear;
-
-    if (bookId) {
-        let book = await getBook(bookId);
-        publicationYear = book.publicationYear;
-    }
-
-    let reading = {
-        id: readingId,
-        bookId: bookId,
-        status: status,
-        yearRead: yearRead,
-        grade: grade,
-        recommendedBy: recommendedBy,
-        priority: priority,
-        notes: notes
-    };
-
-    reading = nullifyBlank(reading);
-
-    if (!validateReadingSubmission(reading.bookId, reading.status, reading.yearRead, publicationYear, reading.grade)) {
-        return;
-    }
-
+export async function submitReading(reading) {
     const readings = await getAllReadings();
 
-    if (readingId === undefined || readingId === null) {
-        readingId = readings.at(-1).id + 1;
-        reading.id = readingId;
+    if (reading.id === undefined || reading.id === null) {
+        reading.id = readings.at(-1).id + 1;
         readings.push(reading);
         localStorage.setItem("readings", JSON.stringify(readings));
-        alert("Reading added successfully.");
     } else {
-        const readingIndex = readings.findIndex(r => r.id === readingId);
+        const readingIndex = readings.findIndex(r => r.id === reading.id);
         readings.splice(readingIndex, 1, reading);
         localStorage.setItem("readings", JSON.stringify(readings));
-        alert("Reading edited successfully.");
     }
 }
 
 
-export async function addTheme() {
-    let themes = await getAllThemes();
-    const themeId = themes.at(-1).id + 1;
-    const themeName = document.getElementById("tag-input").value;
+export async function addTheme(theme) {
+    const themes = await getAllThemes();
 
-    if (!validateThemeAddition(themeName, themes)) {
-        return;
+    if (theme.id === undefined || theme.id === null) {
+        theme.id = themes.at(-1).id + 1;
     }
-
-    const theme = {
-        id: themeId,
-        name: themeName
-    };
-
-
     themes.push(theme);
     localStorage.setItem("themes", JSON.stringify(themes));
-    alert("Theme added successfully.");
-
-    addTag(theme.id, theme.name)
+    return theme;
 }
 
 
 export async function deleteAuthor(authorId) {
-    const books = await getAllBooks();
-    const booksWithAuthor = books.filter(book => book.authorIds.includes(authorId));
-
-    if (!validateAuthorDeletion(booksWithAuthor)) {
-        return;
-    }
-
     let authors = await getAllAuthors();
     authors = authors.filter(author => author.id !== authorId);
     localStorage.setItem("authors", JSON.stringify(authors));
-    alert("Author deleted successfully.");
 }
 
 
 export async function deleteBook(bookId) {
-    const readings = await getAllReadings();
-    const readingsWithBook = readings.filter(reading => reading.bookId === bookId);
-
-    if (!validateBookDeletion(readingsWithBook)) {
-        return;
-    }
-
-    for (const reading of readingsWithBook) {
-        await deleteReadingNoConfirm(reading.id);
-    }
-
     let books = await getAllBooks();
     books = books.filter(book => book.id !== bookId);
     localStorage.setItem("books", JSON.stringify(books));
-    alert("Book deleted successfully.");
 }
 
 
 export async function deleteReading(readingId) {
-    if (!validateReadingDeletion()) {
-        return;
-    }
-
     let readings = await getAllReadings();
     readings = readings.filter(reading => reading.id !== readingId);
     localStorage.setItem("readings", JSON.stringify(readings));
-    alert("Reading deleted successfully.");
+}
+
+
+export async function deleteReadingsWithBook(readingsWithBook) {
+    //let readings = await getAllReadings();
+    //readings = readings.filter(reading => reading.id !== readingsWithBook.some(b));
+    //localStorage.setItem("readings", JSON.stringify(readings));
+    return;
 }
 
 
@@ -324,7 +207,6 @@ export async function deleteReadingNoConfirm(readingId) {
     readings = readings.filter(reading => reading.id !== readingId);
     localStorage.setItem("readings", JSON.stringify(readings));
 }
-
 
 export async function fetchData() {
     try {

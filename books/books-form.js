@@ -1,5 +1,5 @@
 import { addTheme } from "../modules/data-access.js";
-import { loadBookForm, suggestTag } from "../modules/rendering.js";
+import { addTag, loadBookForm, suggestTag } from "../modules/rendering.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     const tagInput = document.getElementById("tag-input");
@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     addThemeButton.addEventListener("click", async () => {
-        await addTheme();
+        let theme = await addTheme();
+        addTag(theme.id, theme.name);
     });
 });
