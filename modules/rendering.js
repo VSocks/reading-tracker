@@ -5,6 +5,7 @@ import { getAllReadings, getReading } from "./data-access.js";
 import { getAllCountries, getAllThemes } from "./data-access.js";
 import { submitAuthorForm, submitBookForm, submitReadingForm } from "./form-handlers.js";
 import { requestAuthorDeletion, requestBookDeletion, requestReadingDeletion } from "./form-handlers.js";
+import { getAll } from "./data-access.js";
 
 export async function displayTable() {
     let table;
@@ -24,15 +25,15 @@ export async function displayTable() {
 
     if (document.getElementById("author-list")) {
         table = "authors";
-        items = await getAllAuthors();
+        items = await getAll("authors");
         list = document.getElementById("author-list");
     } else if (document.getElementById("book-list")) {
         table = "books";
-        items = await getAllBooks();
+        items = await getAll("books");
         list = document.getElementById("book-list");
     } else if (document.getElementById("reading-list")) {
         table = "readings";
-        items = await getAllReadings();
+        items = await getAll("readings");
         list = document.getElementById("reading-list");
     }
 

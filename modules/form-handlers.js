@@ -160,7 +160,7 @@ export async function requestBookDeletion(bookId) {
     const readingsWithBook = readings.filter(reading => reading.bookId === bookId);
 
     if (validateBookDeletion(readingsWithBook)) {
-        await deleteReadingsWithBook(readingsWithBook);
+        await deleteReadingsWithBook(bookId);
         await deleteBook(bookId);
         alert("Book deleted successfully.");
     }

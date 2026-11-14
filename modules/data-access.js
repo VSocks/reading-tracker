@@ -194,10 +194,10 @@ export async function deleteReading(readingId) {
 }
 
 
-export async function deleteReadingsWithBook(readingsWithBook) {
-    //let readings = await getAllReadings();
-    //readings = readings.filter(reading => reading.id !== readingsWithBook.some(b));
-    //localStorage.setItem("readings", JSON.stringify(readings));
+export async function deleteReadingsWithBook(bookId) {
+    let readings = await getAllReadings();
+    readings = readings.filter(reading => reading.bookId !== bookId);
+    localStorage.setItem("readings", JSON.stringify(readings));
     return;
 }
 
